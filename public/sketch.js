@@ -79,7 +79,7 @@ function setup() {
   input.size(50, 15);
   detector = ml5.objectDetector('cocossd', modelReady)  //activate the ml5 Object Detection machine learning model
 
- socket = io.connect('https://cocreativetest.herokuapp.com/');
+ socket = io.connect('https://cocreative2.herokuapp.com/');
  button = document.getElementById('start');
  button.onclick = changeName;
 
