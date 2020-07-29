@@ -1,0 +1,20 @@
+{
+  "name": "websocketnew",
+  "version": "1.0.0",
+  "description": "new websocket",
+  "main": "socket.js",
+  "scripts": {
+    "start": "node socket.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "websocket"
+  ],
+  "author": "Sachiko Nakajima",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.1",
+    "node.js": "0.0.1-security",
+    "socket.io": "^2.3.0"
+  }
+}
