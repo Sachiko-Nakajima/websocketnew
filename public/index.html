@@ -8,6 +8,7 @@
   <script src="p5.sound.js"></script>
   <script src="p5.dom.min.js"></script>
   <script src="ml5.min.js" type="text/javascript"></script>
+  <script src="jquery.min.js"></script>
   <link rel="stylesheet" type="text/css" href="style.css">
   
 </head>
@@ -15,7 +16,7 @@
                                    <h1></h1>
                                    <p id="status"></p>
                                    <script src="sketch.js"></script>
-                                   <img id="MCC" src="./imgs/MCC.png" >
+                                   <!-- <img id="MCC" src="./imgs/MCC.png" >
                                    <img id="P1" src="./imgs/P1_profile.png" >
                                
                                    
@@ -24,11 +25,47 @@
                                    <button id = "ambient"> AMBIENT </button>
                                    <button id = "camera1"> CAMERA </button>
                                    <button id = "hint"> HINT </button>
-<!--                                    <button id = "record"> RECORD </button>
-                                   <button id = "doodle"> DOODLE </button>
-                                   <button id = "photo"> PHOTO </button>-->
+                                   <div id = "popUp"></div>    -->                         
+                                   <script src="socket.io/socket.io.js"></script>
 
+                                   <img id="camcoverAlter" src="./imgs/camCover.png">
+                                   <div id="camframe"></div>
                                    
-                                   <div id = "popUp"></div>                                   <script src="socket.io/socket.io.js"></script>
+                                   <img id="logo" src="./imgs/logo.png">
+                                   <img id="tl_vector" src="./imgs/TL_Vector.png">
+                                   <img id="br_vector" src="./imgs/BR_Vector.png">
+                                   
+                                   <button id="cambutton"></button>
+                                  
+                                   <div id="switch">
+                                   <div id="fader">
+                                     <div class="line" id="line_1"></div>
+                                     <div class="line" id="line_2"></div>
+                                     <div class="line" id="line_3"></div>
+                                   </div>
+                                   <p id="switchText">start the music</p>
+                                   <div id="ftrack">
+                                   <div id="innertrack"></div>  
+                                   </div>
+                                   </div>
+                                       
+                                   <div id="reddot"></div>
+                               
+                                   
+                                   <div id="dropUp">
+                                   <div id="selector"><p id="innerP">Object</p><div id="upBtn"></div></div>
+                                   <div id="options">
+                                   
+                                   <ul class="objectNames" id="book" onclick="reply_click(this.id)">Book</ul>
+                                   <ul class="objectNames" id="bottle" onclick="reply_click(this.id)">Bottle</ul>
+                                   <ul class="objectNames" id="cup" onclick="reply_click(this.id)">Cup</ul>
+                                   <ul class="objectNames" id="pen" onclick="reply_click(this.id)">Pen</ul>
+                                   <ul class="objectNames" id="apple" onclick="reply_click(this.id)">Apple</ul>
+                                   <ul class="objectNames" id="orange" onclick="reply_click(this.id)">Orange</ul>
+                                   <ul class="objectNames" id="phone" onclick="reply_click(this.id)">phone</ul>
+                                   <ul class="objectNames" id="teddy" onclick="reply_click(this.id)">Teddy</ul>
+                               
+                                   </div>
+                                   </div>
 
                                </body></html>
