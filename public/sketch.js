@@ -356,7 +356,7 @@ if(isPlaying){
     })
   }
 
-if(buttonState){
+if(switchState){
   if(phonereceivenum==preprephonereceivenum){
     phonesound.setVolume(0);
   }
