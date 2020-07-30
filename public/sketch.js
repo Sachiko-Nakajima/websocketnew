@@ -75,14 +75,14 @@ function setup() {
     camera_1 = createCapture(VIDEO);
     // camera_1.style('border','8px solid black');
     camera_1.size(188,141);
-    camera_1.position(627,640);
+    camera_1.position(627,620);
     camera_1.hide();
     cambutton= document.getElementById('cambutton');
   
   //Camera Cover Image, image to be changed after more design
   //Click on the camera to turn on the camera
     camCover = createImg('./imgs/camCoverTest_3.png','camCover');
-    camCover.position(642,660);
+    camCover.position(642,648);
     camCover.style('position','absolute');
     camCover.style('transition','1s');
     // camCover.style('border','8px solid black');
@@ -125,15 +125,15 @@ function setup() {
  recordButton.size(150,30);
 
  bearx = random(600)+100;
- beary = random(400)+200;
+ beary = random(400);
  phonex = random(600)+100;
- phoney = random(400)+200;
+ phoney = random(400);
  cupx = random(600)+100;
- cupy = random(400)+200;
+ cupy = random(400);
  bottlex = random(600)+100;
- bottley = random(400)+200;
+ bottley = random(400);
  bookx = random(600)+100;
- booky = random(400)+200; 
+ booky = random(400); 
   
   //getting all the HTML elements for Start/Stop Music Switch
   faderSection = document.getElementById("switch");
