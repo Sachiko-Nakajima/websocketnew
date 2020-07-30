@@ -320,7 +320,7 @@ function draw() {
 //     text('🔴REC', 500, 660);}}
 // if(isPlaying){
 //     text('Cheking', 500, 680);}
-}
+//}
 // if(nowtime - starttime == 4000 || nowtime - starttime > 4000 )
 //   {
 //     if(playButtonState){
