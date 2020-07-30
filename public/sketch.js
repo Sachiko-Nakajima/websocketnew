@@ -75,7 +75,7 @@ function setup() {
     camera_1 = createCapture(VIDEO);
     // camera_1.style('border','8px solid black');
     camera_1.size(188,141);
-    camera_1.position(627,620);
+    camera_1.position(627,600);
     camera_1.hide();
     cambutton= document.getElementById('cambutton');
   
@@ -119,10 +119,10 @@ function setup() {
  
  recorder = new p5.SoundRecorder();
  recorder.setInput(mic);   
-// soundFile = new p5.SoundFile();  
- recordButton = createButton('Book Sound Rec');
- recordButton.position(500,710);
- recordButton.size(150,30);
+ soundFile = new p5.SoundFile();  
+//  recordButton = createButton('Book Sound Rec');
+//  recordButton.position(500,710);
+//  recordButton.size(150,30);
 
  bearx = random(600)+100;
  beary = random(400);
@@ -196,7 +196,7 @@ function draw() {
   push()
   translate(width,0);
   scale(-1,1)
-  camera_2 = image(camera_1,480,598,188,141);
+  camera_2 = image(camera_1,480,560,188,141);
   
   pop()
   
