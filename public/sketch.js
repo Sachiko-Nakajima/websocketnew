@@ -335,7 +335,7 @@ function draw() {
 //       console.log("recording stopped");
 //     }
 //   }
-  }  
+//  }  
   time++;
 
   if (camState){
