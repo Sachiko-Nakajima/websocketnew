@@ -442,7 +442,7 @@ function record() {
     //else{
       if (!isRecording) {
         starttime = Date.now();
-        recorder.record(booksound, 4, pressToPlayBack); 
+        recorder.record(booksound, 4); 
         isRecording = true; 
         recordButton.html("Now Recording");
       if(playButtonState){
