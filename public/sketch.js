@@ -82,7 +82,7 @@ function setup() {
   //Camera Cover Image, image to be changed after more design
   //Click on the camera to turn on the camera
     camCover = createImg('./imgs/camCoverTest_3.png','camCover');
-    camCover.position(642,648);
+    camCover.position(642,660);
     camCover.style('position','absolute');
     camCover.style('transition','1s');
     // camCover.style('border','8px solid black');
