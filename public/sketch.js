@@ -423,6 +423,13 @@ function switchMusic(){
     bookx = random(600)+100;
     booky = random(400)+200; 
   }
+  else{
+    bearsound.stop();
+    phonesound.stop();
+    cupsound.stop();
+    bottlesound.stop();
+    booksound.stop();
+  }
 }
 
 
@@ -474,6 +481,77 @@ function reply_click(clicked_id)
      innerP.innerHTML = clicked_id; 
 }
 
+
+
+
+
+function newDrawing(data){
+  // if(data.label == 'person'){
+  //   image(kitty, 800-data.x*20, data.y*3+200, data.w, data.h);}
+  let xxx,yyy;
+  if(data.label == 'cell phone'){
+      image(phone, phonex, phoney, data.w, data.h);
+        phonesound.setVolume(1);
+        phonereceivenum++;
+        xxx = phonex;
+        yyy = phoney;      
+      }
+  if(data.label == 'teddy bear'){
+//      image(bear, 800-data.x*4, data.y*3+200, data.w, data.h);
+      image(bear, bearx, beary, data.w, data.h);
+      bearsound.setVolume(1);
+      bearreceivenum++;
+      xxx = bearx;
+      yyy = beary;      
+  }
+
+  if(data.label == 'cup'){
+//      image(cup, 800-data.x*4, data.y*3+200, data.w, data.h);
+        image(cup, cupx, cupy, data.w, data.h);
+        cupsound.setVolume(1);
+        cupreceivenum++;
+        xxx = cupx;
+        yyy = cupy;      
+      }
+
+  if(data.label == 'bottle'){
+    image(bottle, bottlex, bottley, data.w, data.h);
+    //image(bottle, 800-data.x*4, data.y*3+200, data.w, data.h);
+          bottlesound.setVolume(1);
+          bottlereceivenum++;
+          xxx = bottlex;
+          yyy = bottley;      
+          }
+
+        if(data.label == 'book'){
+//          image(book, 800-data.x*4, data.y*3+200, data.w, data.h);
+image(book, bookx, booky, data.w, data.h);
+booksound.setVolume(1);
+          bookreceivenum++;
+          xxx = bookx;
+          yyy = booky;      
+            }
+  
+          noFill();
+          strokeWeight(2);
+          stroke(data.r, data.g, data.b,220);
+          rect(xxx,yyy,data.w,data.h);
+          fill(data.r, data.g, data.b);
+          strokeWeight(0.8);
+          textSize(18);
+//   if(data.label=='person'){
+//       rect(800-data.x*20, data.y*3+200, data.w, data.h);}
+// else{
+//rect(800-data.x*4, data.y*3+200, data.w, data.h);}
+  // if(data.label=='person'){
+  //   text(data.name, 800-data.x*20 + data.w/2, data.y*3+200+data.h/2);
+  //   text(data.label, 800-data.x*20 + 10, data.y*3+200-10);}
+  // else{
+      text(data.name, xxx + data.w/2, yyy+data.h/2);
+      text(data.label, xxx + 10, yyy-10);
+    //}
+// }
+}
 
 function modelReady() {
   console.log('model loaded')  
