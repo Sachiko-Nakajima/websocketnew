@@ -296,51 +296,6 @@ function draw() {
     }
   
     socket.on('detected', newDrawing);
-     
-   
-    if (isRecording||isPlaying) {
-  //    countDown(); 
-      nowtime = Date.now();
-        if(nowtime - starttime < 4000){
-          if(isRecording){
-            if(nowtime - starttime > 900 && nowtime - starttime < 1000){
-          text('⚪️REC', 500, 660);}
-      　else if(nowtime - starttime > 1900 && nowtime - starttime < 2000){
-          text('⚪️REC', 500, 660);}
-        else if(nowtime - starttime > 2900 && nowtime - starttime < 3000){
-          text('⚪️REC', 500, 660);}
-        else if(nowtime - starttime > 3900 && nowtime - starttime < 4000){
-           text('⚪️REC', 500, 660);}
-        else{
-      text('🔴REC', 500, 660);}}
-  if(isPlaying){
-      text('Cheking', 500, 680);}
-  }
-  if(nowtime - starttime == 4000 || nowtime - starttime > 4000 )
-    {
-      if(playButtonState){
-        playButton.html("Play Book Sound");
-        isPlaying=false;
-        console.log("playing stopped");
-        booksound.stop();
-      }
-      if(isRecording){
-        recordButton.html("Book Sound Rec");
-        isRecording=false;
-        console.log("recording stopped");
-      }
-    }
-    }
-  
-    
-    time++;
-  
-  if(time%3==0){
-  background(240,210,210,100);
-  }
-
-  socket.on('detected', newDrawing);
-
 
   recordButton.mousePressed(record);
 
@@ -520,7 +475,27 @@ function reply_click(clicked_id)
 }
 
 
+function modelReady() {
+  console.log('model loaded')  
+  detect(); //function modelReady to load the modeal and initiate the detect objects by calling the "detect" funtion
+}
 
+function detect() {
+  detector.detect(camera_1, gotResults); 
+}
+
+function gotResults(err, results) {
+  if (err) {
+    console.log(err);
+    return
+  }
+
+  detections = results;
+
+  detect();    
+
+}
+  
 
 
 
