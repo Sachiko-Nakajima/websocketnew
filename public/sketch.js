@@ -196,7 +196,7 @@ function draw() {
   push()
   translate(width,0);
   scale(-1,1)
-  camera_2 = image(camera_1,480,560,188,141);
+  camera_2 = image(camera_1,480,580,188,141);
   
   pop()
   
