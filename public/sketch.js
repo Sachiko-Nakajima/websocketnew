@@ -467,7 +467,7 @@ if(playButtonState){
   console.log("playButton is now removed");
   }
  }
-
+}
 
  function pressToPlayBack() {
         //play_stop button dom element
