@@ -445,6 +445,7 @@ function switchMusic(){
 function record() {
       if(switchState){
         text("stop the music to record the book sound",350,750);
+        console.log("stop the music to record the book sound");
     }
     else{
       if (!isRecording) {
@@ -516,6 +517,7 @@ function playIt(){
 //  isPlaying = !isPlaying;
   if(switchState){
     text("stop the music to check the book sound",350,750);
+    console.log("stop the music to check the book sound");
   }
   else{
     starttime = Date.now();
@@ -571,7 +573,7 @@ function newDrawing(data){
   //   image(kitty, 800-data.x*20, data.y*3+200, data.w, data.h);}
   let xxx,yyy;
   if(data.label == 'cell phone'){
-      image(phone, phonex, phoney);
+      image(phone, phonex, phoney, data.w);
         phonesound.setVolume(1);
         phonereceivenum++;
         xxx = phonex;
