@@ -448,7 +448,7 @@ function record() {
     }
     else{
       if (!isRecording) {
-        starttime = Date.now();
+//        starttime = Date.now();
         recorder.record(soundofBook, 4, pressToPlayBack); 
 //        recorder.record(booksound, 4); 
         isRecording = true; 
@@ -466,6 +466,7 @@ function record() {
 
  function pressToPlayBack() {
         //play_stop button dom element
+        if(!switchState){
         if(!playButtonState){
         playButton = createButton(' ');
         playButton.style('background-color','transparent')
@@ -505,6 +506,7 @@ function record() {
     // console.log("recording stopped");
   
      //create blob file for the booksound file
+  }
   }
 
 
