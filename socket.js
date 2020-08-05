@@ -1,6 +1,5 @@
 var express = require('express');
 var app = express();
-//var ws = require('./ws');
 var http = require('http').createServer(app);
 var io = require('socket.io')(http); 
 app.use(express.static('public'));
@@ -20,12 +19,17 @@ io.on('connection', newConnection);
 function newConnection(socket){
     console.log('new connection: ' + socket.id);
 //    socket.on('person', personMsg);
+
+    socket.on('recorded', blobArrayBufferReceived)
+    function blobArrayBufferReceived(blobArrayBuffer) {
+    //send it back to clients
+    io.emit('recordedSent', blobArrayBuffer)
+}    
     socket.on('detected', dataMsg);
 
     function dataMsg(data){
 //        socket.broadcast.emit('detected', data);
           io.emit('detected', data);
-
 }
 }
 

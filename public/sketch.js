@@ -19,7 +19,7 @@ let time = 0;
 let socket;
 //let font1_shadow; let cam_y =-220;
 let name;
-let colorr,colorg,colorb;
+//let colorr,colorg,colorb;
 let phonereceivenum=0;
 let bearreceivenum=0;
 let cupreceivenum=0;
@@ -44,6 +44,10 @@ let timer = 4; //timer starts at 4 second
 let starttime;
 let nowtime;
 let soundFileState = false;
+
+let urlBlob;
+let soundofBook; 
+let remoteSoundofBook;
 
 
 function preload() {
@@ -103,9 +107,9 @@ function setup() {
   input.attribute('onfocus','this.placeholder = ""')
   input.attribute('onblur','this.placeholder = "YOUR NAME"')
 
-  colorr = 50+random(150);
-  colorg = 50+random(150);
-  colorb = 50+random(150);
+  // colorr = 50+random(150);
+  // colorg = 50+random(150);
+  // colorb = 50+random(150);
 
   detector = ml5.objectDetector('cocossd', modelReady)  //activate the ml5 Object Detection machine learning model
 
@@ -119,7 +123,7 @@ function setup() {
  
  recorder = new p5.SoundRecorder();
  recorder.setInput(mic);   
- soundFile = new p5.SoundFile();  
+ soundofBook = new p5.SoundFile();  
 //  recordButton = createButton('Book Sound Rec');
 //  recordButton.position(500,710);
 //  recordButton.size(150,30);
@@ -154,22 +158,7 @@ function setup() {
   recordButton.style('cursor','pointer');
   recordButton.style('outline','none');
   
- 
-    
-  //play_stop button dom element
-  playButton = createButton(' ');
-  playButton.style('background-color','transparent')
-  playButton.style('position','absolute');
-  playButton.style('width','0');
-  playButton.style('height','0');
-  playButton.style('border-top','30px solid transparent');
-  playButton.style('border-left','50px solid #016ac2');
-  playButton.style('border-bottom','30px solid transparent');
-  playButton.style('border-right','0px solid transparent');
-  playButton.style('left','1020px');
-  playButton.style('top','698px');
-  playButton.style('cursor','pointer');
-  playButton.style('outline','none');
+
   
   //object selection drop up menu setup
   objectList = document.getElementById('options');
@@ -190,7 +179,10 @@ function draw() {
   
    //Camera onclick to Switch On/Off
    cambutton.onclick = switchCam;
-  if(camState == false){camCover.show()}else if(camState == true){camCover.hide()}
+  if(!camState){
+    camCover.show();
+  }
+  else{camCover.hide()}
   
   //flip the camera
   push()
@@ -205,16 +197,17 @@ function draw() {
   faderSection.onclick = switchMusic;
   
   
-  if(switchState == true){
-  fader.style.animation = "turnOn 1.3s forwards ease";
-  switchText.style.animation = "turnOnText 1.6s forwards ease";
-  innerTrack.style.animation = "innerOn 1.3s forwards ease"
-  switchText.innerHTML = "stop the music";
-  }else if(switchState == false){
-  fader.style.animation = "turnOff 1.3s forwards ease";
-  switchText.style.animation = "turnOffText 1.6s forwards ease";
+  if(switchState){
+    fader.style.animation = "turnOn 1.3s forwards ease";
+    switchText.style.animation = "turnOnText 1.6s forwards ease";
+    innerTrack.style.animation = "innerOn 1.3s forwards ease"
+    switchText.innerHTML = "stop the music";
+  }
+    else{
+    fader.style.animation = "turnOff 1.3s forwards ease";
+    switchText.style.animation = "turnOffText 1.6s forwards ease";
     innerTrack.style.animation = "innerOff 1.3s forwards ease"
-  switchText.innerHTML = "start the music"
+    switchText.innerHTML = "start the music"
   }
   
   recordButton.mousePressed(record);
@@ -256,12 +249,9 @@ function draw() {
    
   }
 
-  
-  playButton.mousePressed(playIt)
-
-  
-  if(isPlaying == true){
-    
+  if(playButtonState){
+  playButton.mousePressed(playIt);
+  if(isPlaying){
     playButton.style('border','none');
     playButton.style('background-color','#016ac2');
     playButton.style('width','50px');
@@ -269,9 +259,8 @@ function draw() {
     playButton.style('left','1020px');
     playButton.style('top','706px');
     playButton.style('cursor','pointer');
-    playButton.style('outline','none');
-  
-  }else if(isPlaying == false){
+    playButton.style('outline','none');   
+  }else{
   playButton.style('background-color','transparent')
   playButton.style('position','absolute');
   playButton.style('width','0');
@@ -283,9 +272,10 @@ function draw() {
   playButton.style('left','1020px');
   playButton.style('top','698px');
   playButton.style('cursor','pointer');
-  playButton.style('outline','none');
-  
+  playButton.style('outline','none');  
   }
+}
+
   
   
   //object selection button click
@@ -297,11 +287,17 @@ function draw() {
   
     socket.on('detected', newDrawing);
 
-  recordButton.mousePressed(record);
+  //***********the blobs converted back to sound file, listen to server 
+  socket.on('recordedSent', (blobArrayBuffer) => {
+    console.log('recordedSent')
+    let blob = new Blob([blobArrayBuffer]);
+    urlBlob = URL.createObjectURL(blob);
+    
+    remoteSoundofBook = createAudio(urlBlob);
+  })
+  //***********
 
-  if(playButtonState){
-    playButton.mousePressed(playIt);  
-  }
+  recordButton.mousePressed(record);
 
 //   if (isRecording||isPlaying) {
 // //    countDown(); 
@@ -344,9 +340,9 @@ function draw() {
       var data = {
       label: detection.label, 
       name: input.value(),
-       r: colorr,
-       g: colorg,
-       b: colorb,
+      //  r: colorr,
+      //  g: colorg,
+      //  b: colorb,
       //  x: detection.x,
       //  y: detection.y,
        w: detection.width,
@@ -371,6 +367,7 @@ if(switchState){
   }
   if(bookreceivenum==prepreprebookreceivenum){
     booksound.setVolume(0);
+    soundofBook.setVolume(0);        // add the soundofBook
   }
   preprephonereceivenum = prephonereceivenum;
   prephonereceivenum = phonereceivenum;
@@ -412,6 +409,9 @@ function switchMusic(){
     bottlesound.setVolume(0);
     booksound.loop();
     booksound.setVolume(0);
+    if(soundFileState){
+      soundofBook.loop();        //play soundof Book
+      soundofBook.setVolume(0);                        }
     bearx = random(600)+100;
     beary = random(400)+200;
     phonex = random(600)+100;
@@ -421,8 +421,7 @@ function switchMusic(){
     bottlex = random(600)+100;
     bottley = random(400)+200;
     bookx = random(600)+100;
-    booky = random(400)+200; 
-  }
+    booky = random(400)+200;}
   else{
     bearsound.stop();
     phonesound.stop();
@@ -440,9 +439,11 @@ function record() {
     //     text("stop the music to record the book sound",350,750);
     // }
     //else{
+      if(switchState){
       if (!isRecording) {
         starttime = Date.now();
-        recorder.record(booksound, 4); 
+        recorder.record(soundofBook, 4, pressToPlayBack); 
+//        recorder.record(booksound, 4); 
         isRecording = true; 
         recordButton.html("Now Recording");
       if(playButtonState){
@@ -452,10 +453,81 @@ function record() {
         }
       }
     }
+ }
+
+
+ function pressToPlayBack() {
+  if(!playButtonState){
+    // playButton = createButton('Play Book Sound');}
+    // playButton.position(500,750);
+    // playButton.size(150,30);
+
+  //play_stop button dom element
+  playButton = createButton(' ');
+  playButton.style('background-color','transparent')
+  playButton.style('position','absolute');
+  playButton.style('width','0');
+  playButton.style('height','0');
+  playButton.style('border-top','30px solid transparent');
+  playButton.style('border-left','50px solid #016ac2');
+  playButton.style('border-bottom','30px solid transparent');
+  playButton.style('border-right','0px solid transparent');
+  playButton.style('left','1020px');
+  playButton.style('top','698px');
+  playButton.style('cursor','pointer');
+  playButton.style('outline','none');
+
+    playButtonState = true;
+    soundFileState = true;
+ //   playButton.mousePressed(playIt);
+    // isRecording = false; 
+    // starttime = Date.now();
+    // recordButton.html("Start Recording");
+    // console.log("recording stopped");
+  
+     //create blob file for the booksound file
+    let soundBlob = soundofBook.getBlob();
+  
+    let fileReader = new FileReader();
+    let blobArray;
+  
+    fileReader.readAsArrayBuffer(soundBlob);
+    fileReader.onload = function() {
+      blobArray = this.result;
+      console.log("Array contains", blobArray.byteLength, "bytes.");
+      socket.emit('recorded', blobArray);
+    };
+  
+  
+  
+    }
+
+
+
 
 function playIt(){
-  
-  isPlaying = !isPlaying
+  isPlaying = !isPlaying;
+  if(buttonState){
+//    text("stop the music to check the book sound",350,750);
+  }
+  else{
+    starttime = Date.now();
+  if (isPlaying) {
+    soundofBook.stop();
+    playButton.html("Play Book Sound");
+    isPlaying = false; 
+    console.log("stop the play!");
+  } else {
+    soundofBook.stop();
+    soundofBook.play();
+    soundofBook.setVolume(1);
+    if(soundofBook.isPlaying){console.log("it is really playing!!!");}
+    playButton.html("Stop Playing");
+    isPlaying = true; 
+    console.log("starting to play the recorded sound");
+  }
+}
+
 
 }
 
@@ -526,7 +598,13 @@ function newDrawing(data){
         if(data.label == 'book'){
 //          image(book, 800-data.x*4, data.y*3+200, data.w, data.h);
 image(book, bookx, booky, data.w, data.h);
-booksound.setVolume(1);
+//booksound.setVolume(1);
+if (remoteSoundofBook){
+  remoteSoundofBook.play(); //recording 
+} else {
+  soundofBook.setVolume(1);  //local recording file             
+}
+
           bookreceivenum++;
           xxx = bookx;
           yyy = booky;      
@@ -534,9 +612,9 @@ booksound.setVolume(1);
   
           noFill();
           strokeWeight(2);
-          stroke(data.r, data.g, data.b,220);
+          // stroke(data.r, data.g, data.b,220);
           rect(xxx,yyy,data.w,data.h);
-          fill(data.r, data.g, data.b);
+          // fill(data.r, data.g, data.b);
           strokeWeight(0.8);
           textSize(18);
 //   if(data.label=='person'){
