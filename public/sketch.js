@@ -367,8 +367,12 @@ if(switchState){
   }
   if(bookreceivenum==prepreprebookreceivenum){
     booksound.setVolume(0);
+    if(soundFileState){
     soundofBook.setVolume(0);        // add the soundofBook
-    remoteSoundofBook.setVolume(0); //recording 
+    if(remoteSoundofBook){
+      remoteSoundofBook.setVolume(0); //recording 
+      }
+    }
   }
   preprephonereceivenum = prephonereceivenum;
   prephonereceivenum = phonereceivenum;
@@ -518,6 +522,7 @@ function playIt(){
   }
   else{
     starttime = Date.now();
+    if(soundFileState){
   if (isPlaying) {
     soundofBook.stop();
     playButton.html("Play Book Sound");
@@ -532,6 +537,7 @@ function playIt(){
     isPlaying = true; 
     console.log("starting to play the recorded sound");
   }
+}
 }
 
 
@@ -605,12 +611,13 @@ function newDrawing(data){
 //          image(book, 800-data.x*4, data.y*3+200, data.w, data.h);
 image(book, bookx, booky, data.w, data.h);
 //booksound.setVolume(1);
-if (remoteSoundofBook){
+if(soundFileState){
+  if (remoteSoundofBook){
   remoteSoundofBook.setVolume(1); //recording 
 } else {
   soundofBook.setVolume(1);  //local recording file             
 }
-
+}
           bookreceivenum++;
           xxx = bookx;
           yyy = booky;      
