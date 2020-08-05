@@ -496,21 +496,21 @@ if(playButtonState){
     // playButton = createButton('Play Book Sound');}
     // playButton.position(500,750);
     // playButton.size(150,30);
-    let soundBlob = soundofBook.getBlob();  
-    let fileReader = new FileReader();
-    let blobArray;
+    // let soundBlob = soundofBook.getBlob();  
+    // let fileReader = new FileReader();
+    // let blobArray;
   
-    fileReader.readAsArrayBuffer(soundBlob);
-    fileReader.onload = function() {
-      blobArray = this.result;
-      console.log("Array contains", blobArray.byteLength, "bytes.");
-      socket.emit('recorded', blobArray);
-    };
+    // fileReader.readAsArrayBuffer(soundBlob);
+    // fileReader.onload = function() {
+    //   blobArray = this.result;
+    //   console.log("Array contains", blobArray.byteLength, "bytes.");
+    //   socket.emit('recorded', blobArray);
+    // };
     }
-    // isRecording = false; 
-    // starttime = Date.now();
-    // recordButton.html("Start Recording");
-    // console.log("recording stopped");
+    isRecording = false; 
+    starttime = Date.now();
+    recordButton.html("Start Recording");
+    console.log("recording stopped");
   
      //create blob file for the booksound file
   }
@@ -534,7 +534,8 @@ function playIt(){
     isPlaying = false; 
     console.log("stop the play!");
   } else {
-//    soundofBook.stop();
+    console.log("trying to play the recorded sounds");
+    soundofBook.stop();
     soundofBook.play();
     soundofBook.setVolume(1);
     if(soundofBook.isPlaying){console.log("it is really playing!!!");}
