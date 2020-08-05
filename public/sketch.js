@@ -130,15 +130,15 @@ function setup() {
 //  recordButton.size(150,30);
 
  bearx = random(600)+100;
- beary = random(300);
+ beary = random(200);
  phonex = random(600)+100;
- phoney = random(300);
+ phoney = random(200);
  cupx = random(600)+100;
- cupy = random(300);
+ cupy = random(200);
  bottlex = random(600)+100;
- bottley = random(300);
+ bottley = random(200);
  bookx = random(600)+100;
- booky = random(300); 
+ booky = random(200); 
   
   //getting all the HTML elements for Start/Stop Music Switch
   faderSection = document.getElementById("switch");
@@ -179,7 +179,11 @@ function setup() {
 function draw() {
 
   if(time%3==0){
-    background(240,210,210,120);
+//    background(240,210,210,120);
+rectMode(CENTER);
+fill(239, 220, 187,120);
+strokeWeight(10);
+rect(width/2,height/2-108,1010,544);
     }
   
    //Camera onclick to Switch On/Off
