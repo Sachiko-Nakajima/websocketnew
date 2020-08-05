@@ -329,6 +329,9 @@ if(nowtime - starttime == 4000 || nowtime - starttime > 4000 )
       recordButton.html("Book Sound Rec");
       isRecording=false;
       console.log("recording stopped");
+      if(!playButtonState){
+      pressToPlayBack();
+      }
     }
   }
  }  
@@ -448,21 +451,21 @@ function record() {
         console.log("stop the music to record the book sound");
     }
     else{
-//      if (!isRecording) {
-//        starttime = Date.now();
+     if (!isRecording) {
+       starttime = Date.now();
+        recorder.record(soundofBook, 4, pressToPlayBack); 
+//        recorder.record(booksound, 4); 
+        isRecording = true; 
+//        recordButton.html("Now Recording");
+//        soundFileState = true;
+        console.log("Now Recording");
+      }
+//    }
 if(playButtonState){
   playButton.remove();
   playButtonState = false;
   console.log("playButton is now removed");
   }
-        recorder.record(soundofBook, 4, pressToPlayBack); 
-//        recorder.record(booksound, 4); 
-        isRecording = true; 
-//        recordButton.html("Now Recording");
-        soundFileState = true;
-        console.log("Now Recording");
-      }
-//    }
  }
 
 
