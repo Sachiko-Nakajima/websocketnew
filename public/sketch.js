@@ -179,7 +179,7 @@ function setup() {
 function draw() {
 
   if(time%3==0){
-    background(240,210,210,80);
+    background(240,210,210,120);
     }
   
    //Camera onclick to Switch On/Off
@@ -193,7 +193,7 @@ function draw() {
   push()
   translate(width,0);
   scale(-1,1)
-  camera_2 = image(camera_1,480,575,188,141);
+  camera_2 = image(camera_1,480,580,188,141);
   
   pop()
   
@@ -424,14 +424,14 @@ function switchMusic(){
     bottlesound.setVolume(0);
     booksound.loop();
     booksound.setVolume(0);
-    if(soundofBook){
-      soundofBook.loop();        //play soundof Book
-      soundofBook.setVolume(0);
-    }
-    if (remoteSoundofBook){
-      remoteSoundofBook.loop(); //recording 
-      remoteSoundofBook.setVolume(0); //recording 
-    }
+    // if(soundofBook){
+    //   soundofBook.loop();        //play soundof Book
+    //   soundofBook.setVolume(0);
+    // }
+    // if (remoteSoundofBook){
+    //   remoteSoundofBook.loop(); //recording 
+    //   remoteSoundofBook.setVolume(0); //recording 
+    // }
     bearx = random(600)+100;
     beary = random(400)+200;
     phonex = random(600)+100;
@@ -590,7 +590,7 @@ function newDrawing(data){
   //   image(kitty, 800-data.x*20, data.y*3+200, data.w, data.h);}
   let xxx,yyy;
   if(data.label == 'cell phone'){
-      image(phone, phonex, phoney, data.w, data.h);
+      image(phone, phonex, phoney, 3*data.w, 3*data.h);
         phonesound.setVolume(1);
         phonereceivenum++;
         xxx = phonex;
@@ -615,7 +615,7 @@ function newDrawing(data){
       }
 
   if(data.label == 'bottle'){
-    image(bottle, bottlex, bottley, data.w, data.h);
+    image(bottle, bottlex, bottley, 3*data.w, 3*data.h);
     //image(bottle, 800-data.x*4, data.y*3+200, data.w, data.h);
           bottlesound.setVolume(1);
           bottlereceivenum++;
