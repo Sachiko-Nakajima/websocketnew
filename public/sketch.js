@@ -178,8 +178,8 @@ function setup() {
 
 function draw() {
 
-  if(time%2==0){
-    background(240,210,210,100);
+  if(time%3==0){
+    background(240,210,210,80);
     }
   
    //Camera onclick to Switch On/Off
