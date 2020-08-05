@@ -59,10 +59,10 @@ function preload() {
   bottlesound = loadSound("audios/recorder.wav");
   booksound = loadSound("audios/meow.wav");
   kitty = loadImage("images/kitty.jpeg");
-  phone = loadImage("images/phonegif.gif");
+  phone = createImg("images/phonegif.gif");
   bear = loadImage("images/bear.jpeg");
-  cup = loadImage("images/cupgif.gif");
-  bottle = loadImage("images/bottlegif.gif");
+  cup = createImg("images/cupgif.gif");
+  bottle = createImg("images/bottlegif.gif");
   book = loadImage('images/book.jpeg');
 }
 
@@ -193,7 +193,7 @@ function draw() {
   push()
   translate(width,0);
   scale(-1,1)
-  camera_2 = image(camera_1,480,580,188,141);
+  camera_2 = image(camera_1,480,577,188,141);
   
   pop()
   
@@ -590,7 +590,10 @@ function newDrawing(data){
   //   image(kitty, 800-data.x*20, data.y*3+200, data.w, data.h);}
   let xxx,yyy;
   if(data.label == 'cell phone'){
-      image(phone, phonex, phoney, 3*data.w, 3*data.h);
+//      image(phone, phonex, phoney, 3*data.w, 3*data.h);
+        phone.position(phonex,phoney);
+        phone.width(3*data.w);
+        phone.height(3*data.h);
         phonesound.setVolume(1);
         phonereceivenum++;
         xxx = phonex;
