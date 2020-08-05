@@ -211,7 +211,8 @@ function draw() {
     switchText.innerHTML = "start the music"
   }
     
-  if(isRecording){
+  if(!switchState){
+    if(isRecording){
 
   // recordButton.style('background-color','#fab702');
     reddot.style.display = "block";
@@ -274,7 +275,7 @@ function draw() {
   playButton.style('outline','none');  
   }
 }
-
+  }
   
   
   //object selection button click
