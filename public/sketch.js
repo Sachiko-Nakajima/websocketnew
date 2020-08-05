@@ -588,7 +588,9 @@ function newDrawing(data){
   //   image(kitty, 800-data.x*20, data.y*3+200, data.w, data.h);}
   let xxx,yyy;
   if(data.label == 'cell phone'){
-      image(phone, phonex, phoney, 3*data.w, 3*data.h);
+if(time%3==0){      
+  image(phone, phonex, phoney, 3*data.w, 3*data.h);
+}
         phonesound.setVolume(1);
         phonereceivenum++;
         xxx = phonex;
@@ -605,7 +607,9 @@ function newDrawing(data){
 
   if(data.label == 'cup'){
 //      image(cup, 800-data.x*4, data.y*3+200, data.w, data.h);
-        image(cup, cupx, cupy, 3*data.w, 3*data.h);
+if(time%3==0){      
+  image(cup, cupx, cupy, 3*data.w, 3*data.h);
+}
         cupsound.setVolume(1);
         cupreceivenum++;
         xxx = cupx;
