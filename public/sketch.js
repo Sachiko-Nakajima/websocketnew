@@ -177,6 +177,10 @@ function setup() {
 }
 
 function draw() {
+
+  if(time%2==0){
+    background(240,210,210,100);
+    }
   
    //Camera onclick to Switch On/Off
    cambutton.onclick = switchCam;
@@ -280,10 +284,6 @@ function draw() {
   
   //object selection button click
   objectBtn.onclick = objectListPop;
-
-  if(time%3==0){
-    background(240,210,210,100);
-    }
   
     socket.on('detected', newDrawing);
 
@@ -368,6 +368,7 @@ if(switchState){
   if(bookreceivenum==prepreprebookreceivenum){
     booksound.setVolume(0);
     soundofBook.setVolume(0);        // add the soundofBook
+    remoteSoundofBook.setVolume(0); //recording 
   }
   preprephonereceivenum = prephonereceivenum;
   prephonereceivenum = phonereceivenum;
@@ -413,6 +414,11 @@ function switchMusic(){
       soundofBook.loop();        //play soundof Book
       soundofBook.setVolume(0);
     }
+    if (remoteSoundofBook){
+      remoteSoundofBook.loop(); //recording 
+      remoteSoundofBook.setVolume(0); //recording 
+    } else {
+    
     bearx = random(600)+100;
     beary = random(400)+200;
     phonex = random(600)+100;
@@ -447,6 +453,7 @@ function record() {
 //        recorder.record(booksound, 4); 
         isRecording = true; 
         recordButton.html("Now Recording");
+        soundFileState = true;
       if(playButtonState){
         playButton.remove();
         playButtonState = false;
@@ -462,8 +469,20 @@ function record() {
     // playButton = createButton('Play Book Sound');}
     // playButton.position(500,750);
     // playButton.size(150,30);
+    let soundBlob = soundofBook.getBlob();
+  
+    let fileReader = new FileReader();
+    let blobArray;
+  
+    fileReader.readAsArrayBuffer(soundBlob);
+    fileReader.onload = function() {
+      blobArray = this.result;
+      console.log("Array contains", blobArray.byteLength, "bytes.");
+      socket.emit('recorded', blobArray);
+    };
+    }
 
-  //play_stop button dom element
+      //play_stop button dom element
   playButton = createButton(' ');
   playButton.style('background-color','transparent')
   playButton.style('position','absolute');
@@ -479,7 +498,6 @@ function record() {
   playButton.style('outline','none');
 
     playButtonState = true;
-    soundFileState = true;
     playButton.mousePressed(playIt);
     // isRecording = false; 
     // starttime = Date.now();
@@ -487,18 +505,6 @@ function record() {
     // console.log("recording stopped");
   
      //create blob file for the booksound file
-    let soundBlob = soundofBook.getBlob();
-  
-    let fileReader = new FileReader();
-    let blobArray;
-  
-    fileReader.readAsArrayBuffer(soundBlob);
-    fileReader.onload = function() {
-      blobArray = this.result;
-      console.log("Array contains", blobArray.byteLength, "bytes.");
-      socket.emit('recorded', blobArray);
-    };
-    }
   }
 
 
@@ -517,7 +523,7 @@ function playIt(){
     isPlaying = false; 
     console.log("stop the play!");
   } else {
-    soundofBook.stop();
+//    soundofBook.stop();
     soundofBook.play();
     soundofBook.setVolume(1);
     if(soundofBook.isPlaying){console.log("it is really playing!!!");}
@@ -599,7 +605,7 @@ function newDrawing(data){
 image(book, bookx, booky, data.w, data.h);
 //booksound.setVolume(1);
 if (remoteSoundofBook){
-  remoteSoundofBook.play(); //recording 
+  remoteSoundofBook.setVolume(1); //recording 
 } else {
   soundofBook.setVolume(1);  //local recording file             
 }
@@ -610,10 +616,10 @@ if (remoteSoundofBook){
             }
   
           noFill();
-          strokeWeight(2);
-          // stroke(data.r, data.g, data.b,220);
-          rect(xxx,yyy,data.w,data.h);
-          // fill(data.r, data.g, data.b);
+          // strokeWeight(2);
+          // // stroke(data.r, data.g, data.b,220);
+          // rect(xxx,yyy,data.w,data.h);
+          // // fill(data.r, data.g, data.b);
           strokeWeight(0.8);
           textSize(18);
 //   if(data.label=='person'){
