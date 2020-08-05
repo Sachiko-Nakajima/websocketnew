@@ -464,6 +464,21 @@ function record() {
 
 
  function pressToPlayBack() {
+        //play_stop button dom element
+        playButton = createButton(' ');
+        playButton.style('background-color','transparent')
+        playButton.style('position','absolute');
+        playButton.style('width','0');
+        playButton.style('height','0');
+        playButton.style('border-top','30px solid transparent');
+        playButton.style('border-left','50px solid #016ac2');
+        playButton.style('border-bottom','30px solid transparent');
+        playButton.style('border-right','0px solid transparent');
+        playButton.style('left','1020px');
+        playButton.style('top','698px');
+        playButton.style('cursor','pointer');
+        playButton.style('outline','none');
+              
   if(!playButtonState){
     // playButton = createButton('Play Book Sound');}
     // playButton.position(500,750);
@@ -479,25 +494,12 @@ function record() {
       console.log("Array contains", blobArray.byteLength, "bytes.");
       socket.emit('recorded', blobArray);
     };
-    }
-
-      //play_stop button dom element
-  playButton = createButton(' ');
-  playButton.style('background-color','transparent')
-  playButton.style('position','absolute');
-  playButton.style('width','0');
-  playButton.style('height','0');
-  playButton.style('border-top','30px solid transparent');
-  playButton.style('border-left','50px solid #016ac2');
-  playButton.style('border-bottom','30px solid transparent');
-  playButton.style('border-right','0px solid transparent');
-  playButton.style('left','1020px');
-  playButton.style('top','698px');
-  playButton.style('cursor','pointer');
-  playButton.style('outline','none');
 
     playButtonState = true;
     playButton.mousePressed(playIt);
+    }
+
+
     // isRecording = false; 
     // starttime = Date.now();
     // recordButton.html("Start Recording");
