@@ -61,7 +61,7 @@ function preload() {
   kitty = loadImage("images/kitty.jpeg");
   phone = loadImage("images/phone.png");
   bear = loadImage("images/bear.jpeg");
-  cup = loadImage("images/cup.png");
+  cup = loadImage("images/cupgif.gif");
   bottle = loadImage("images/bottle.jpeg");
   book = loadImage('images/book.jpeg');
 }
@@ -254,7 +254,7 @@ function draw() {
   }
 
   if(playButtonState){
-  playButton.mousePressed(playIt);
+//  playButton.mousePressed(playIt);
   if(isPlaying){
     playButton.style('border','none');
     playButton.style('background-color','#016ac2');
@@ -299,6 +299,10 @@ function draw() {
 
   recordButton.mousePressed(record);
 
+  if(playButtonState){
+    playButton.mousePressed(playIt);  
+  }
+
   if (isRecording||isPlaying) {
 //    countDown(); 
     nowtime = Date.now();
@@ -323,6 +327,7 @@ if(nowtime - starttime == 4000 || nowtime - starttime > 4000 )
       playButton.html("Play Book Sound");
       isPlaying=false;
       console.log("playing stopped");
+      phonesound.stop();
       if(soundFileState){
       soundofBook.stop();
       }
@@ -372,7 +377,7 @@ if(switchState){
   }
   if(bookreceivenum==prepreprebookreceivenum){
     booksound.setVolume(0);
-    if(soundFileState){
+    if(soundofBook){
     soundofBook.setVolume(0);        // add the soundofBook
     if(remoteSoundofBook){
       remoteSoundofBook.setVolume(0); //recording 
@@ -419,7 +424,7 @@ function switchMusic(){
     bottlesound.setVolume(0);
     booksound.loop();
     booksound.setVolume(0);
-    if(soundFileState){
+    if(soundofBook){
       soundofBook.loop();        //play soundof Book
       soundofBook.setVolume(0);
     }
