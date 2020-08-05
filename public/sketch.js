@@ -80,7 +80,7 @@ function setup() {
     camera_1 = createCapture(VIDEO);
     // camera_1.style('border','8px solid black');
     camera_1.size(188,141);
-    camera_1.position(627,590);
+    camera_1.position(627,585);
     camera_1.hide();
     cambutton= document.getElementById('cambutton');
   
@@ -571,7 +571,7 @@ function newDrawing(data){
   //   image(kitty, 800-data.x*20, data.y*3+200, data.w, data.h);}
   let xxx,yyy;
   if(data.label == 'cell phone'){
-      image(phone, phonex, phoney, data.w, data.h);
+      image(phone, phonex, phoney);
         phonesound.setVolume(1);
         phonereceivenum++;
         xxx = phonex;
@@ -620,17 +620,18 @@ if(soundFileState){
           yyy = booky;      
             }
   
-          noFill();
+//          noFill();
           // strokeWeight(2);
           // // stroke(data.r, data.g, data.b,220);
           // rect(xxx,yyy,data.w,data.h);
           // // fill(data.r, data.g, data.b);
+          fill(0);
           strokeWeight(0.8);
           textSize(18);
 //   if(data.label=='person'){
 //       rect(800-data.x*20, data.y*3+200, data.w, data.h);}
 // else{
-//rect(800-data.x*4, data.y*3+200, data.w, data.h);}
+// rect(800-data.x*4, data.y*3+200, data.w, data.h);}
   // if(data.label=='person'){
   //   text(data.name, 800-data.x*20 + data.w/2, data.y*3+200+data.h/2);
   //   text(data.label, 800-data.x*20 + 10, data.y*3+200-10);}
