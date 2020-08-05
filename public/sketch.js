@@ -468,6 +468,8 @@ if(playButtonState){
 
  function pressToPlayBack() {
         //play_stop button dom element
+        console.log("Trying to create the playbutton");
+
         if(!switchState){
         if(!playButtonState){
         playButton = createButton(' ');
@@ -574,7 +576,7 @@ function newDrawing(data){
   //   image(kitty, 800-data.x*20, data.y*3+200, data.w, data.h);}
   let xxx,yyy;
   if(data.label == 'cell phone'){
-      image(phone, phonex, phoney, data.w);
+      image(phone, phonex, phoney, data.w, data.w);
         phonesound.setVolume(1);
         phonereceivenum++;
         xxx = phonex;
