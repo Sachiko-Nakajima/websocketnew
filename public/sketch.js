@@ -299,49 +299,49 @@ function draw() {
 
   recordButton.mousePressed(record);
 
-  if(playButtonState){
-    playButton.mousePressed(playIt);  
-  }
+  // if(playButtonState){
+  //   playButton.mousePressed(playIt);  
+  // }
 
-  if (isRecording||isPlaying) {
-//    countDown(); 
-    nowtime = Date.now();
-//       if(nowtime - starttime < 4000){
-//         if(isRecording){
-//           if(nowtime - starttime > 900 && nowtime - starttime < 1000){
-//         text('⚪️REC', 500, 660);}
-//     　else if(nowtime - starttime > 1900 && nowtime - starttime < 2000){
-//         text('⚪️REC', 500, 660);}
-//       else if(nowtime - starttime > 2900 && nowtime - starttime < 3000){
-//         text('⚪️REC', 500, 660);}
-//       else if(nowtime - starttime > 3900 && nowtime - starttime < 4000){
-//          text('⚪️REC', 500, 660);}
-//       else{
-//     text('🔴REC', 500, 660);}}
-// if(isPlaying){
-//     text('Cheking', 500, 680);}
-//}
-if(nowtime - starttime == 4000 || nowtime - starttime > 4000 )
-  {
-    if(playButtonState){
-      playButton.html("Play Book Sound");
-      isPlaying=false;
-      console.log("playing stopped");
-      phonesound.stop();
-      if(soundFileState){
-      soundofBook.stop();
-      }
-    }
-    if(isRecording){
-      recordButton.html("Book Sound Rec");
-      isRecording=false;
-      console.log("recording stopped");
-      if(!playButtonState){
-      pressToPlayBack();
-      }
-    }
-  }
- }  
+//   if (isRecording||isPlaying) {
+// //    countDown(); 
+//     nowtime = Date.now();
+// //       if(nowtime - starttime < 4000){
+// //         if(isRecording){
+// //           if(nowtime - starttime > 900 && nowtime - starttime < 1000){
+// //         text('⚪️REC', 500, 660);}
+// //     　else if(nowtime - starttime > 1900 && nowtime - starttime < 2000){
+// //         text('⚪️REC', 500, 660);}
+// //       else if(nowtime - starttime > 2900 && nowtime - starttime < 3000){
+// //         text('⚪️REC', 500, 660);}
+// //       else if(nowtime - starttime > 3900 && nowtime - starttime < 4000){
+// //          text('⚪️REC', 500, 660);}
+// //       else{
+// //     text('🔴REC', 500, 660);}}
+// // if(isPlaying){
+// //     text('Cheking', 500, 680);}
+// //}
+// if(nowtime - starttime == 4000 || nowtime - starttime > 4000 )
+//   {
+//     if(playButtonState){
+//       playButton.html("Play Book Sound");
+//       isPlaying=false;
+//       console.log("playing stopped");
+//       phonesound.stop();
+//       if(soundFileState){
+//       soundofBook.stop();
+//       }
+//     }
+//     if(isRecording){
+//       recordButton.html("Book Sound Rec");
+//       isRecording=false;
+//       console.log("recording stopped");
+//       if(!playButtonState){
+//       pressToPlayBack();
+//       }
+//     }
+//   }
+//  }  
   time++;
 
   if (camState){
@@ -534,7 +534,7 @@ function playIt(){
   }
   else{
     starttime = Date.now();
-    if(soundFileState){
+//    if(soundFileState){
   if (isPlaying) {
 //    soundofBook.stop();
     phonesound.stop();
@@ -553,7 +553,7 @@ function playIt(){
     isPlaying = true; 
     console.log("starting to play the recorded sound");
   }
-}
+//}
 }
 
 
@@ -590,7 +590,7 @@ function newDrawing(data){
   //   image(kitty, 800-data.x*20, data.y*3+200, data.w, data.h);}
   let xxx,yyy;
   if(data.label == 'cell phone'){
-      image(phone, phonex, phoney, data.w, data.w);
+      image(phone, phonex, phoney, data.w, data.h);
         phonesound.setVolume(1);
         phonereceivenum++;
         xxx = phonex;
@@ -607,7 +607,7 @@ function newDrawing(data){
 
   if(data.label == 'cup'){
 //      image(cup, 800-data.x*4, data.y*3+200, data.w, data.h);
-        image(cup, cupx, cupy, data.w, data.h);
+        image(cup, cupx, cupy, 3*data.w, 3*data.h);
         cupsound.setVolume(1);
         cupreceivenum++;
         xxx = cupx;
