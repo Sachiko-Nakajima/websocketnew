@@ -130,15 +130,15 @@ function setup() {
 //  recordButton.size(150,30);
 
  bearx = random(600)+100;
- beary = random(400);
+ beary = random(300);
  phonex = random(600)+100;
- phoney = random(400);
+ phoney = random(300);
  cupx = random(600)+100;
- cupy = random(400);
+ cupy = random(300);
  bottlex = random(600)+100;
- bottley = random(400);
+ bottley = random(300);
  bookx = random(600)+100;
- booky = random(400); 
+ booky = random(300); 
   
   //getting all the HTML elements for Start/Stop Music Switch
   faderSection = document.getElementById("switch");
