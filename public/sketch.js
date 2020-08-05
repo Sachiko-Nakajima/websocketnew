@@ -80,7 +80,7 @@ function setup() {
     camera_1 = createCapture(VIDEO);
     // camera_1.style('border','8px solid black');
     camera_1.size(188,141);
-    camera_1.position(627,600);
+    camera_1.position(627,590);
     camera_1.hide();
     cambutton= document.getElementById('cambutton');
   
@@ -499,9 +499,6 @@ function record() {
       socket.emit('recorded', blobArray);
     };
     }
-  }
-
-
     // isRecording = false; 
     // starttime = Date.now();
     // recordButton.html("Start Recording");
