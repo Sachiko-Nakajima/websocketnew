@@ -593,7 +593,7 @@ function newDrawing(data){
   let xxx,yyy;
   if(data.label == 'cell phone'){
 if(time%3==0){      
-  image(phone, phonex, phoney, 3*data.w, 3*data.h);
+  image(phone, phonex, phoney, 2*data.w, 2*data.h);
 }
         phonesound.setVolume(1);
         phonereceivenum++;
@@ -612,7 +612,7 @@ if(time%3==0){
   if(data.label == 'cup'){
 //      image(cup, 800-data.x*4, data.y*3+200, data.w, data.h);
 if(time%3==0){      
-  image(cup, cupx, cupy, 3*data.w, 3*data.h);
+  image(cup, cupx, cupy, 2*data.w, 2*data.h);
 }
         cupsound.setVolume(1);
         cupreceivenum++;
@@ -621,7 +621,7 @@ if(time%3==0){
       }
 
   if(data.label == 'bottle'){
-    image(bottle, bottlex, bottley, 3*data.w, 3*data.h);
+    image(bottle, bottlex, bottley, 2*data.w, 2*data.h);
     //image(bottle, 800-data.x*4, data.y*3+200, data.w, data.h);
           bottlesound.setVolume(1);
           bottlereceivenum++;
