@@ -323,7 +323,9 @@ if(nowtime - starttime == 4000 || nowtime - starttime > 4000 )
       playButton.html("Play Book Sound");
       isPlaying=false;
       console.log("playing stopped");
+      if(soundFileState){
       soundofBook.stop();
+      }
     }
     if(isRecording){
       recordButton.html("Book Sound Rec");
@@ -529,16 +531,19 @@ function playIt(){
     starttime = Date.now();
     if(soundFileState){
   if (isPlaying) {
-    soundofBook.stop();
+//    soundofBook.stop();
+    phonesound.stop();
     playButton.html("Play Book Sound");
     isPlaying = false; 
     console.log("stop the play!");
   } else {
     console.log("trying to play the recorded sounds");
-    soundofBook.stop();
-    soundofBook.play();
-    soundofBook.setVolume(1);
-    if(soundofBook.isPlaying){console.log("it is really playing!!!");}
+    phonesound.play();
+    phonesound.setVolume(1);
+    // soundofBook.stop();
+    // soundofBook.play();
+    // soundofBook.setVolume(1);
+    // if(soundofBook.isPlaying){console.log("it is really playing!!!");}
     playButton.html("Stop Playing");
     isPlaying = true; 
     console.log("starting to play the recorded sound");
