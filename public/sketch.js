@@ -299,9 +299,9 @@ function draw() {
 
   recordButton.mousePressed(record);
 
-//   if (isRecording||isPlaying) {
-// //    countDown(); 
-//     nowtime = Date.now();
+  if (isRecording||isPlaying) {
+//    countDown(); 
+    nowtime = Date.now();
 //       if(nowtime - starttime < 4000){
 //         if(isRecording){
 //           if(nowtime - starttime > 900 && nowtime - starttime < 1000){
@@ -317,21 +317,21 @@ function draw() {
 // if(isPlaying){
 //     text('Cheking', 500, 680);}
 //}
-// if(nowtime - starttime == 4000 || nowtime - starttime > 4000 )
-//   {
-//     if(playButtonState){
-//       playButton.html("Play Book Sound");
-//       isPlaying=false;
-//       console.log("playing stopped");
-//       booksound.stop();
-//     }
-//     if(isRecording){
-//       recordButton.html("Book Sound Rec");
-//       isRecording=false;
-//       console.log("recording stopped");
-//     }
-//   }
-//  }  
+if(nowtime - starttime == 4000 || nowtime - starttime > 4000 )
+  {
+    if(playButtonState){
+      playButton.html("Play Book Sound");
+      isPlaying=false;
+      console.log("playing stopped");
+      soundofBook.stop();
+    }
+    if(isRecording){
+      recordButton.html("Book Sound Rec");
+      isRecording=false;
+      console.log("recording stopped");
+    }
+  }
+ }  
   time++;
 
   if (camState){
@@ -443,14 +443,11 @@ function switchMusic(){
 
 
 function record() {
-
-  isRecording=!isRecording;
-    //   if(buttonState){
-    //     text("stop the music to record the book sound",350,750);
-    // }
-    //else{
-      if(!switchState){
-      if (isRecording) {
+      if(switchState){
+        text("stop the music to record the book sound",350,750);
+    }
+    else{
+      if (!isRecording) {
         starttime = Date.now();
         recorder.record(soundofBook, 4, pressToPlayBack); 
 //        recorder.record(booksound, 4); 
@@ -469,6 +466,7 @@ function record() {
 
  function pressToPlayBack() {
         //play_stop button dom element
+        if(!playButtonState){
         playButton = createButton(' ');
         playButton.style('background-color','transparent')
         playButton.style('position','absolute');
@@ -483,7 +481,9 @@ function record() {
         playButton.style('cursor','pointer');
         playButton.style('outline','none');
               
-  if(!playButtonState){
+        playButtonState = true;
+        soundFileState = true;
+        playButton.mousePressed(playIt);
     // playButton = createButton('Play Book Sound');}
     // playButton.position(500,750);
     // playButton.size(150,30);
@@ -498,10 +498,8 @@ function record() {
       console.log("Array contains", blobArray.byteLength, "bytes.");
       socket.emit('recorded', blobArray);
     };
-
-    playButtonState = true;
-    playButton.mousePressed(playIt);
     }
+  }
 
 
     // isRecording = false; 
