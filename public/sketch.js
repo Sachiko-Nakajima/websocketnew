@@ -417,8 +417,7 @@ function switchMusic(){
     if (remoteSoundofBook){
       remoteSoundofBook.loop(); //recording 
       remoteSoundofBook.setVolume(0); //recording 
-    } else {
-    
+    }
     bearx = random(600)+100;
     beary = random(400)+200;
     phonex = random(600)+100;
