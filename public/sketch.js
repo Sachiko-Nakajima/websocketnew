@@ -59,10 +59,10 @@ function preload() {
   bottlesound = loadSound("audios/recorder.wav");
   booksound = loadSound("audios/meow.wav");
   kitty = loadImage("images/kitty.jpeg");
-  phone = loadGif("images/phonegif.gif");
+  phone = loadImage("images/phonegif.gif");
   bear = loadImage("images/bear.jpeg");
-  cup = loadGif("images/cupgif.gif");
-  bottle = loadGif("images/bottlegif.gif");
+  cup = loadImage("images/cupgif.gif");
+  bottle = loadImage("images/bottlegif.gif");
   book = loadImage('images/book.jpeg');
 }
 
