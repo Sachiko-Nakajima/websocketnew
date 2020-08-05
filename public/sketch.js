@@ -59,10 +59,10 @@ function preload() {
   bottlesound = loadSound("audios/recorder.wav");
   booksound = loadSound("audios/meow.wav");
   kitty = loadImage("images/kitty.jpeg");
-  phone = loadImage("images/phone.png");
+  phone = loadImage("images/phonegif.gif");
   bear = loadImage("images/bear.jpeg");
   cup = loadImage("images/cupgif.gif");
-  bottle = loadImage("images/bottle.jpeg");
+  bottle = loadImage("images/bottlegif.gif");
   book = loadImage('images/book.jpeg');
 }
 
@@ -193,7 +193,7 @@ function draw() {
   push()
   translate(width,0);
   scale(-1,1)
-  camera_2 = image(camera_1,480,580,188,141);
+  camera_2 = image(camera_1,480,575,188,141);
   
   pop()
   
@@ -303,10 +303,10 @@ function draw() {
   //   playButton.mousePressed(playIt);  
   // }
 
-//   if (isRecording||isPlaying) {
+   if (isRecording||isPlaying) {
 // //    countDown(); 
-//     nowtime = Date.now();
-// //       if(nowtime - starttime < 4000){
+    nowtime = Date.now();
+//       if(nowtime - starttime < 4000){
 // //         if(isRecording){
 // //           if(nowtime - starttime > 900 && nowtime - starttime < 1000){
 // //         text('⚪️REC', 500, 660);}
@@ -321,27 +321,27 @@ function draw() {
 // // if(isPlaying){
 // //     text('Cheking', 500, 680);}
 // //}
-// if(nowtime - starttime == 4000 || nowtime - starttime > 4000 )
-//   {
-//     if(playButtonState){
-//       playButton.html("Play Book Sound");
-//       isPlaying=false;
-//       console.log("playing stopped");
-//       phonesound.stop();
-//       if(soundFileState){
-//       soundofBook.stop();
-//       }
-//     }
-//     if(isRecording){
-//       recordButton.html("Book Sound Rec");
-//       isRecording=false;
-//       console.log("recording stopped");
-//       if(!playButtonState){
-//       pressToPlayBack();
-//       }
-//     }
-//   }
-//  }  
+ if(nowtime - starttime == 4000 || nowtime - starttime > 4000 )
+  {
+    if(playButtonState){
+      playButton.html("Play Book Sound");
+      isPlaying=false;
+      console.log("playing stopped");
+      phonesound.stop();
+      if(soundofBook){
+      soundofBook.stop();
+      }
+    }
+    if(isRecording){
+      recordButton.html("Book Sound Rec");
+      isRecording=false;
+      console.log("recording stopped");
+      if(!playButtonState){
+      pressToPlayBack();
+      }
+    }
+  }
+ }  
   time++;
 
   if (camState){
@@ -464,7 +464,7 @@ function record() {
 //        recorder.record(booksound, 4); 
         isRecording = true; 
 //        recordButton.html("Now Recording");
-//        soundFileState = true;
+        soundFileState = true;
         console.log("Now Recording");
       }
 //    }
