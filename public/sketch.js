@@ -287,15 +287,15 @@ function draw() {
   
     socket.on('detected', newDrawing);
 
-  //***********the blobs converted back to sound file, listen to server 
-  socket.on('recordedSent', (blobArrayBuffer) => {
-    console.log('recordedSent')
-    let blob = new Blob([blobArrayBuffer]);
-    urlBlob = URL.createObjectURL(blob);
+  // //***********the blobs converted back to sound file, listen to server 
+  // socket.on('recordedSent', (blobArrayBuffer) => {
+  //   console.log('recordedSent')
+  //   let blob = new Blob([blobArrayBuffer]);
+  //   urlBlob = URL.createObjectURL(blob);
     
-    remoteSoundofBook = createAudio(urlBlob);
-  })
-  //***********
+  //   remoteSoundofBook = createAudio(urlBlob);
+  // })
+  // //***********
 
   recordButton.mousePressed(record);
 
@@ -448,20 +448,21 @@ function record() {
         console.log("stop the music to record the book sound");
     }
     else{
-      if (!isRecording) {
+//      if (!isRecording) {
 //        starttime = Date.now();
+if(playButtonState){
+  playButton.remove();
+  playButtonState = false;
+  console.log("playButton is now removed");
+  }
         recorder.record(soundofBook, 4, pressToPlayBack); 
 //        recorder.record(booksound, 4); 
         isRecording = true; 
-        recordButton.html("Now Recording");
+//        recordButton.html("Now Recording");
         soundFileState = true;
-      if(playButtonState){
-        playButton.remove();
-        playButtonState = false;
-        console.log("playButton is now removed");
-        }
+        console.log("Now Recording");
       }
-    }
+//    }
  }
 
 
@@ -483,14 +484,14 @@ function record() {
         playButton.style('cursor','pointer');
         playButton.style('outline','none');
               
+        console.log("Playbutton is now created!");
         playButtonState = true;
         soundFileState = true;
         playButton.mousePressed(playIt);
     // playButton = createButton('Play Book Sound');}
     // playButton.position(500,750);
     // playButton.size(150,30);
-    let soundBlob = soundofBook.getBlob();
-  
+    let soundBlob = soundofBook.getBlob();  
     let fileReader = new FileReader();
     let blobArray;
   
