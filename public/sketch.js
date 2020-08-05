@@ -497,10 +497,8 @@ function record() {
       console.log("Array contains", blobArray.byteLength, "bytes.");
       socket.emit('recorded', blobArray);
     };
-  
-  
-  
     }
+  }
 
 
 
