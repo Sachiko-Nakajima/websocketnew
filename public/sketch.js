@@ -36,7 +36,8 @@ let preprecupreceivenum=0;
 let preprebottlereceivenum=0;
 let preprebookreceivenum=0;
 let prepreprebookreceivenum=0;
-let buttonState = false; let button;
+let buttonState = false; 
+let button;
 let bearx,beary,phonex, phoney, cupx, cupy, bookx, booky, bottlex, bottley;
 
 let recorder, soundFile;
@@ -478,7 +479,7 @@ function record() {
 
     playButtonState = true;
     soundFileState = true;
- //   playButton.mousePressed(playIt);
+    playButton.mousePressed(playIt);
     // isRecording = false; 
     // starttime = Date.now();
     // recordButton.html("Start Recording");
@@ -503,9 +504,9 @@ function record() {
 
 
 function playIt(){
-  isPlaying = !isPlaying;
-  if(buttonState){
-//    text("stop the music to check the book sound",350,750);
+//  isPlaying = !isPlaying;
+  if(switchState){
+    text("stop the music to check the book sound",350,750);
   }
   else{
     starttime = Date.now();
