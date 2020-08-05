@@ -328,9 +328,9 @@ function draw() {
       isPlaying=false;
       console.log("playing stopped");
       phonesound.stop();
-      if(soundofBook){
-      soundofBook.stop();
-      }
+      // if(soundofBook){
+      // soundofBook.stop();
+      // }
     }
     if(isRecording){
       recordButton.html("Book Sound Rec");
