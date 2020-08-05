@@ -209,10 +209,8 @@ function draw() {
     innerTrack.style.animation = "innerOff 1.3s forwards ease"
     switchText.innerHTML = "start the music"
   }
-  
-  recordButton.mousePressed(record);
-  
-  if(isRecording == true){
+    
+  if(isRecording){
 
   // recordButton.style('background-color','#fab702');
     reddot.style.display = "block";
@@ -231,7 +229,7 @@ function draw() {
   recordButton.html('');
   
   }
-  else if(isRecording == false){ 
+  else{ 
 
   reddot.style.display = "none";
   recordButton.style('position','absolute');
@@ -411,7 +409,8 @@ function switchMusic(){
     booksound.setVolume(0);
     if(soundFileState){
       soundofBook.loop();        //play soundof Book
-      soundofBook.setVolume(0);                        }
+      soundofBook.setVolume(0);
+    }
     bearx = random(600)+100;
     beary = random(400)+200;
     phonex = random(600)+100;
@@ -434,13 +433,13 @@ function switchMusic(){
 
 function record() {
 
-  //isRecording=!isRecording;
+  isRecording=!isRecording;
     //   if(buttonState){
     //     text("stop the music to record the book sound",350,750);
     // }
     //else{
-      if(switchState){
-      if (!isRecording) {
+      if(!switchState){
+      if (isRecording) {
         starttime = Date.now();
         recorder.record(soundofBook, 4, pressToPlayBack); 
 //        recorder.record(booksound, 4); 
