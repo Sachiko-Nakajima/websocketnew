@@ -398,8 +398,6 @@ if(switchState){
   }
 }
 
-}
-
 
 function switchCam(){
   
