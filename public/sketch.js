@@ -59,10 +59,10 @@ function preload() {
   bottlesound = loadSound("audios/recorder.wav");
   booksound = loadSound("audios/meow.wav");
   kitty = loadImage("images/kitty.jpeg");
-  phone = createImg("images/phonegif.gif");
+  phone = loadImage("images/phonegif.gif");
   bear = loadImage("images/bear.jpeg");
-  cup = createImg("images/cupgif.gif");
-  bottle = createImg("images/bottlegif.gif");
+  cup = loadImage("images/cupgif.gif");
+  bottle = loadImage("images/bottlegif.gif");
   book = loadImage('images/book.jpeg');
 }
 
@@ -377,11 +377,11 @@ if(switchState){
   }
   if(bookreceivenum==prepreprebookreceivenum){
     booksound.setVolume(0);
-    if(soundofBook){
-    soundofBook.setVolume(0);        // add the soundofBook
-    if(remoteSoundofBook){
-      remoteSoundofBook.setVolume(0); //recording 
-      }
+    // if(soundofBook){
+    // soundofBook.setVolume(0);        // add the soundofBook
+    // if(remoteSoundofBook){
+    //   remoteSoundofBook.setVolume(0); //recording 
+    //   }
     }
   }
   preprephonereceivenum = prephonereceivenum;
@@ -629,14 +629,14 @@ function newDrawing(data){
         if(data.label == 'book'){
 //          image(book, 800-data.x*4, data.y*3+200, data.w, data.h);
 image(book, bookx, booky, data.w, data.h);
-//booksound.setVolume(1);
-if(soundFileState){
-  if (remoteSoundofBook){
-  remoteSoundofBook.setVolume(1); //recording 
-} else {
-  soundofBook.setVolume(1);  //local recording file             
-}
-}
+// //booksound.setVolume(1);
+// if(soundFileState){
+//   if (remoteSoundofBook){
+//   remoteSoundofBook.setVolume(1); //recording 
+// } else {
+//   soundofBook.setVolume(1);  //local recording file             
+// }
+// }
           bookreceivenum++;
           xxx = bookx;
           yyy = booky;      
