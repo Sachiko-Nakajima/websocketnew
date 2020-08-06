@@ -399,6 +399,7 @@ rect(width/2,height/2-108,1010,544);
   }
   if(bookreceivenum==prepreprebookreceivenum){
     booksound.setVolume(0);
+  }
     // if(soundofBook){
     // soundofBook.setVolume(0);        // add the soundofBook
     // if(remoteSoundofBook){
@@ -417,7 +418,6 @@ rect(width/2,height/2-108,1010,544);
   prepreprebookreceivenum = preprebookreceivenum;
   preprebookreceivenum = prebookreceivenum;
   prebookreceivenum = bookreceivenum;
-  }
 }
 
 
@@ -686,8 +686,8 @@ image(book, bookx, booky, data.w, data.h);
 }
 
 function newDrawing2(data){
-      xxx = map(data.x,0,1200,300,900);
-      yyy = map(data.y,0,1000,50,400);
+      xxx = map(data.x,0,1000,100,900);
+      yyy = map(data.y,0,800,50,450);
       //image(cup, cupx, cupy,data.w,data.h);
             cupsound.setVolume(1);
             cupreceivenum++;
@@ -695,6 +695,7 @@ function newDrawing2(data){
             cupsound.setVolume(1);
         cupreceivenum++;
           fill(0);
+          stroke(0);
           strokeWeight(0.8);
           textSize(18);
       text(data.name, 1000-xxx, yyy);
