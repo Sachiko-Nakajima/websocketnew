@@ -367,20 +367,23 @@ rect(width/2,height/2-108,1010,544);
       playButton.html("Play Book Sound");
       isPlaying=false;
       console.log("playing stopped");
-//      phonesound.stop();
-if(SoundFileState){
-      if(remoteSoundofBook){
-      remoteSoundofBook.stop();
+      if(soundofBook){
+      soundofBook.stop();
       }
-    }
+//      phonesound.stop();
+// if(SoundFileState){
+//       if(remoteSoundofBook){
+//       remoteSoundofBook.stop();
+//       }
+//     }
     }
     if(isRecording){
       recordButton.html("Book Sound Rec");
       isRecording=false;
       console.log("recording stopped");
-      if(!playButtonState){
-      pressToPlayBack();
-      }
+      // if(!playButtonState){
+      // pressToPlayBack();
+      // }
     }
   }
  }  
