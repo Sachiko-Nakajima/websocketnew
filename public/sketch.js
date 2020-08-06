@@ -57,7 +57,7 @@ function preload() {
   bearsound = loadSound("audios/guitar.wav");
   cupsound = loadSound("audios/drums.wav");
   bottlesound = loadSound("audios/recorder.wav");
-  booksound = loadSound("audios/meow.wav");
+  //booksound = loadSound("audios/meow.wav");
   kitty = loadImage("images/kitty.jpeg");
   phone = createImg("images/phonegif.gif");
   bear = loadImage("images/bear.jpeg");
@@ -133,15 +133,15 @@ function setup() {
 //  recordButton.position(500,710);
 //  recordButton.size(150,30);
 
- bearx = random(600)+100;
+ bearx = random(600)+150;
  beary = random(300);
- phonex = random(600)+100;
+ phonex = random(600)+150;
  phoney = random(300);
- cupx = random(600)+100;
+ cupx = random(600)+150;
  cupy = random(300);
- bottlex = random(600)+100;
+ bottlex = random(600)+150;
  bottley = random(300);
- bookx = random(600)+100;
+ bookx = random(600)+150;
  booky = random(300); 
   
   //getting all the HTML elements for Start/Stop Music Switch
@@ -296,15 +296,15 @@ rect(width/2,height/2-108,1010,544);
     socket.on('detected', newDrawing);
     socket.on('detectedgif', newDrawing2);
 
-  // //***********the blobs converted back to sound file, listen to server 
-  // socket.on('recordedSent', (blobArrayBuffer) => {
-  //   console.log('recordedSent')
-  //   let blob = new Blob([blobArrayBuffer]);
-  //   urlBlob = URL.createObjectURL(blob);
+  //***********the blobs converted back to sound file, listen to server 
+  socket.on('recordedSent', (blobArrayBuffer) => {
+    console.log('recordedSent')
+    let blob = new Blob([blobArrayBuffer]);
+    urlBlob = URL.createObjectURL(blob);
     
-  //   remoteSoundofBook = createAudio(urlBlob);
-  // })
-  // //***********
+    remoteSoundofBook = createAudio(urlBlob);
+  })
+  //***********
 
   recordButton.mousePressed(record);
 
@@ -336,10 +336,12 @@ rect(width/2,height/2-108,1010,544);
       playButton.html("Play Book Sound");
       isPlaying=false;
       console.log("playing stopped");
-      phonesound.stop();
-      // if(soundofBook){
-      // soundofBook.stop();
-      // }
+//      phonesound.stop();
+if(SoundFileState){
+      if(remoteSoundofBook){
+      remoteSoundofBook.stop();
+      }
+    }
     }
     if(isRecording){
       recordButton.html("Book Sound Rec");
@@ -402,15 +404,15 @@ rect(width/2,height/2-108,1010,544);
     bottle.position(8000, 8000);
   }
   if(bookreceivenum==prepreprebookreceivenum){
-    booksound.setVolume(0);
-  }
+    //booksound.setVolume(0);
     // if(soundofBook){
     // soundofBook.setVolume(0);        // add the soundofBook
-    // if(remoteSoundofBook){
-    //   remoteSoundofBook.setVolume(0); //recording 
-    //   }
-//    }
-  //}
+    if(soundFileState){
+    if(remoteSoundofBook){
+      remoteSoundofBook.setVolume(0); //recording 
+      }
+    }
+  }
   preprephonereceivenum = prephonereceivenum;
   prephonereceivenum = phonereceivenum;
   preprebearreceivenum = prebearreceivenum;
@@ -446,24 +448,27 @@ function switchMusic(){
     cupsound.setVolume(0);
     bottlesound.loop();
     bottlesound.setVolume(0);
-    booksound.loop();
-    booksound.setVolume(0);
+    // booksound.loop();
+    // booksound.setVolume(0);
     // if(soundofBook){
     //   soundofBook.loop();        //play soundof Book
     //   soundofBook.setVolume(0);
     // }
-    // if (remoteSoundofBook){
-    //   remoteSoundofBook.loop(); //recording 
-    //   remoteSoundofBook.setVolume(0); //recording 
-    bearx = random(600)+100;
+    if(soundFileState){
+    if (remoteSoundofBook){
+      remoteSoundofBook.loop(); //recording 
+      remoteSoundofBook.setVolume(0); //recording 
+    }
+  }
+    bearx = random(600)+150;
     beary = random(300);
-    phonex = random(600)+100;
+    phonex = random(600)+150;
     phoney = random(300);
-    cupx = random(600)+100;
+    cupx = random(600)+150;
     cupy = random(300);
-    bottlex = random(600)+100;
+    bottlex = random(600)+150;
     bottley = random(300);
-    bookx = random(600)+100;
+    bookx = random(600)+150;
     booky = random(300);
   }
   else{
@@ -471,7 +476,10 @@ function switchMusic(){
     phonesound.stop();
     cupsound.stop();
     bottlesound.stop();
-    booksound.stop();
+//    booksound.stop();
+    if (remoteSoundofBook){
+      remoteSoundofBook.stop(); 
+    }
   }
 }
 
@@ -485,13 +493,11 @@ function record() {
      if (!isRecording) {
        starttime = Date.now();
         recorder.record(soundofBook, 4, pressToPlayBack); 
-//        recorder.record(booksound, 4); 
         isRecording = true; 
-//        recordButton.html("Now Recording");
+        recordButton.html("Now Recording");
         soundFileState = true;
         console.log("Now Recording");
       }
-//    }
 if(playButtonState){
   playButton.remove();
   playButtonState = false;
@@ -527,16 +533,16 @@ if(playButtonState){
     // playButton = createButton('Play Book Sound');}
     // playButton.position(500,750);
     // playButton.size(150,30);
-    // let soundBlob = soundofBook.getBlob();  
-    // let fileReader = new FileReader();
-    // let blobArray;
+    let soundBlob = soundofBook.getBlob();  
+    let fileReader = new FileReader();
+    let blobArray;
   
-    // fileReader.readAsArrayBuffer(soundBlob);
-    // fileReader.onload = function() {
-    //   blobArray = this.result;
-    //   console.log("Array contains", blobArray.byteLength, "bytes.");
-    //   socket.emit('recorded', blobArray);
-    // };
+    fileReader.readAsArrayBuffer(soundBlob);
+    fileReader.onload = function() {
+      blobArray = this.result;
+      console.log("Array contains", blobArray.byteLength, "bytes.");
+      socket.emit('recorded', blobArray);
+    };
     }
     isRecording = false; 
     starttime = Date.now();
@@ -567,12 +573,12 @@ function playIt(){
     console.log("stop the play!");
   } else {
     console.log("trying to play the recorded sounds");
-    phonesound.play();
-    phonesound.setVolume(1);
-    // soundofBook.stop();
-    // soundofBook.play();
-    // soundofBook.setVolume(1);
-    // if(soundofBook.isPlaying){console.log("it is really playing!!!");}
+    // phonesound.play();
+    // phonesound.setVolume(1);
+    soundofBook.stop();
+    soundofBook.play();
+    soundofBook.setVolume(1);
+    if(soundofBook.isPlaying){console.log("it is really playing!!!");}
     playButton.html("Stop Playing");
     isPlaying = true; 
     console.log("starting to play the recorded sound");
@@ -655,13 +661,13 @@ function newDrawing(data){
 //          image(book, 800-data.x*4, data.y*3+200, data.w, data.h);
 image(book, bookx, booky, data.w, data.h);
 // //booksound.setVolume(1);
-// if(soundFileState){
-//   if (remoteSoundofBook){
-//   remoteSoundofBook.setVolume(1); //recording 
-// } else {
-//   soundofBook.setVolume(1);  //local recording file             
-// }
-// }
+if(soundFileState){
+  if (remoteSoundofBook){
+  remoteSoundofBook.setVolume(1); //recording 
+} else {
+  soundofBook.setVolume(1);  //local recording file             
+}
+}
           bookreceivenum++;
           xxx = bookx;
           yyy = booky;      
