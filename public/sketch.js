@@ -328,13 +328,13 @@ rect(width/2,height/2-108,1010,544);
     socket.on('detectedgif', newDrawing2);
 
   //***********the blobs converted back to sound file, listen to server 
-  socket.on('recordedSent', (blobArrayBuffer) => {
-    console.log('recordedSent')
-    let blob = new Blob([blobArrayBuffer]);
-    urlBlob = URL.createObjectURL(blob);
+  // socket.on('recordedSent', (blobArrayBuffer) => {
+  //   console.log('recordedSent')
+  //   let blob = new Blob([blobArrayBuffer]);
+  //   urlBlob = URL.createObjectURL(blob);
     
-    remoteSoundofBook = createAudio(urlBlob);
-  })
+  //   remoteSoundofBook = createAudio(urlBlob);
+  // })
   //***********
 
   recordButton.mousePressed(record);
@@ -598,17 +598,17 @@ if(playButtonState){
     // playButton = createButton('Play Book Sound');}
     // playButton.position(500,750);
     // playButton.size(150,30);
-    let soundBlob = soundofBook.getBlob();  
-    let fileReader = new FileReader();
-    let blobArray;
+    // let soundBlob = soundofBook.getBlob();  
+    // let fileReader = new FileReader();
+    // let blobArray;
   
-    fileReader.readAsArrayBuffer(soundBlob);
-    fileReader.onload = function() {
-      blobArray = this.result;
-      console.log("Array contains", blobArray.byteLength, "bytes.");
-      socket.emit('recorded', blobArray);
-    };
-    }
+    // fileReader.readAsArrayBuffer(soundBlob);
+    // fileReader.onload = function() {
+    //   blobArray = this.result;
+    //   console.log("Array contains", blobArray.byteLength, "bytes.");
+    //   socket.emit('recorded', blobArray);
+    // };
+    // }
     isRecording = false; 
     starttime = Date.now();
     recordButton.html("Start Recording");

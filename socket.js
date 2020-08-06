@@ -20,20 +20,19 @@ function newConnection(socket){
     console.log('new connection: ' + socket.id);
 //    socket.on('person', personMsg);
 
-    socket.on('recorded', blobArrayBufferReceived)
-    function blobArrayBufferReceived(blobArrayBuffer) {
-    //send it back to clients
-    io.emit('recordedSent', blobArrayBuffer)
-}    
-    socket.on('detected', dataMsg);
+//     socket.on('recorded', blobArrayBufferReceived)
+//     function blobArrayBufferReceived(blobArrayBuffer) {
+//     //send it back to clients
+//     io.emit('recordedSent', blobArrayBuffer)
+// }    
 
+socket.on('detected', dataMsg);
     function dataMsg(data){
 //        socket.broadcast.emit('detected', data);
           io.emit('detected', data);
 }
 
 socket.on('detectedgif', dataMsg2);
-
 function dataMsg2(data){
 //        socket.broadcast.emit('detected', data);
       io.emit('detectedgif', data);
