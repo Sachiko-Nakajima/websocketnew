@@ -378,9 +378,9 @@ rect(width/2,height/2-108,1010,544);
 //     }
     }
     if(isRecording){
-      recordButton.html("Book Sound Rec");
-      isRecording=false;
-      console.log("recording stopped");
+//      recordButton.html("Book Sound Rec");
+      // isRecording=false;
+      // console.log("recording stopped");
       // if(!playButtonState){
       // pressToPlayBack();
       // }
