@@ -624,19 +624,19 @@ if(time%3==0){
       yyy = beary;      
   }
 
-  if(data.label == 'cup'){
-//      image(cup, 800-data.x*4, data.y*3+200, data.w, data.h);
-//if(time%3==0){ 
-  xxx = map(data.x,0,1200,300,900);
-  xxx = map(data.y,0,1000,50,300);
-  cup.position(data.x, data.y);
-  //image(cup, cupx, cupy,data.w,data.h);
-//}
-        cupsound.setVolume(1);
-        cupreceivenum++;
-        xxx = cupx;
-        yyy = cupy;      
-      }
+//   if(data.label == 'cup'){
+// //      image(cup, 800-data.x*4, data.y*3+200, data.w, data.h);
+// //if(time%3==0){ 
+//   xxx = map(data.x,0,1200,300,900);
+//   xxx = map(data.y,0,1000,50,300);
+//   cup.position(data.x, data.y);
+//   //image(cup, cupx, cupy,data.w,data.h);
+// //}
+//         cupsound.setVolume(1);
+//         cupreceivenum++;
+//         xxx = cupx;
+//         yyy = cupy;      
+//       }
 
   if(data.label == 'bottle'){
     image(bottle, bottlex, bottley, 2*data.w, 2*data.h);
@@ -686,7 +686,15 @@ image(book, bookx, booky, data.w, data.h);
 }
 
 function newDrawing2(data){
-  cup.position(data.x, data.y);
+      xxx = map(data.x,0,1200,300,900);
+      xxx = map(data.y,0,1000,50,300);
+      cup.position(data.x, data.y);
+      //image(cup, cupx, cupy,data.w,data.h);
+            cupsound.setVolume(1);
+            cupreceivenum++;
+            xxx = cupx;
+            yyy = cupy;      
+          }
         cupsound.setVolume(1);
         cupreceivenum++;
           fill(0);
