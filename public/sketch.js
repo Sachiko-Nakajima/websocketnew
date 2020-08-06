@@ -367,9 +367,8 @@ rect(width/2,height/2-108,1010,544);
        h: detection.height
       }
       socket.emit('detected', data);     
-    })
+    }
 
-    detections.forEach(detection => {
       if(detection.label == "cup"){
       var datacup = {
       label: detection.label, 
@@ -380,9 +379,10 @@ rect(width/2,height/2-108,1010,544);
       //  h: detection.height
       }
       socket.emit('detected', data);     
-    })
+    }
+  })
   }
-
+  }
 //if(switchState){
   if(phonereceivenum==preprephonereceivenum){
     phonesound.setVolume(0);
@@ -404,7 +404,7 @@ rect(width/2,height/2-108,1010,544);
     // if(remoteSoundofBook){
     //   remoteSoundofBook.setVolume(0); //recording 
     //   }
-    }
+//    }
   //}
   preprephonereceivenum = prephonereceivenum;
   prephonereceivenum = phonereceivenum;
