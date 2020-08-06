@@ -626,7 +626,9 @@ if(time%3==0){
 
   if(data.label == 'cup'){
 //      image(cup, 800-data.x*4, data.y*3+200, data.w, data.h);
-//if(time%3==0){      
+//if(time%3==0){ 
+  xxx = map(data.x,0,1200,300,900);
+  xxx = map(data.y,0,1000,50,300);
   cup.position(data.x, data.y);
   //image(cup, cupx, cupy,data.w,data.h);
 //}
