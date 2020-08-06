@@ -31,5 +31,12 @@ function newConnection(socket){
 //        socket.broadcast.emit('detected', data);
           io.emit('detected', data);
 }
+
+socket.on('detectedcup', dataMsg2);
+
+function dataMsg2(data){
+//        socket.broadcast.emit('detected', data);
+      io.emit('detectedcup', data);
+}
 }
 

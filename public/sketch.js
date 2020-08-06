@@ -292,6 +292,7 @@ rect(width/2,height/2-108,1010,544);
   objectBtn.onclick = objectListPop;
   
     socket.on('detected', newDrawing);
+    socket.on('detectedcup', newDrawing2);
 
   // //***********the blobs converted back to sound file, listen to server 
   // socket.on('recordedSent', (blobArrayBuffer) => {
@@ -353,7 +354,8 @@ rect(width/2,height/2-108,1010,544);
   if (camState){
     if (detections) {
     detections.forEach(detection => {
-      var data = {
+      if(detection.label != "cup"){
+        var data = {
       label: detection.label, 
       name: input.value(),
       //  r: colorr,
@@ -363,6 +365,19 @@ rect(width/2,height/2-108,1010,544);
       //  y: detection.y,
        w: detection.width,
        h: detection.height
+      }
+      socket.emit('detected', data);     
+    })
+
+    detections.forEach(detection => {
+      if(detection.label == "cup"){
+      var datacup = {
+      label: detection.label, 
+      name: input.value(),
+       x: detection.x,
+       y: detection.y,
+      //  w: detection.width,
+      //  h: detection.height
       }
       socket.emit('detected', data);     
     })
@@ -436,17 +451,16 @@ function switchMusic(){
     // if (remoteSoundofBook){
     //   remoteSoundofBook.loop(); //recording 
     //   remoteSoundofBook.setVolume(0); //recording 
-    // }
     bearx = random(600)+100;
-    beary = random(400)+200;
+    beary = random(100);
     phonex = random(600)+100;
-    phoney = random(400)+200;
+    phoney = random(100);
     cupx = random(600)+100;
-    cupy = random(400)+200;
+    cupy = random(100);
     bottlex = random(600)+100;
-    bottley = random(400)+200;
+    bottley = random(100);
     bookx = random(600)+100;
-    booky = random(400)+200;}
+    booky = random(100); 
   else{
     bearsound.stop();
     phonesound.stop();
@@ -612,9 +626,7 @@ if(time%3==0){
   if(data.label == 'cup'){
 //      image(cup, 800-data.x*4, data.y*3+200, data.w, data.h);
 //if(time%3==0){      
-  cup.position(cupx, cupy);
-  cup.width(data.w);
-  cup.height(data.h);
+  cup.position(data.x, data.y);
   //image(cup, cupx, cupy,data.w,data.h);
 //}
         cupsound.setVolume(1);
@@ -668,6 +680,17 @@ image(book, bookx, booky, data.w, data.h);
       text(data.label, xxx + 10, yyy-10);
     //}
 // }
+}
+
+function newDrawing2(data){
+  cup.position(data.x, data.y);
+        cupsound.setVolume(1);
+        cupreceivenum++;
+          fill(0);
+          strokeWeight(0.8);
+          textSize(18);
+      text(data.name, xxx + data.w/2, yyy+data.h/2);
+      text(data.label, xxx + 10, yyy-10);
 }
 
 function modelReady() {
