@@ -374,11 +374,11 @@ rect(width/2,height/2-108,1010,544);
       label: detection.label, 
       name: input.value(),
        x: detection.x,
-       y: detection.y,
+       y: detection.y
       //  w: detection.width,
       //  h: detection.height
       }
-      socket.emit('detected', data);     
+      socket.emit('detectedcup', datacup);     
     }
   })
   }
