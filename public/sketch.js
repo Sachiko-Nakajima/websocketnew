@@ -377,6 +377,7 @@ if(switchState){
   }
   if(cupreceivenum==preprecupreceivenum){
     cupsound.setVolume(0);
+    cup.position(8000, 8000);
   }
   if(bottlereceivenum==preprebottlereceivenum){
     bottlesound.setVolume(0);
