@@ -459,6 +459,7 @@ function switchMusic(){
       remoteSoundofBook.loop(); //recording 
       remoteSoundofBook.setVolume(0); //recording 
     }
+    console.log("remote Sound has started!");
   }
     bearx = random(600)+150;
     beary = random(300);
@@ -477,10 +478,13 @@ function switchMusic(){
     cupsound.stop();
     bottlesound.stop();
 //    booksound.stop();
-    if (remoteSoundofBook){
+if(soundFileState){
+  if (remoteSoundofBook){
       remoteSoundofBook.stop(); 
+      console.log("remote Sound has stopped!");
     }
   }
+}
 }
 
 
