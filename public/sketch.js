@@ -688,13 +688,13 @@ image(book, bookx, booky, data.w, data.h);
 function newDrawing2(data){
       xxx = map(data.x,0,1200,300,900);
       yyy = map(data.y,0,1000,50,400);
-      cup.position(data.x, data.y);
       //image(cup, cupx, cupy,data.w,data.h);
             cupsound.setVolume(1);
             cupreceivenum++;
             xxx = cupx;
             yyy = cupy;      
-        cupsound.setVolume(1);
+            cup.position(1000-xxx, yyy);
+            cupsound.setVolume(1);
         cupreceivenum++;
           fill(0);
           strokeWeight(0.8);
