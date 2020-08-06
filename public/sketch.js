@@ -700,7 +700,7 @@ function newDrawing(data){
   }
 
   if(data.label == 'potted plant'){
-          image(plant, plantx, planty, 10*ddata.w, 10*ddata.h);
+          image(plant, plantx, planty, 10*data.w, 10*data.h);
           plantsound.setVolume(1);
           plantreceivenum++;
           xxx = plantx;
@@ -708,14 +708,14 @@ function newDrawing(data){
       }
     
       if(data.label == 'toothbrush'){
-        image(toothbrush, toothbrushx, toothbrushy, 10*ddata.w, 10*ddata.h);
+        image(toothbrush, toothbrushx, toothbrushy, 10*data.w, 10*data.h);
         toothbrushsound.setVolume(1);
         toothbrushreceivenum++;
         xxx = toothbrushx;
         yyy = toothbrushy;      
     }
     if(data.label == 'scissors'){
-      image(scissor, scissorx, scissory, 10*ddata.w, 10*ddata.h);
+      image(scissor, scissorx, scissory, 10*data.w, 10*data.h);
       scissorsound.setVolume(1);
       scissorreceivenum++;
       xxx = scissorx;
