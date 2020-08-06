@@ -368,7 +368,7 @@ rect(width/2,height/2-108,1010,544);
     })
   }
 
-if(switchState){
+//if(switchState){
   if(phonereceivenum==preprephonereceivenum){
     phonesound.setVolume(0);
   }
@@ -390,7 +390,7 @@ if(switchState){
     //   remoteSoundofBook.setVolume(0); //recording 
     //   }
     }
-  }
+  //}
   preprephonereceivenum = prephonereceivenum;
   prephonereceivenum = phonereceivenum;
   preprebearreceivenum = prebearreceivenum;
@@ -611,10 +611,12 @@ if(time%3==0){
 
   if(data.label == 'cup'){
 //      image(cup, 800-data.x*4, data.y*3+200, data.w, data.h);
-if(time%3==0){      
-  cup.position(cupx, cupy)
+//if(time%3==0){      
+  cup.position(cupx, cupy);
+  cup.width(data.w);
+  cup.height(data.h);
   //image(cup, cupx, cupy,data.w,data.h);
-}
+//}
         cupsound.setVolume(1);
         cupreceivenum++;
         xxx = cupx;
