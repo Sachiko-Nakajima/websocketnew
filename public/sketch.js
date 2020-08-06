@@ -714,7 +714,7 @@ function newDrawing(data){
         xxx = toothbrushx;
         yyy = toothbrushy;      
     }
-    if(data.label == 'scissor'){
+    if(data.label == 'scissors'){
       image(scissor, scissorx, scissory, 10*ddata.w, 10*ddata.h);
       scissorsound.setVolume(1);
       scissorreceivenum++;
