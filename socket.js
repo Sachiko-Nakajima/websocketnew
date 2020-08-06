@@ -32,11 +32,11 @@ function newConnection(socket){
           io.emit('detected', data);
 }
 
-socket.on('detectedcup', dataMsg2);
+socket.on('detectedgif', dataMsg2);
 
 function dataMsg2(data){
 //        socket.broadcast.emit('detected', data);
-      io.emit('detectedcup', data);
+      io.emit('detectedgif', data);
 }
 }
 

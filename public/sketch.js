@@ -59,10 +59,10 @@ function preload() {
   bottlesound = loadSound("audios/recorder.wav");
   booksound = loadSound("audios/meow.wav");
   kitty = loadImage("images/kitty.jpeg");
-  phone = loadImage("images/phonegif.gif");
+  phone = createImage("images/phonegif.gif");
   bear = loadImage("images/bear.jpeg");
   cup = createImg("images/cupgif.gif");
-  bottle = loadImage("images/bottlegif.gif");
+  bottle = createImage("images/bottlegif.gif");
   book = loadImage('images/book.jpeg');
 }
 
@@ -292,7 +292,7 @@ rect(width/2,height/2-108,1010,544);
   objectBtn.onclick = objectListPop;
   
     socket.on('detected', newDrawing);
-    socket.on('detectedcup', newDrawing2);
+    socket.on('detectedgif', newDrawing2);
 
   // //***********the blobs converted back to sound file, listen to server 
   // socket.on('recordedSent', (blobArrayBuffer) => {
@@ -354,7 +354,7 @@ rect(width/2,height/2-108,1010,544);
   if (camState){
     if (detections) {
     detections.forEach(detection => {
-      if(detection.label != "cup"){
+      if(detection.label != "cup" && detection.label != "cell phone" && detection.label != "bottle" ){
         var data = {
       label: detection.label, 
       name: input.value(),
@@ -369,16 +369,16 @@ rect(width/2,height/2-108,1010,544);
       socket.emit('detected', data);     
     }
 
-      if(detection.label == "cup"){
-      var datacup = {
+      if(detection.label == "cup" || detection.label == "cell phone" || detection.label == "bottle"){
+      var datagif = {
       label: detection.label, 
       name: input.value(),
-       x: detection.x,
-       y: detection.y
-      //  w: detection.width,
-      //  h: detection.height
+      //  x: detection.x,
+      //  y: detection.y
+       w: detection.width,
+       h: detection.height
       }
-      socket.emit('detectedcup', datacup);     
+      socket.emit('detectedgif', datagif);     
     }
   })
   }
@@ -606,15 +606,15 @@ function newDrawing(data){
   // if(data.label == 'person'){
   //   image(kitty, 800-data.x*20, data.y*3+200, data.w, data.h);}
   let xxx,yyy;
-  if(data.label == 'cell phone'){
-if(time%3==0){      
-  image(phone, phonex, phoney, 2*data.w, 2*data.h);
-}
-        phonesound.setVolume(1);
-        phonereceivenum++;
-        xxx = phonex;
-        yyy = phoney;      
-      }
+//   if(data.label == 'cell phone'){
+// if(time%3==0){      
+//   image(phone, phonex, phoney, 2*data.w, 2*data.h);
+// }
+//         phonesound.setVolume(1);
+//         phonereceivenum++;
+//         xxx = phonex;
+//         yyy = phoney;      
+//       }
   if(data.label == 'teddy bear'){
 //      image(bear, 800-data.x*4, data.y*3+200, data.w, data.h);
       image(bear, bearx, beary, data.w, data.h);
@@ -638,14 +638,14 @@ if(time%3==0){
 //         yyy = cupy;      
 //       }
 
-  if(data.label == 'bottle'){
-    image(bottle, bottlex, bottley, 2*data.w, 2*data.h);
-    //image(bottle, 800-data.x*4, data.y*3+200, data.w, data.h);
-          bottlesound.setVolume(1);
-          bottlereceivenum++;
-          xxx = bottlex;
-          yyy = bottley;      
-          }
+  // if(data.label == 'bottle'){
+  //   image(bottle, bottlex, bottley, 2*data.w, 2*data.h);
+  //   //image(bottle, 800-data.x*4, data.y*3+200, data.w, data.h);
+  //         bottlesound.setVolume(1);
+  //         bottlereceivenum++;
+  //         xxx = bottlex;
+  //         yyy = bottley;      
+  //         }
 
         if(data.label == 'book'){
 //          image(book, 800-data.x*4, data.y*3+200, data.w, data.h);
@@ -662,44 +662,49 @@ image(book, bookx, booky, data.w, data.h);
           xxx = bookx;
           yyy = booky;      
             }
-  
-//          noFill();
-          // strokeWeight(2);
-          // // stroke(data.r, data.g, data.b,220);
-          // rect(xxx,yyy,data.w,data.h);
-          // // fill(data.r, data.g, data.b);
-          fill(0);
-          strokeWeight(0.8);
-          textSize(18);
-//   if(data.label=='person'){
-//       rect(800-data.x*20, data.y*3+200, data.w, data.h);}
-// else{
-// rect(800-data.x*4, data.y*3+200, data.w, data.h);}
-  // if(data.label=='person'){
-  //   text(data.name, 800-data.x*20 + data.w/2, data.y*3+200+data.h/2);
-  //   text(data.label, 800-data.x*20 + 10, data.y*3+200-10);}
-  // else{
-      text(data.name, xxx + data.w/2, yyy+data.h/2);
-      text(data.label, xxx + 10, yyy-10);
-    //}
-// }
-}
-
-function newDrawing2(data){
-      xxx = map(data.x,0,1000,100,900);
-      yyy = map(data.y,0,800,50,450);
-      //image(cup, cupx, cupy,data.w,data.h);
-            cupsound.setVolume(1);
-            cupreceivenum++;
-            cup.position(1000-xxx, yyy);
-            cupsound.setVolume(1);
-        cupreceivenum++;
           fill(0);
           stroke(0);
           strokeWeight(0.8);
           textSize(18);
-      text(data.name, 1000-xxx, yyy);
-      text(data.label, 1000-xxx + 10, yyy-10);
+
+      text(data.name, xxx + data.w/2, yyy+data.h/2);
+      text(data.label, xxx + 10, yyy-10);
+}
+
+function newDrawing2(data){
+      if(data.label == 'cell phone'){
+                xxx =phonex;
+                yyy =phoney;
+                phone.position(xxx, yyy);
+                phone.size(data.w, data.h);
+                phonesound.setVolume(1);
+                phonereceivenum++;
+              }
+        
+      if(data.label == "cup"){
+            xxx =cupx;
+            yyy =cupy;
+            cup.position(xxx, yyy);
+            cup.size(data.w, data.h);
+            cupsound.setVolume(1);
+            cupreceivenum++;
+          }
+
+      if(data.label == "bottle"){
+            xxx =bottlex;
+            yyy =bottley;
+            bottle.position(xxx, yyy);
+            bottle.size(data.w, data.h);
+            bottlesound.setVolume(1);
+            bottlereceivenum++;
+          }
+
+          fill(0);
+          stroke(0);
+          strokeWeight(0.8);
+          textSize(18);
+      text(data.name, xxx + data.w/2, yyy+data.h/2);
+      text(data.label, xxx + 10, yyy-10);
 }
 
 function modelReady() {
