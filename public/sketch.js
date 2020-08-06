@@ -692,7 +692,7 @@ function newDrawing(data){
 //       }
   if(data.label == 'teddy bear'){
 //      image(bear, 800-data.x*4, data.y*3+200, data.w, data.h);
-      image(bear, bearx, beary, 3*data.w, 3*data.h);
+      image(bear, bearx, beary, 10*data.w, 10*data.h);
       bearsound.setVolume(1);
       bearreceivenum++;
       xxx = bearx;
