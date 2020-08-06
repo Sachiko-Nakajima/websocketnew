@@ -707,8 +707,8 @@ function newDrawing2(data){
           stroke(0);
           strokeWeight(0.8);
           textSize(18);
-      text(data.name, xxx, yyy);
-      text(data.label, xxx + 10, yyy-10);
+      text(data.name, xxx-100, yyy+50);
+      text(data.label, xxx + 30-100, yyy-30+50);
 }
 
 function modelReady() {
