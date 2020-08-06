@@ -61,7 +61,7 @@ function preload() {
   kitty = loadImage("images/kitty.jpeg");
   phone = loadImage("images/phonegif.gif");
   bear = loadImage("images/bear.jpeg");
-  cup = loadGif("images/cupgif.gif");
+  cup = createImg("images/cupgif.gif");
   bottle = loadImage("images/bottlegif.gif");
   book = loadImage('images/book.jpeg');
 }
@@ -76,6 +76,8 @@ function setup() {
   fill(239, 220, 187);
   strokeWeight(10)
   rect(width/2,height/2-108,1010,544)
+  cup.position(8000, 8000)
+
 
     camera_1 = createCapture(VIDEO);
     // camera_1.style('border','8px solid black');
@@ -609,7 +611,8 @@ if(time%3==0){
   if(data.label == 'cup'){
 //      image(cup, 800-data.x*4, data.y*3+200, data.w, data.h);
 if(time%3==0){      
-  image(cup, cupx, cupy);
+  cup.position(cupx, cupy)
+  //image(cup, cupx, cupy,data.w,data.h);
 }
         cupsound.setVolume(1);
         cupreceivenum++;
