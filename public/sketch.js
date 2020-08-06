@@ -77,6 +77,8 @@ function setup() {
   strokeWeight(10)
   rect(width/2,height/2-108,1010,544)
   cup.position(8000, 8000)
+  phone.position(8000, 8000);
+  bottle.position(8000, 8000);
 
 
     camera_1 = createCapture(VIDEO);
@@ -181,7 +183,7 @@ function setup() {
 function draw() {
 
   if(time%3==0){
-//    background(240,210,210,120);
+background(239,220,187,120);
 rectMode(CENTER);
 fill(239, 220, 187,120);
 strokeWeight(10);
@@ -386,6 +388,7 @@ rect(width/2,height/2-108,1010,544);
 //if(switchState){
   if(phonereceivenum==preprephonereceivenum){
     phonesound.setVolume(0);
+    phone.position(8000, 8000);
   }
   if(bearreceivenum==preprebearreceivenum){
     bearsound.setVolume(0);
@@ -396,6 +399,7 @@ rect(width/2,height/2-108,1010,544);
   }
   if(bottlereceivenum==preprebottlereceivenum){
     bottlesound.setVolume(0);
+    bottle.position(8000, 8000);
   }
   if(bookreceivenum==prepreprebookreceivenum){
     booksound.setVolume(0);
