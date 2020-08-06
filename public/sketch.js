@@ -460,7 +460,8 @@ function switchMusic(){
     bottlex = random(600)+100;
     bottley = random(100);
     bookx = random(600)+100;
-    booky = random(100); 
+    booky = random(100);
+  }
   else{
     bearsound.stop();
     phonesound.stop();
