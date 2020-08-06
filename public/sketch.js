@@ -691,16 +691,14 @@ function newDrawing2(data){
       //image(cup, cupx, cupy,data.w,data.h);
             cupsound.setVolume(1);
             cupreceivenum++;
-            xxx = cupx;
-            yyy = cupy;      
             cup.position(1000-xxx, yyy);
             cupsound.setVolume(1);
         cupreceivenum++;
           fill(0);
           strokeWeight(0.8);
           textSize(18);
-      text(data.name, xxx + data.w/2, yyy+data.h/2);
-      text(data.label, xxx + 10, yyy-10);
+      text(data.name, 1000-xxx + data.w/2, yyy+data.h/2);
+      text(data.label, 1000-xxx + 10, yyy-10);
 }
 
 function modelReady() {
