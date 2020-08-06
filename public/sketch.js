@@ -697,7 +697,7 @@ function newDrawing2(data){
           fill(0);
           strokeWeight(0.8);
           textSize(18);
-      text(data.name, 1000-xxx + data.w/2, yyy+data.h/2);
+      text(data.name, 1000-xxx, yyy);
       text(data.label, 1000-xxx + 10, yyy-10);
 }
 
