@@ -560,15 +560,14 @@ function record() {
         recorder.record(soundofBook, 4, pressToPlayBack); 
         isRecording = true; 
         recordButton.html("Now Recording");
-        soundFileState = true;
         console.log("Now Recording");
-      }
 if(playButtonState){
   playButton.remove();
   playButtonState = false;
   console.log("playButton is now removed");
   }
  }
+}
 }
 
  function pressToPlayBack() {
@@ -598,7 +597,7 @@ if(playButtonState){
     // playButton = createButton('Play Book Sound');}
     // playButton.position(500,750);
     // playButton.size(150,30);
-    
+
     // let soundBlob = soundofBook.getBlob();  
     // let fileReader = new FileReader();
     // let blobArray;
@@ -610,10 +609,10 @@ if(playButtonState){
     //   socket.emit('recorded', blobArray);
     // };
      }
-    isRecording = false; 
-    starttime = Date.now();
-    recordButton.html("Start Recording");
-    console.log("recording stopped");
+    // isRecording = false; 
+    // starttime = Date.now();
+    // recordButton.html("Start Recording");
+    // console.log("recording stopped");
   
      //create blob file for the booksound file
   }
@@ -632,8 +631,8 @@ function playIt(){
     starttime = Date.now();
 //    if(soundFileState){
   if (isPlaying) {
-//    soundofBook.stop();
-    phonesound.stop();
+    soundofBook.stop();
+//    phonesound.stop();
     playButton.html("Play Book Sound");
     isPlaying = false; 
     console.log("stop the play!");
@@ -651,8 +650,6 @@ function playIt(){
   }
 //}
 }
-
-
 }
 
 //object selector: callback the drop up menu
