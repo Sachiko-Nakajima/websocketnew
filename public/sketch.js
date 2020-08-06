@@ -598,6 +598,7 @@ if(playButtonState){
     // playButton = createButton('Play Book Sound');}
     // playButton.position(500,750);
     // playButton.size(150,30);
+    
     // let soundBlob = soundofBook.getBlob();  
     // let fileReader = new FileReader();
     // let blobArray;
@@ -608,7 +609,7 @@ if(playButtonState){
     //   console.log("Array contains", blobArray.byteLength, "bytes.");
     //   socket.emit('recorded', blobArray);
     // };
-    // }
+     }
     isRecording = false; 
     starttime = Date.now();
     recordButton.html("Start Recording");
