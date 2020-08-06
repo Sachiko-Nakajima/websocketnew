@@ -132,15 +132,15 @@ function setup() {
 //  recordButton.size(150,30);
 
  bearx = random(600)+100;
- beary = random(100);
+ beary = random(300);
  phonex = random(600)+100;
- phoney = random(100);
+ phoney = random(300);
  cupx = random(600)+100;
- cupy = random(100);
+ cupy = random(300);
  bottlex = random(600)+100;
- bottley = random(100);
+ bottley = random(300);
  bookx = random(600)+100;
- booky = random(100); 
+ booky = random(300); 
   
   //getting all the HTML elements for Start/Stop Music Switch
   faderSection = document.getElementById("switch");
@@ -452,15 +452,15 @@ function switchMusic(){
     //   remoteSoundofBook.loop(); //recording 
     //   remoteSoundofBook.setVolume(0); //recording 
     bearx = random(600)+100;
-    beary = random(100);
+    beary = random(300);
     phonex = random(600)+100;
-    phoney = random(100);
+    phoney = random(300);
     cupx = random(600)+100;
-    cupy = random(100);
+    cupy = random(300);
     bottlex = random(600)+100;
-    bottley = random(100);
+    bottley = random(300);
     bookx = random(600)+100;
-    booky = random(100);
+    booky = random(300);
   }
   else{
     bearsound.stop();
@@ -687,14 +687,13 @@ image(book, bookx, booky, data.w, data.h);
 
 function newDrawing2(data){
       xxx = map(data.x,0,1200,300,900);
-      xxx = map(data.y,0,1000,50,300);
+      yyy = map(data.y,0,1000,50,400);
       cup.position(data.x, data.y);
       //image(cup, cupx, cupy,data.w,data.h);
             cupsound.setVolume(1);
             cupreceivenum++;
             xxx = cupx;
             yyy = cupy;      
-          }
         cupsound.setVolume(1);
         cupreceivenum++;
           fill(0);
