@@ -680,7 +680,7 @@ function newDrawing2(data){
                 xxx =phonex;
                 yyy =phoney;
                 phone.position(xxx, yyy);
-                phone.size(data.w, data.h);
+                phone.size(3*data.w, 3*data.h);
                 phonesound.setVolume(1);
                 phonereceivenum++;
               }
@@ -689,7 +689,7 @@ function newDrawing2(data){
             xxx =cupx;
             yyy =cupy;
             cup.position(xxx, yyy);
-            cup.size(data.w, data.h);
+            cup.size(3*data.w, 3*data.h);
             cupsound.setVolume(1);
             cupreceivenum++;
           }
@@ -698,7 +698,7 @@ function newDrawing2(data){
             xxx =bottlex;
             yyy =bottley;
             bottle.position(xxx, yyy);
-            bottle.size(data.w, data.h);
+            bottle.size(3*data.w, 3*data.h);
             bottlesound.setVolume(1);
             bottlereceivenum++;
           }
@@ -707,7 +707,7 @@ function newDrawing2(data){
           stroke(0);
           strokeWeight(0.8);
           textSize(18);
-      text(data.name, xxx + data.w/2, yyy+data.h/2);
+      text(data.name, xxx, yyy);
       text(data.label, xxx + 10, yyy-10);
 }
 
