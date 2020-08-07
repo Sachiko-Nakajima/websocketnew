@@ -496,9 +496,9 @@ function switchMusic(){
   switchState=!switchState;
   if(switchState){
     rphone = floor(random(3));
-    if(rphone==0){phonesound == phonesound1;}
-    if(rphone==1){phonesound == phonesound2;}
-    if(rphone==2){phonesound == phonesound3;}
+    if(rphone==0){phonesound = phonesound1;}
+    if(rphone==1){phonesound = phonesound2;}
+    if(rphone==2){phonesound = phonesound3;}
 
     bearsound.loop();
     bearsound.setVolume(0);
