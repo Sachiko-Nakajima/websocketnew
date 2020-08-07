@@ -366,6 +366,7 @@ rect(width/2,height/2-108,1010,544);
     if(playButtonState){
       playButton.html("Play Book Sound");
       isPlaying=false;
+      isRecording=false;
       console.log("playing stopped");
       if(soundofBook){
       soundofBook.stop();
@@ -379,8 +380,8 @@ rect(width/2,height/2-108,1010,544);
     }
     if(isRecording){
 //      recordButton.html("Book Sound Rec");
-      // isRecording=false;
-      // console.log("recording stopped");
+      isRecording=false;
+      console.log("recording stopped");
       // if(!playButtonState){
       // pressToPlayBack();
       // }
