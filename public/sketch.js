@@ -443,7 +443,7 @@ rect(width/2,height/2-108,1010,544);
     // soundofBook.setVolume(0);        // add the soundofBook
     if(soundFileState){
     if(remoteSoundofBook){
-      remoteSoundofBook.setVolume(0); //recording 
+      remoteSoundofBook.volume(0); //recording 
       }
     }
   }
@@ -512,7 +512,7 @@ function switchMusic(){
     if(soundFileState){
     if (remoteSoundofBook){
       remoteSoundofBook.loop(); //recording 
-      remoteSoundofBook.setVolume(0); //recording 
+      remoteSoundofBook.volume(0); //recording 
     }
     console.log("remote Sound has started!");
   }
@@ -751,10 +751,8 @@ image(book, bookx, booky, data.w, data.h);
 // //booksound.setVolume(1);
 if(soundFileState){
   if (remoteSoundofBook){
-  remoteSoundofBook.setVolume(1); //recording 
-} else {
-  soundofBook.setVolume(1);  //local recording file             
-}
+  remoteSoundofBook.volume(1); //recording 
+} 
 }
           bookreceivenum++;
           xxx = bookx;
