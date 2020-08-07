@@ -564,6 +564,8 @@ function record() {
         isRecording = true; 
         recordButton.html("Now Recording");
         console.log("Now Recording");
+        bearsound.loop();
+        bearsound.setVolume(0);
 if(playButtonState){
   playButton.remove();
   playButtonState = false;
@@ -597,6 +599,8 @@ if(playButtonState){
         playButtonState = true;
         soundFileState = true;
         playButton.mousePressed(playIt);
+        bearsound.stop();
+
     // playButton = createButton('Play Book Sound');}
     // playButton.position(500,750);
     // playButton.size(150,30);
