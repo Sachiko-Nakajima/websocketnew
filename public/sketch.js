@@ -15,6 +15,7 @@ var input;
 
 let detector, detections;
 let kitty, phonesound, phone, bearsound, bear, cupsound, cup, bottlesound, bottle, booksound, book, plantsound, plant, toothbrush, toothbrushsound, scissor, scissorsound;
+let phonesound1, phonesound2, phonesound3;
 let time = 0;
 let socket;
 //let font1_shadow; let cam_y =-220;
@@ -63,7 +64,9 @@ let remoteSoundofBook;
 
 function preload() {
   soundFormats('mp3', 'ogg', 'wav');
-  phonesound = loadSound("audios/piano.wav");
+  phonesound1 = loadSound("audios/piano.wav");
+  phonesound2 = loadSound("audios/piano2.wav");
+  phonesound3 = loadSound("audios/piano3.wav");
   bearsound = loadSound("audios/guitar.wav");
   cupsound = loadSound("audios/drums.wav");
   bottlesound = loadSound("audios/recorder.wav");
@@ -220,7 +223,7 @@ fill(239, 220, 187,120);
 strokeWeight(10);
 rect(width/2,height/2-108,1010,544);
 noStroke();
-rect(90,720,100,60);
+rect(0,720,300,60);
     }
   
    //Camera onclick to Switch On/Off
@@ -492,6 +495,11 @@ function switchMusic(){
   event.preventDefault();
   switchState=!switchState;
   if(switchState){
+    rphone = floor(random(3));
+    if(rphone==0){phonesound == phonesound1;}
+    if(rphone==1){phonesound == phonesound2;}
+    if(rphone==2){phonesound == phonesound3;}
+
     bearsound.loop();
     bearsound.setVolume(0);
     phonesound.loop();
@@ -557,7 +565,7 @@ if(soundFileState){
 
 function record() {
       if(switchState){
-        text("stop the music to record the book sound",100,750);
+        text("stop the music to record the book sound",0,750);
         console.log("stop the music to record the book sound");
     }
     else{
@@ -629,7 +637,7 @@ if(playButtonState){
 function playIt(){
 //  isPlaying = !isPlaying;
   if(switchState){
-    text("stop the music to check the book sound",100,750);
+    text("stop the music to check the book sound",0,750);
     console.log("stop the music to check the book sound");
   }
   else{
@@ -777,6 +785,9 @@ function newDrawing2(data){
       if(data.label == 'cell phone'){
                 xxx =phonex;
                 yyy =phoney;
+
+                if(random)
+                phonesound = 
                 phone.position(xxx, yyy);
                 phone.size(3*data.w, 3*data.h);
                 phonesound.setVolume(1);
