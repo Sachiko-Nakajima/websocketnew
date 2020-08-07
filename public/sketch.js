@@ -327,15 +327,15 @@ rect(width/2,height/2-108,1010,544);
     socket.on('detected', newDrawing);
     socket.on('detectedgif', newDrawing2);
 
-  //***********the blobs converted back to sound file, listen to server 
-  // socket.on('recordedSent', (blobArrayBuffer) => {
-  //   console.log('recordedSent')
-  //   let blob = new Blob([blobArrayBuffer]);
-  //   urlBlob = URL.createObjectURL(blob);
+  ***********the blobs converted back to sound file, listen to server 
+  socket.on('recordedSent', (blobArrayBuffer) => {
+    console.log('recordedSent')
+    let blob = new Blob([blobArrayBuffer]);
+    urlBlob = URL.createObjectURL(blob);
     
-  //   remoteSoundofBook = createAudio(urlBlob);
-  // })
-  //***********
+    remoteSoundofBook = createAudio(urlBlob);
+  })
+  ***********
 
   recordButton.mousePressed(record);
 
