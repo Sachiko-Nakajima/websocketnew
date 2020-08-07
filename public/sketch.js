@@ -158,7 +158,7 @@ function setup() {
  recorder.setInput(mic);   
  soundofBook = new p5.SoundFile();  
  phonesound = new p5.SoundFile();  
- remoteSoundofBook = new p5.SoundFile();  
+// remoteSoundofBook = new p5.SoundFile();  
 //  recordButton = createButton('Book Sound Rec');
 //  recordButton.position(500,710);
 //  recordButton.size(150,30);
