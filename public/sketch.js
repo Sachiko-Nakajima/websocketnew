@@ -157,6 +157,7 @@ function setup() {
  recorder = new p5.SoundRecorder();
  recorder.setInput(mic);   
  soundofBook = new p5.SoundFile();  
+ phonesound = new p5.SoundFile();  
 //  recordButton = createButton('Book Sound Rec');
 //  recordButton.position(500,710);
 //  recordButton.size(150,30);
@@ -429,7 +430,7 @@ rect(0,720,300,60);
   }
 //if(switchState){
   if(phonereceivenum==preprephonereceivenum){
-    phonesound.setVolume(0);
+    phonesound.volume(0);
     phone.position(8000, 8000);
   }
   if(bearreceivenum==preprebearreceivenum){
@@ -503,7 +504,7 @@ function switchMusic(){
     bearsound.loop();
     bearsound.setVolume(0);
     phonesound.loop();
-    phonesound.setVolume(0);
+    phonesound.volume(0);
     cupsound.loop();
     cupsound.setVolume(0);
     bottlesound.loop();
@@ -790,7 +791,7 @@ function newDrawing2(data){
                 phonesound = 
                 phone.position(xxx, yyy);
                 phone.size(3*data.w, 3*data.h);
-                phonesound.setVolume(1);
+                phonesound.volume(1);
                 phonereceivenum++;
               }
         
