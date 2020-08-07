@@ -158,6 +158,7 @@ function setup() {
  recorder.setInput(mic);   
  soundofBook = new p5.SoundFile();  
  phonesound = new p5.SoundFile();  
+ phonesound = phonesound1;
 // remoteSoundofBook = new p5.SoundFile();  
 //  recordButton = createButton('Book Sound Rec');
 //  recordButton.position(500,710);
@@ -787,9 +788,6 @@ function newDrawing2(data){
       if(data.label == 'cell phone'){
                 xxx =phonex;
                 yyy =phoney;
-
-                if(random)
-                phonesound = 
                 phone.position(xxx, yyy);
                 phone.size(3*data.w, 3*data.h);
                 phonesound.setVolume(1);
