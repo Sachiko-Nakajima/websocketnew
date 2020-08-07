@@ -225,7 +225,7 @@ fill(239, 220, 187,120);
 strokeWeight(10);
 rect(width/2,height/2-108,1010,544);
 noStroke();
-rect(0,720,300,60);
+rect(0,750,600,60);
     }
   
    //Camera onclick to Switch On/Off
@@ -567,7 +567,7 @@ if(soundFileState){
 
 function record() {
       if(switchState){
-        text("stop the music to record the book sound",0,750);
+        text("stop the music to record the book sound",0,780);
         console.log("stop the music to record the book sound");
     }
     else{
@@ -639,7 +639,7 @@ if(playButtonState){
 function playIt(){
 //  isPlaying = !isPlaying;
   if(switchState){
-    text("stop the music to check the book sound",0,750);
+    text("stop the music to check the book sound",0,780);
     console.log("stop the music to check the book sound");
   }
   else{
