@@ -214,11 +214,13 @@ function setup() {
 function draw() {
 
   if(time%3==0){
-background(239,220,187,120);
+//background(239,220,187,120);
 rectMode(CENTER);
 fill(239, 220, 187,120);
 strokeWeight(10);
 rect(width/2,height/2-108,1010,544);
+noStroke();
+rect(90,720,100,60);
     }
   
    //Camera onclick to Switch On/Off
@@ -368,7 +370,7 @@ rect(width/2,height/2-108,1010,544);
       isPlaying=false;
       isRecording=false;
       console.log("playing stopped");
-      if(soundofBook){
+      if(soundofBook!=null){
       soundofBook.stop();
       }
 //      phonesound.stop();
@@ -443,7 +445,7 @@ rect(width/2,height/2-108,1010,544);
     // if(soundofBook){
     // soundofBook.setVolume(0);        // add the soundofBook
     if(soundFileState){
-    if(remoteSoundofBook){
+    if(remoteSoundofBook!=null){
       remoteSoundofBook.volume(0); //recording 
       }
     }
@@ -511,7 +513,7 @@ function switchMusic(){
     //   soundofBook.setVolume(0);
     // }
     if(soundFileState){
-    if (remoteSoundofBook){
+    if (remoteSoundofBook!=null){
       remoteSoundofBook.loop(); //recording 
       remoteSoundofBook.volume(0); //recording 
     }
@@ -544,7 +546,7 @@ function switchMusic(){
     scissorsound.stop();
 //    booksound.stop();
 if(soundFileState){
-  if (remoteSoundofBook){
+  if (remoteSoundofBook!=null){
       remoteSoundofBook.stop(); 
       console.log("remote Sound has stopped!");
     }
@@ -555,7 +557,7 @@ if(soundFileState){
 
 function record() {
       if(switchState){
-        text("stop the music to record the book sound",350,750);
+        text("stop the music to record the book sound",100,750);
         console.log("stop the music to record the book sound");
     }
     else{
@@ -627,14 +629,16 @@ if(playButtonState){
 function playIt(){
 //  isPlaying = !isPlaying;
   if(switchState){
-    text("stop the music to check the book sound",350,750);
+    text("stop the music to check the book sound",100,750);
     console.log("stop the music to check the book sound");
   }
   else{
     starttime = Date.now();
 //    if(soundFileState){
   if (isPlaying) {
+    if(soundofBook!=null){
     soundofBook.stop();
+    }
 //    phonesound.stop();
     playButton.html("Play Book Sound");
     isPlaying = false; 
@@ -643,10 +647,11 @@ function playIt(){
     console.log("trying to play the recorded sounds");
     // phonesound.play();
     // phonesound.setVolume(1);
-    soundofBook.stop();
+    if(soundofBook!=null){
+      soundofBook.stop();
     soundofBook.play();
     soundofBook.setVolume(1);
-    if(soundofBook.isPlaying){console.log("it is really playing!!!");}
+    if(soundofBook.isPlaying){console.log("it is really playing!!!");}}
     playButton.html("Stop Playing");
     isPlaying = true; 
     console.log("starting to play the recorded sound");
@@ -751,7 +756,7 @@ function newDrawing(data){
 image(book, bookx, booky, data.w, data.h);
 // //booksound.setVolume(1);
 if(soundFileState){
-  if (remoteSoundofBook){
+  if (remoteSoundofBook!=null){
   remoteSoundofBook.volume(1); //recording 
 } 
 }
