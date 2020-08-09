@@ -525,10 +525,11 @@ function switchMusic(){
     bearsound.setVolume(0);
     phonesound.loop();
     phonesound.setVolume(0);
-    for(let i=0;i<3;i++){
-    phonesounds[i].loop();
-    phonesounds[i].setVolume(0);
-    }
+    
+    // for(let i=0;i<3;i++){
+    // phonesounds[i].loop();
+    // phonesounds[i].setVolume(0);
+    // }
     cupsound.loop();
     cupsound.setVolume(0);
     bottlesound.loop();
@@ -812,8 +813,6 @@ function newDrawing2(data){
                 yyy =phoney;
                 phone.position(xxx, yyy);
                 phone.size(3*data.w, 3*data.w);
-                let rthis = floor(random(3));
-                phonesound = phonesounds[rthis];
                 phonesound.setVolume(1);
                 phonereceivenum++;
               }
