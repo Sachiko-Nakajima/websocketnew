@@ -15,7 +15,7 @@ var input;
 
 let detector, detections;
 let kitty, phonesound, phone, bearsound, bear, cupsound, cup, bottlesound, bottle, booksound, book, plantsound, plant, toothbrush, toothbrushsound, scissor, scissorsound;
-let phonesound1, phonesound2, phonesound3;
+let phonesounds=[];
 let time = 0;
 let socket;
 //let font1_shadow; let cam_y =-220;
@@ -64,9 +64,9 @@ let remoteSoundofBook;
 
 function preload() {
   soundFormats('mp3', 'ogg', 'wav');
-  phonesound1 = loadSound("audios/piano.wav");
-  phonesound2 = loadSound("audios/piano2.wav");
-  phonesound3 = loadSound("audios/piano3.wav");
+  phonesounds[0] = loadSound("audios/piano.wav");
+  phonesounds[1] = loadSound("audios/piano2.wav");
+  phonesounds[2] = loadSound("audios/piano3.wav");
   bearsound = loadSound("audios/guitar.wav");
   cupsound = loadSound("audios/drums.wav");
   bottlesound = loadSound("audios/recorder.wav");
@@ -158,7 +158,7 @@ function setup() {
  recorder.setInput(mic);   
  soundofBook = new p5.SoundFile();  
  phonesound = new p5.SoundFile();  
- phonesound = phonesound1;
+ phonesound = phonesounds[0];
 // remoteSoundofBook = new p5.SoundFile();  
 //  recordButton = createButton('Book Sound Rec');
 //  recordButton.position(500,710);
@@ -499,9 +499,7 @@ function switchMusic(){
   switchState=!switchState;
   if(switchState){
     rphone = floor(random(3));
-    if(rphone==0){phonesound = phonesound1;}
-    if(rphone==1){phonesound = phonesound2;}
-    if(rphone==2){phonesound = phonesound3;}
+    phonesound = phonesounds[rphone];
 
     bearsound.loop();
     bearsound.setVolume(0);
