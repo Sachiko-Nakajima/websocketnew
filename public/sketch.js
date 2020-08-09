@@ -739,7 +739,7 @@ function newDrawing(data){
   }
 
   if(data.label == 'potted plant'){
-          image(plant, plantx, planty, 6*data.w, 6*data.h);
+          image(plant, plantx, planty, 6*data.w, 6*data.w);
           plantsound.setVolume(1);
           plantreceivenum++;
           xxx = plantx;
@@ -747,14 +747,14 @@ function newDrawing(data){
       }
     
       if(data.label == 'toothbrush'){
-        image(toothbrush, toothbrushx, toothbrushy, 3*data.w, 3*data.h);
+        image(toothbrush, toothbrushx, toothbrushy, 3*data.w, 3*data.w);
         toothbrushsound.setVolume(1);
         toothbrushreceivenum++;
         xxx = toothbrushx;
         yyy = toothbrushy;      
     }
     if(data.label == 'scissors'){
-      image(scissor, scissorx, scissory, 3*data.w, 3*data.h);
+      image(scissor, scissorx, scissory, 3*data.w, 3*data.w);
       scissorsound.setVolume(1);
       scissorreceivenum++;
       xxx = scissorx;
@@ -811,7 +811,7 @@ function newDrawing2(data){
                 xxx =phonex;
                 yyy =phoney;
                 phone.position(xxx, yyy);
-                phone.size(3*data.w, 3*data.h);
+                phone.size(3*data.w, 3*data.w);
                 let rthis = floor(random(3));
                 phonesound = phonesounds[rthis];
                 phonesound.setVolume(1);
@@ -822,7 +822,7 @@ function newDrawing2(data){
             xxx =cupx;
             yyy =cupy;
             cup.position(xxx, yyy);
-            cup.size(3*data.w, 3*data.h);
+            cup.size(3*data.w, 3*data.w);
             cupsound.setVolume(1);
             cupreceivenum++;
           }
@@ -831,7 +831,7 @@ function newDrawing2(data){
             xxx =bottlex;
             yyy =bottley;
             bottle.position(xxx, yyy);
-            bottle.size(3*data.w, 3*data.h);
+            bottle.size(3*data.w, 3*data.w);
             bottlesound.setVolume(1);
             bottlereceivenum++;
           }
