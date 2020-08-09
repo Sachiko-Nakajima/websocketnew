@@ -19,7 +19,6 @@ let phonesounds=[];
 let cupsounds =[];
 let bottlesounds =[];
 let bearsounds =[];
-let phonesounds=[];
 let toothbrushsounds=[];
 let time = 0;
 let socket;
