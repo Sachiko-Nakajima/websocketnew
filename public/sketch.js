@@ -279,16 +279,11 @@ function setup() {
   recordButton.style('cursor','pointer');
   recordButton.style('outline','none');
   
-
-  
   //object selection drop up menu setup
   objectList = document.getElementById('options');
-  
-  objectBtn = document.getElementById('upBtn');
-    
+  objectBtn = document.getElementById('upBtn');    
   innerP = document.getElementById('innerP')
 
-  
   //visual metronome
   reddot = document.getElementById("reddot")
   
@@ -296,7 +291,6 @@ function setup() {
 
   filter = new p5.LowPass();
   fft = new p5.FFT();
-  
   
   efxButton = document.getElementById('efxKnob');
   efxArrow = document.getElementById('knobmid');
@@ -342,8 +336,6 @@ function filterToggle() {
     bearsound.connect();
   }
 }
-
-
 
 function draw() {
 
@@ -556,7 +548,6 @@ rect(0,750,600,60);
 //if(switchState){
   if(phonereceivenum==preprephonereceivenum){
     phonesound.setVolume(0);
-    phonesound.disconnect();
     
     phone.position(8000, 8000);
     phonenumber++;
@@ -694,7 +685,6 @@ rect(0,750,600,60);
 
 
 function switchCam(){
-  
   //Camera State
 camState=!camState;
   //Camera State true/false switch on/off (into javascript)
@@ -903,9 +893,6 @@ if(playButtonState){
   }
   }
 
-
-
-
 function playIt(){
 //  isPlaying = !isPlaying;
   if(switchState){
@@ -942,17 +929,16 @@ function playIt(){
 
 //object selector: callback the drop up menu
 function objectListPop(){
-  if(objectBtnState == false){
+  if(!objectBtnState){
   objectList.style.display = "block";
   objectList.style.animation = "goUp 0.7s ease-out forwards";
   objectBtn.style.animation = "reflect_1 0.7s ease-out forwards";
 }
-  else if(objectBtnState == true){
+  else{
   objectList.style.display = "block";
   objectList.style.animation = "goDown 0.7s ease-out forwards";
   objectBtn.style.animation = "reflect_2 0.7s ease-out forwards";
-}
-
+  }
   objectBtnState=!objectBtnState;
 }
 
@@ -961,7 +947,6 @@ function reply_click(clicked_id)
 {
      innerP.innerHTML = clicked_id; 
 }
-
 
 // function newDrawing(data){
 //   // if(data.label == 'person'){
@@ -979,7 +964,6 @@ function reply_click(clicked_id)
 function newDrawing(data){
    let xxx,yyy;
 
-
    if(data.label == 'person'){
     filterFreq = map(data.w, 0, width, 100, 2000);
     filterRes = map(data.h, 0, height, 40, 5);
@@ -993,11 +977,12 @@ if(data.label == 'book'){
                 book.size(3*data.w, 3*data.w);
             if(soundFileState){
   if (remoteSoundofBook!=null){
-  remoteSoundofBook.volume(1); //recording 
+      remoteSoundofBook.volume(1); //recording 
   }
             }
         bookreceivenum++;
             }
+
       if(data.label == 'cell phone'){
                 xxx =phonex;
                 yyy =phoney;
@@ -1009,7 +994,7 @@ if(data.label == 'book'){
                 else{
                     phonesound.disconnect(filter);
                     phonesound.connect();}
-                  phonesound.setVolume(1);
+                    phonesound.setVolume(1);
         phonereceivenum++;
               }
         
@@ -1042,6 +1027,7 @@ if(data.label == 'book'){
             bottlesound.setVolume(1);
             bottlereceivenum++;
           }
+
       if(data.label == 'teddy bear'){
             xxx =bearx;
             yyy =beary;
@@ -1055,7 +1041,7 @@ if(data.label == 'book'){
               bearsound.connect();}
             bearsound.setVolume(1);
             bearreceivenum++;
-  }
+            }
 
   if(data.label == 'potted plant'){
             xxx =plantx;
@@ -1064,8 +1050,7 @@ if(data.label == 'book'){
             plant.size(3*data.w, 3*data.w);
             plantsound.setVolume(1);
             plantreceivenum++;
-      }
-  
+                }
   
     
       if(data.label == 'toothbrush'){
@@ -1075,7 +1060,7 @@ if(data.label == 'book'){
             toothbrush.size(3*data.w, 3*data.w);
             toothbrushsound.setVolume(1);
             toothbrushreceivenum++;
-    }
+              }
 
     if(data.label == 'scissors'){
             xxx =scissorx;
@@ -1090,7 +1075,7 @@ if(data.label == 'book'){
               scissorsound.connect();}
         scissorsound.setVolume(1);
             scissorreceivenum++;
-  }
+           }
 
   if(data.label == "apple" || data.label == "orange"){
     xxx =applex-200;
@@ -1099,7 +1084,7 @@ if(data.label == 'book'){
     apple.size(3*data.w, 3*data.w);
     applesound.setVolume(1);
     applereceivenum++;
-  }  
+  }
   
           fill(0);
           stroke(0);
