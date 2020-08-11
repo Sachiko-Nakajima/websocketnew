@@ -100,14 +100,14 @@ function preload() {
   bottlesounds[2] = loadSound("audios/sax2.wav");
 //  plantsound = loadSound("audios/birds.wav");
 
-plantsounds[0] = loadSound("audios/nature0.wav");
-plantsounds[1] = loadSound("audios/nature1.wav");
+plantsounds[0] = loadSound("audios/nature0.mp3");
+plantsounds[1] = loadSound("audios/nature1.mp3");
 plantsounds[2] = loadSound("audios/nature2.wav");
 
 //  toothbrushsound = loadSound("audios/bass1.wav");
   toothbrushsounds[0] = loadSound("audios/animal0.wav");
   toothbrushsounds[1] = loadSound("audios/animal1.wav");
-  toothbrushsounds[2] = loadSound("audios/animal2.wav");
+  toothbrushsounds[2] = loadSound("audios/animal2.mp3");
 //  scissorsound = loadSound("audios/cow.wav");
   scissorsounds[0] = loadSound("audios/bass0.wav");
   scissorsounds[1] = loadSound("audios/bass1.wav");
