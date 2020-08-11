@@ -766,6 +766,7 @@ function switchMusic(){
       bearsounds[i].disconnect(filter);
       bearsounds[i].connect();
     }
+  }
   
 
     // phonesound.loop();
@@ -831,6 +832,7 @@ if(soundFileState){
   }
 }
 }
+
 
 
 function record() {
