@@ -452,8 +452,7 @@ rect(0,750,600,60);
       name: input.value(),
       //  x: detection.x,
       //  y: detection.y
-       w: detection.width,
-       h: detection.height
+       w: detection.width
       }
       socket.emit('detectedgif', datagif);     
 //    }
@@ -805,7 +804,6 @@ if(data.label == 'book'){
   }
             }
         bookreceivenum++;
-        console.log(xxx, yyy);
             }
       if(data.label == 'cell phone'){
                 xxx =phonex;
@@ -814,7 +812,6 @@ if(data.label == 'book'){
                 phone.size(3*data.w, 3*data.w);
                 phonesound.setVolume(1);
         phonereceivenum++;
-        console.log(xxx, yyy);
               }
         
       if(data.label == "cup"){
@@ -824,7 +821,6 @@ if(data.label == 'book'){
             cup.size(3*data.w, 3*data.w);
             cupsound.setVolume(1);
             cupreceivenum++;
-        console.log(xxx, yyy);
           }
 
       if(data.label == "bottle"){
@@ -834,7 +830,6 @@ if(data.label == 'book'){
             bottle.size(3*data.w, 3*data.w);
             bottlesound.setVolume(1);
             bottlereceivenum++;
-                console.log(xxx, yyy);
           }
       if(data.label == 'teddy bear'){
             xxx =bearx;
@@ -843,7 +838,6 @@ if(data.label == 'book'){
             baer.size(3*data.w, 3*data.w);
             bearsound.setVolume(1);
             bearreceivenum++;
-                console.log(xxx, yyy);
   }
 
   if(data.label == 'potted plant'){
@@ -853,7 +847,6 @@ if(data.label == 'book'){
             plant.size(3*data.w, 3*data.w);
             plantsound.setVolume(1);
             plantreceivenum++;
-                console.log(xxx, yyy);
       }
   
   
@@ -865,8 +858,8 @@ if(data.label == 'book'){
             toothbrush.size(3*data.w, 3*data.w);
             toothbrushsound.setVolume(1);
             toothbrushreceivenum++;
-                console.log(xxx, yyy);
     }
+
     if(data.label == 'scissors'){
             xxx =scissorx;
             yyy =scissory;
@@ -874,7 +867,6 @@ if(data.label == 'book'){
             scissor.size(3*data.w, 3*data.w);
             scissorsound.setVolume(1);
             scissorreceivenum++;
-                console.log(xxx, yyy);
   }
   
   
