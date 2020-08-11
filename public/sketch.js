@@ -311,8 +311,6 @@ function setup() {
 function filterToggle() {
   filterOn = !filterOn;
   if (filterOn) {
-    // efxButton.style('top','400px');
-    // efxButton.style('left','400px');
     efxArrow.style.animation = "efxOn_inside 1s forwards ease-in-out";
     efxState0.style.animation = "state0 1s forwards ease-in-out";
     efxState1.style.animation = "state1 1s forwards ease-in-out";
@@ -558,6 +556,8 @@ rect(0,750,600,60);
 //if(switchState){
   if(phonereceivenum==preprephonereceivenum){
     phonesound.setVolume(0);
+    phonesound.disconnect();
+    
     phone.position(8000, 8000);
     phonenumber++;
     if(phonenumber%5==0){
@@ -567,6 +567,7 @@ rect(0,750,600,60);
   }
   if(bearreceivenum==preprebearreceivenum){
     bearsound.setVolume(0);
+    bearsound.disconnect();
     bear.position(8000, 8000);
     bearnumber++;
     if(bearnumber%5==0){
@@ -579,6 +580,7 @@ rect(0,750,600,60);
 
   if(cupreceivenum==prepreprecupreceivenum){
     cupsound.setVolume(0);
+    cupsound.disconnect();
     cup.position(8000, 8000);
     cupnumber++;
     if(cupnumber%5==0){
@@ -591,6 +593,7 @@ rect(0,750,600,60);
 
   if(bottlereceivenum==preprebottlereceivenum){
     bottlesound.setVolume(0);
+    bottlesound.disconnect();
     bottle.position(8000, 8000);
     bottlenumber++;
     if(bottlenumber%5==0){
@@ -639,6 +642,7 @@ rect(0,750,600,60);
 
   if(scissorreceivenum==preprescissorreceivenum){
     scissorsound.setVolume(0);
+    scissorsound.disconnect();
     scissor.position(8000, 8000);  
     scissornumber++;
     if(scissornumber%5==0){
@@ -737,6 +741,32 @@ function switchMusic(){
       plantsounds[i].loop();
       plantsounds[i].setVolume(0);
     }
+
+    for(let i=0;i<3;i++){
+      if (filterOn) {
+      cupsounds[i].disconnect();
+      cupsounds[i].connect(filter);
+      phonesounds[i].disconnect();
+      phonesounds[i].connect(filter);
+      bottlesounds[i].disconnect();
+      bottlesounds[i].connect(filter);
+      scissorsounds[i].disconnect();
+      scissorsounds[i].connect(filter);
+      bearsounds[i].disconnect();
+      bearsounds[i].connect(filter);
+    }else{
+      cupsounds[i].disconnect(filter);
+      cupsounds[i].connect();
+      phonesounds[i].disconnect(filter);
+      phonesounds[i].connect();
+      bottlesounds[i].disconnect(filter);
+      bottlesounds[i].connect();
+      scissorsounds[i].disconnect(filter);
+      scissorsounds[i].connect();
+      bearsounds[i].disconnect(filter);
+      bearsounds[i].connect();
+    }
+  
 
     // phonesound.loop();
     // phonesound.setVolume(0);
@@ -972,7 +1002,13 @@ if(data.label == 'book'){
                 yyy =phoney;
                 phone.position(xxx, yyy);
                 phone.size(3*data.w, 3*data.w);
-                phonesound.setVolume(1);
+                if(filterOn){
+                  phonesound.disconnect();
+                  phonesound.connect(filter);}
+                else{
+                    phonesound.disconnect(filter);
+                    phonesound.connect();}
+                  phonesound.setVolume(1);
         phonereceivenum++;
               }
         
@@ -981,6 +1017,12 @@ if(data.label == 'book'){
             yyy =cupy;
             cup.position(xxx, yyy);
             cup.size(2*data.w, 2*data.w);
+            if(filterOn){
+              cupsound.disconnect();
+              cupsound.connect(filter);}
+            else{
+                cupsound.disconnect(filter);
+                cupsound.connect();}
             cupsound.setVolume(1);
             cupreceivenum++;
           }
@@ -990,6 +1032,12 @@ if(data.label == 'book'){
             yyy =bottley;
             bottle.position(xxx, yyy);
             bottle.size(3*data.w, 3*data.w);
+            if(filterOn){
+              bottlesound.disconnect();
+              bottlesound.connect(filter);}
+            else{
+              bottlesound.disconnect(filter);
+              bottlesound.connect();}
             bottlesound.setVolume(1);
             bottlereceivenum++;
           }
@@ -998,6 +1046,12 @@ if(data.label == 'book'){
             yyy =beary;
             bear.position(xxx, yyy);
             bear.size(3*data.w, 3*data.w);
+            if(filterOn){
+              bearsound.disconnect();
+              bearsound.connect(filter);}
+            else{
+              bearsound.disconnect(filter);
+              bearsound.connect();}
             bearsound.setVolume(1);
             bearreceivenum++;
   }
@@ -1027,7 +1081,13 @@ if(data.label == 'book'){
             yyy =scissory;
             scissor.position(xxx, yyy);
             scissor.size(3*data.w, 3*data.w);
-            scissorsound.setVolume(1);
+            if(filterOn){
+              scissorsound.disconnect();
+              scissorsound.connect(filter);}
+            else{
+              scissorsound.disconnect(filter);
+              scissorsound.connect();}
+        scissorsound.setVolume(1);
             scissorreceivenum++;
   }
 
