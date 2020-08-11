@@ -12,15 +12,15 @@ var objectBtnState = false;
 var isPlaying = false;
 var playButtonState = false;
 var input;
-let rphone;
+let rphone, rbear, rbottle, rtoothbrush, rcup;
 
 let detector, detections;
 let kitty, phonesound, phone, bearsound, bear, cupsound, cup, bottlesound, bottle, booksound, book, plantsound, plant, toothbrush, toothbrushsound, scissor, scissorsound;
 let phonesounds=[];
-// let cupsounds =[];
-// let bottlesounds =[];
-// let bearsounds =[];
-// let toothbrushsounds=[];
+let cupsounds =[];
+let bottlesounds =[];
+let bearsounds =[];
+let toothbrushsounds=[];
 let time = 0;
 let phonenumber = 0;
 let socket;
@@ -73,23 +73,23 @@ function preload() {
   phonesounds[0] = loadSound("audios/piano.wav");
   phonesounds[1] = loadSound("audios/piano2.wav");
   phonesounds[2] = loadSound("audios/piano3.wav");
-  bearsound = loadSound("audios/guitar.wav");
-  // bearsounds[0] = loadSound("audios/guitar.wav");
-  // bearsounds[1] = loadSound("audios/guitar2.wav");
-  // bearsounds[2] = loadSound("audios/guitar3.wav");
-  cupsound = loadSound("audios/drums.wav");
-  // cupsounds[0] = loadSound("audios/drums.wav");
-  // cupsounds[1] = loadSound("audios/drums2.wav");
-  // cupsounds[2] = loadSound("audios/drums3.wav");
-  bottlesound = loadSound("audios/recorder.wav");
-  // bottlesounds[0] = loadSound("audios/recorder.wav");
-  // bottlesounds[1] = loadSound("audios/sax2.wav");
-  // bottlesounds[2] = loadSound("audios/sax3.wav");
+//  bearsound = loadSound("audios/guitar.wav");
+  bearsounds[0] = loadSound("audios/guitar.wav");
+  bearsounds[1] = loadSound("audios/guitar2.wav");
+  bearsounds[2] = loadSound("audios/guitar3.wav");
+  // cupsound = loadSound("audios/drums.wav");
+  cupsounds[0] = loadSound("audios/drums.wav");
+  cupsounds[1] = loadSound("audios/drums2.wav");
+  cupsounds[2] = loadSound("audios/drums3.wav");
+//  bottlesound = loadSound("audios/recorder.wav");
+  bottlesounds[0] = loadSound("audios/recorder.wav");
+  bottlesounds[1] = loadSound("audios/sax2.wav");
+  bottlesounds[2] = loadSound("audios/sax3.wav");
   plantsound = loadSound("audios/birds.wav");
-  toothbrushsound = loadSound("audios/bass1.wav");
-  // toothbrushsounds[0] = loadSound("audios/bass1.wav");
-  // toothbrushsounds[1] = loadSound("audios/bass2.wav");
-  // toothbrushsounds[2] = loadSound("audios/bass3.wav");
+//  toothbrushsound = loadSound("audios/bass1.wav");
+  toothbrushsounds[0] = loadSound("audios/bass1.wav");
+  toothbrushsounds[1] = loadSound("audios/bass2.wav");
+  toothbrushsounds[2] = loadSound("audios/bass3.wav");
   scissorsound = loadSound("audios/cow.wav");
 
   // phonesound = loadSound("audios/Phone.mp3");
@@ -181,15 +181,15 @@ function setup() {
  recorder.setInput(mic);   
  soundofBook = new p5.SoundFile();  
  phonesound = new p5.SoundFile();  
-//  bearsound = new p5.SoundFile();  
-//  cupsound = new p5.SoundFile();  
-//  bottlesound = new p5.SoundFile();  
-//  toothbrushsound = new p5.SoundFile();  
+ bearsound = new p5.SoundFile();  
+ cupsound = new p5.SoundFile();  
+ bottlesound = new p5.SoundFile();  
+ toothbrushsound = new p5.SoundFile();  
  phonesound = phonesounds[0];
-//  bearsound = bearsounds[0];
-//  cupsound = cupsounds[0];
-//  bottlesound = bottlesounds[0];
-//  toothbrushsound = toothbrushsounds[0];
+ bearsound = bearsounds[0];
+ cupsound = cupsounds[0];
+ bottlesound = bottlesounds[0];
+ toothbrushsound = toothbrushsounds[0];
 // remoteSoundofBook = new p5.SoundFile();  
 //  recordButton = createButton('Book Sound Rec');
 //  recordButton.position(500,710);
@@ -244,8 +244,7 @@ function setup() {
   //visual metronome
   reddot = document.getElementById("reddot")
   
-  
-  
+  rphone=rbear=rbottle=rcup=rtoothbrush=0;  
 }
 
 function draw() {
@@ -470,15 +469,33 @@ rect(0,750,600,60);
   if(bearreceivenum==preprebearreceivenum){
     bearsound.setVolume(0);
     bear.position(8000, 8000);
-  }
+    bearnumber++;
+    if(bearnumber%5==0){
+      rbear = floor(random(3));
+      bearsound = bearsounds[rphone];
+      }
+    }
+
   if(cupreceivenum==preprecupreceivenum){
     cupsound.setVolume(0);
     cup.position(8000, 8000);
+    cupnumber++;
+    if(cupnumber%5==0){
+      rcup = floor(random(3));
+      cupsound = cupsounds[rphone];
+      }
   }
+
   if(bottlereceivenum==preprebottlereceivenum){
     bottlesound.setVolume(0);
     bottle.position(8000, 8000);
+    bottlenumber++;
+    if(bottlenumber%5==0){
+      rbottle = floor(random(3));
+      bottlesound = bottlesounds[rphone];
+      }
   }
+
   if(bookreceivenum==prepreprebookreceivenum){
     //booksound.setVolume(0);
     // if(soundofBook){
@@ -499,7 +516,13 @@ rect(0,750,600,60);
   if(toothbrushreceivenum==prepretoothbrushreceivenum){
     toothbrushsound.setVolume(0);
     toothbrush.position(8000, 8000);  
+    toothbrushnumber++;
+    if(toothbrushnumber%5==0){
+      rtoothbrush = floor(random(3));
+      toothbrushsound = toothbrushsounds[rphone];
+      }
   }
+
   if(scissorreceivenum==preprescissorreceivenum){
     scissorsound.setVolume(0);
     scissor.position(8000, 8000);  
@@ -539,24 +562,40 @@ function switchMusic(){
   if(switchState){
     rphone = floor(random(3));
     phonesound = phonesounds[rphone];
-
-    bearsound.loop();
-    bearsound.setVolume(0);
-    // phonesound.loop();
-    // phonesound.setVolume(0);
+    rbear = floor(random(3));
+    bearsound = bearsounds[rphone];
+    rbottle = floor(random(3));
+    bottlesound = bottlesounds[rphone];
+    rcup = floor(random(3));
+    cupsound = cupsounds[rphone];
+    rtoothbrush = floor(random(3));
+    toothbrushsound = toothbrushsounds[rphone];
     
     for(let i=0;i<3;i++){
-    phonesounds[i].loop();
-    phonesounds[i].setVolume(0);
+      phonesounds[i].loop();
+      phonesounds[i].setVolume(0);
+      cupsounds[i].loop();
+      cupsounds[i].setVolume(0);
+      bearsounds[i].loop();
+      bearsounds[i].setVolume(0);
+      bottlesounds[i].loop();
+      bottlesounds[i].setVolume(0);
+      toothbrushsounds[i].loop();
+      toothbrushsounds[i].setVolume(0);
     }
-    cupsound.loop();
-    cupsound.setVolume(0);
-    bottlesound.loop();
-    bottlesound.setVolume(0);
-    plantsound.loop();
-    plantsound.setVolume(0);
-    toothbrushsound.loop();
-    toothbrushsound.setVolume(0);
+
+    // phonesound.loop();
+    // phonesound.setVolume(0);
+    // cupsound.loop();
+    // cupsound.setVolume(0);
+    // bearsound.loop();
+    // bearsound.setVolume(0);
+    // bottlesound.loop();
+    // bottlesound.setVolume(0);
+    // plantsound.loop();
+    // plantsound.setVolume(0);
+    // toothbrushsound.loop();
+    // toothbrushsound.setVolume(0);
     scissorsound.loop();
     scissorsound.setVolume(0);
     // booksound.loop();
@@ -739,7 +778,6 @@ function reply_click(clicked_id)
 // function newDrawing(data){
 //   // if(data.label == 'person'){
 //   //   image(kitty, 800-data.x*20, data.y*3+200, data.w, data.h);}
-//   let xxx,yyy;
 
 //           fill(0);
 //           stroke(0);
@@ -751,7 +789,8 @@ function reply_click(clicked_id)
 // }
 
 function newDrawing(data){
-          if(data.label == 'book'){
+   let xxx,yyy;
+if(data.label == 'book'){
                 xxx =bookx;
                 yyy =booky;
                 book.position(xxx, yyy);
