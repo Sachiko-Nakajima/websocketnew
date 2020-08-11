@@ -12,6 +12,7 @@ var objectBtnState = false;
 var isPlaying = false;
 var playButtonState = false;
 var input;
+let rphone;
 
 let detector, detections;
 let kitty, phonesound, phone, bearsound, bear, cupsound, cup, bottlesound, bottle, booksound, book, plantsound, plant, toothbrush, toothbrushsound, scissor, scissorsound;
@@ -21,6 +22,7 @@ let phonesounds=[];
 // let bearsounds =[];
 // let toothbrushsounds=[];
 let time = 0;
+let phonenumber = 0;
 let socket;
 //let font1_shadow; let cam_y =-220;
 let name;
@@ -101,13 +103,13 @@ function preload() {
   //booksound = loadSound("audios/meow.wav");
   kitty = loadImage("images/kitty.jpeg");
   phone = createImg("images/phonegif.gif");
-  bear = loadImage("images/bear.png");
+  bear = createImg("images/bear.gif");
   cup = createImg("images/cupgif.gif");
   bottle = createImg("images/bottlegif.gif");
-  book = loadImage('images/book.png');
-  plant = loadImage('images/plant.png');
-  toothbrush = loadImage('images/toothbrush.png');
-  scissor = loadImage('images/scissors.png');
+  book = createImg('images/book.gif');
+  plant = createImg('images/plant.gif');
+  toothbrush = createImg('images/toothbrush.gif');
+  scissor = createImg('images/scissors.gif');
 }
 
 function setup() {
@@ -188,22 +190,22 @@ function setup() {
 //  recordButton.position(500,710);
 //  recordButton.size(150,30);
 
- bearx = random(600)+150;
- beary = random(300);
- phonex = random(600)+150;
- phoney = random(300);
- cupx = random(600)+150;
- cupy = random(300);
- bottlex = random(600)+150;
- bottley = random(300);
- bookx = random(600)+150;
- booky = random(300); 
- plantx = random(600)+150;
- planty = random(300); 
- toothbrushx = random(600)+150;
- toothbrushy = random(300); 
- scissorx = random(600)+150;
- scissory = random(300); 
+    bearx = random(300)+300;
+    beary = random(200)+100;
+    phonex = random(600)+300;
+    phoney = random(400)+100;
+    cupx = random(600)+300;
+    cupy = random(400)+100;
+    bottlex = random(600)+300;
+    bottley = random(400)+100;
+    bookx = random(600)+300;
+    booky = random(400)+100;
+    plantx = random(600)+300;
+    planty = random(400)+100; 
+    toothbrushx = random(600)+300;
+    toothbrushy = random(400)+100; 
+    scissorx = random(600)+300;
+    scissory = random(400)+100; 
   
   //getting all the HTML elements for Start/Stop Music Switch
   faderSection = document.getElementById("switch");
@@ -356,8 +358,7 @@ rect(0,750,600,60);
   //object selection button click
   objectBtn.onclick = objectListPop;
   
-    socket.on('detected', newDrawing);
-    socket.on('detectedgif', newDrawing2);
+    socket.on('detectedgif', newDrawing);
 
  // ***********the blobs converted back to sound file, listen to server 
    socket.on('recordedSent', (blobArrayBuffer) => {
@@ -425,22 +426,19 @@ rect(0,750,600,60);
   if (camState){
     if (detections) {
     detections.forEach(detection => {
-      if(detection.label != "cup" && detection.label != "cell phone" && detection.label != "bottle" ){
-        var data = {
-      label: detection.label, 
-      name: input.value(),
-      //  r: colorr,
-      //  g: colorg,
-      //  b: colorb,
-      //  x: detection.x,
-      //  y: detection.y,
-       w: detection.width,
-       h: detection.height
-      }
-      socket.emit('detected', data);     
-    }
+    //   if(detection.label != "cup" && detection.label != "cell phone" && detection.label != "bottle" ){
+    //     var data = {
+    //   label: detection.label, 
+    //   name: input.value(),
+    //   //  x: detection.x,
+    //   //  y: detection.y,
+    //    w: detection.width,
+    //    h: detection.height
+    //   }
+    //   socket.emit('detected', data);     
+    // }
 
-      if(detection.label == "cup" || detection.label == "cell phone" || detection.label == "bottle"){
+//      if(detection.label == "cup" || detection.label == "cell phone" || detection.label == "bottle"){
       var datagif = {
       label: detection.label, 
       name: input.value(),
@@ -450,7 +448,7 @@ rect(0,750,600,60);
        h: detection.height
       }
       socket.emit('detectedgif', datagif);     
-    }
+//    }
   })
   }
   }
@@ -458,6 +456,11 @@ rect(0,750,600,60);
   if(phonereceivenum==preprephonereceivenum){
     phonesound.setVolume(0);
     phone.position(8000, 8000);
+    phonenumber++;
+    if(phonenumber%5==0){
+    rphone = floor(random(3));
+    phonesound = phonesounds[rphone];
+    }
   }
   if(bearreceivenum==preprebearreceivenum){
     bearsound.setVolume(0);
@@ -527,13 +530,13 @@ function switchMusic(){
 
     bearsound.loop();
     bearsound.setVolume(0);
-    phonesound.loop();
-    phonesound.setVolume(0);
+    // phonesound.loop();
+    // phonesound.setVolume(0);
     
-    // for(let i=0;i<3;i++){
-    // phonesounds[i].loop();
-    // phonesounds[i].setVolume(0);
-    // }
+    for(let i=0;i<3;i++){
+    phonesounds[i].loop();
+    phonesounds[i].setVolume(0);
+    }
     cupsound.loop();
     cupsound.setVolume(0);
     bottlesound.loop();
@@ -557,22 +560,22 @@ function switchMusic(){
     }
     console.log("remote Sound has started!");
   }
-    bearx = random(600)+150;
-    beary = random(300);
-    phonex = random(600)+150;
-    phoney = random(300);
-    cupx = random(600)+150;
-    cupy = random(300);
-    bottlex = random(600)+150;
-    bottley = random(300);
-    bookx = random(600)+150;
-    booky = random(300);
-    plantx = random(600)+150;
-    planty = random(300); 
-    toothbrushx = random(600)+150;
-    toothbrushy = random(300); 
-    scissorx = random(600)+150;
-    scissory = random(300); 
+    bearx = random(300)+300;
+    beary = random(200)+100;
+    phonex = random(600)+300;
+    phoney = random(400)+100;
+    cupx = random(600)+300;
+    cupy = random(400)+100;
+    bottlex = random(600)+300;
+    bottley = random(400)+100;
+    bookx = random(600)+300;
+    booky = random(400)+100;
+    plantx = random(600)+300;
+    planty = random(400)+100; 
+    toothbrushx = random(600)+300;
+    toothbrushy = random(400)+100; 
+    scissorx = random(600)+300;
+    scissory = random(400)+100; 
   }
   else{
     bearsound.stop();
@@ -721,113 +724,52 @@ function reply_click(clicked_id)
 }
 
 
-function newDrawing(data){
-  // if(data.label == 'person'){
-  //   image(kitty, 800-data.x*20, data.y*3+200, data.w, data.h);}
-  let xxx,yyy;
-//   if(data.label == 'cell phone'){
-// if(time%3==0){      
-//   image(phone, phonex, phoney, 2*data.w, 2*data.h);
+// function newDrawing(data){
+//   // if(data.label == 'person'){
+//   //   image(kitty, 800-data.x*20, data.y*3+200, data.w, data.h);}
+//   let xxx,yyy;
+
+//           fill(0);
+//           stroke(0);
+//           strokeWeight(0.8);
+//           textSize(18);
+
+//       text(data.name, xxx + data.w/2, yyy+data.h/2);
+//       text(data.label, xxx + 10, yyy-10);
 // }
-//         phonesound.setVolume(1);
-//         phonereceivenum++;
-//         xxx = phonex;
-//         yyy = phoney;      
-//       }
-  if(data.label == 'teddy bear'){
-//      image(bear, 800-data.x*4, data.y*3+200, data.w, data.h);
-      image(bear, bearx, beary, 4*data.w, 4*data.h);
-      bearsound.setVolume(1);
-      bearreceivenum++;
-      xxx = bearx;
-      yyy = beary;      
-  }
 
-  if(data.label == 'potted plant'){
-          image(plant, plantx, planty, 6*data.w, 6*data.w);
-          plantsound.setVolume(1);
-          plantreceivenum++;
-          xxx = plantx;
-          yyy = planty;      
-      }
-    
-      if(data.label == 'toothbrush'){
-        image(toothbrush, toothbrushx, toothbrushy, 3*data.w, 3*data.w);
-        toothbrushsound.setVolume(1);
-        toothbrushreceivenum++;
-        xxx = toothbrushx;
-        yyy = toothbrushy;      
-    }
-    if(data.label == 'scissors'){
-      image(scissor, scissorx, scissory, 3*data.w, 3*data.w);
-      scissorsound.setVolume(1);
-      scissorreceivenum++;
-      xxx = scissorx;
-      yyy = scissory;      
-  }
-
-//   if(data.label == 'cup'){
-// //      image(cup, 800-data.x*4, data.y*3+200, data.w, data.h);
-// //if(time%3==0){ 
-//   xxx = map(data.x,0,1200,300,900);
-//   xxx = map(data.y,0,1000,50,300);
-//   cup.position(data.x, data.y);
-//   //image(cup, cupx, cupy,data.w,data.h);
-// //}
-//         cupsound.setVolume(1);
-//         cupreceivenum++;
-//         xxx = cupx;
-//         yyy = cupy;      
-//       }
-
-  // if(data.label == 'bottle'){
-  //   image(bottle, bottlex, bottley, 2*data.w, 2*data.h);
-  //   //image(bottle, 800-data.x*4, data.y*3+200, data.w, data.h);
-  //         bottlesound.setVolume(1);
-  //         bottlereceivenum++;
-  //         xxx = bottlex;
-  //         yyy = bottley;      
-  //         }
-
-        if(data.label == 'book'){
-//          image(book, 800-data.x*4, data.y*3+200, data.w, data.h);
-image(book, bookx, booky, data.w, data.h);
-// //booksound.setVolume(1);
-if(soundFileState){
+function newDrawing(data){
+          if(data.label == 'book'){
+                xxx =bookx;
+                yyy =booky;
+                book.position(xxx, yyy);
+                book.size(3*data.w, 3*data.w);
+            if(soundFileState){
   if (remoteSoundofBook!=null){
   remoteSoundofBook.volume(1); //recording 
-} 
-}
-          bookreceivenum++;
-          xxx = bookx;
-          yyy = booky;      
+  }
             }
-          fill(0);
-          stroke(0);
-          strokeWeight(0.8);
-          textSize(18);
-
-      text(data.name, xxx + data.w/2, yyy+data.h/2);
-      text(data.label, xxx + 10, yyy-10);
-}
-
-function newDrawing2(data){
+        bookreceivenum++;
+        console.log(xxx, yyy);
+            }
       if(data.label == 'cell phone'){
                 xxx =phonex;
                 yyy =phoney;
                 phone.position(xxx, yyy);
                 phone.size(3*data.w, 3*data.w);
                 phonesound.setVolume(1);
-                phonereceivenum++;
+        phonereceivenum++;
+        console.log(xxx, yyy);
               }
         
       if(data.label == "cup"){
-            xxx =cupx;
+            xxx =cupx+200;
             yyy =cupy;
             cup.position(xxx, yyy);
             cup.size(3*data.w, 3*data.w);
             cupsound.setVolume(1);
             cupreceivenum++;
+        console.log(xxx, yyy);
           }
 
       if(data.label == "bottle"){
@@ -837,14 +779,56 @@ function newDrawing2(data){
             bottle.size(3*data.w, 3*data.w);
             bottlesound.setVolume(1);
             bottlereceivenum++;
+                console.log(xxx, yyy);
           }
+      if(data.label == 'teddy bear'){
+            xxx =bearx;
+            yyy =beary;
+            bear.position(xxx, yyy);
+            baer.size(3*data.w, 3*data.w);
+            bearsound.setVolume(1);
+            bearreceivenum++;
+                console.log(xxx, yyy);
+  }
 
+  if(data.label == 'potted plant'){
+            xxx =plantx;
+            yyy =planty;
+            plant.position(xxx, yyy);
+            plant.size(3*data.w, 3*data.w);
+            plantsound.setVolume(1);
+            plantreceivenum++;
+                console.log(xxx, yyy);
+      }
+  
+  
+    
+      if(data.label == 'toothbrush'){
+            xxx =toothbrushx;
+            yyy =toothbrushy;
+            toothbrush.position(xxx, yyy);
+            toothbrush.size(3*data.w, 3*data.w);
+            toothbrushsound.setVolume(1);
+            toothbrushreceivenum++;
+                console.log(xxx, yyy);
+    }
+    if(data.label == 'scissors'){
+            xxx =scissorx;
+            yyy =scissory;
+            scissor.position(xxx, yyy);
+            scissor.size(3*data.w, 3*data.w);
+            scissorsound.setVolume(1);
+            scissorreceivenum++;
+                console.log(xxx, yyy);
+  }
+  
+  
           fill(0);
           stroke(0);
           strokeWeight(0.8);
           textSize(18);
-      text(data.name, xxx-100, yyy+50);
-      text(data.label, xxx + 30-100, yyy-30+50);
+      text(data.name, xxx-180, yyy+50);
+      text(data.label, xxx + 30-180, yyy-30+50);
 }
 
 function modelReady() {
