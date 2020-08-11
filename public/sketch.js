@@ -100,7 +100,7 @@ function preload() {
 //  bearsound = loadSound("audios/guitar.wav");
   bearsounds[0] = loadSound("audios/guitar0.wav");
   bearsounds[1] = loadSound("audios/guitar1.wav");
-  bearsounds[2] = loadSound("audios/guitar2.wav");
+  bearsounds[2] = loadSound("audios/guitar22.wav");
   // cupsound = loadSound("audios/drums.wav");
   cupsounds[0] = loadSound("audios/drums0.wav");
   cupsounds[1] = loadSound("audios/drums1.wav");
