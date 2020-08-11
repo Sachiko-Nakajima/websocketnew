@@ -234,8 +234,8 @@ function setup() {
  bottlesound = bottlesounds[0];
  toothbrushsound = toothbrushsounds[0];
  scissorsound = cupsounds[0];
- applesound = cupsounds[0];
- plantsound = cupsounds[0];
+ applesound = applesounds[0];
+ plantsound = plantsounds[0];
 // remoteSoundofBook = new p5.SoundFile();  
 //  recordButton = createButton('Book Sound Rec');
 //  recordButton.position(500,710);
