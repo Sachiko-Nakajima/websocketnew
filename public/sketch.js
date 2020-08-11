@@ -558,7 +558,6 @@ rect(0,750,600,60);
   }
   if(bearreceivenum==preprebearreceivenum){
     bearsound.setVolume(0);
-    bearsound.disconnect();
     bear.position(8000, 8000);
     bearnumber++;
     if(bearnumber%5==0){
@@ -571,7 +570,6 @@ rect(0,750,600,60);
 
   if(cupreceivenum==prepreprecupreceivenum){
     cupsound.setVolume(0);
-    cupsound.disconnect();
     cup.position(8000, 8000);
     cupnumber++;
     if(cupnumber%5==0){
@@ -584,7 +582,6 @@ rect(0,750,600,60);
 
   if(bottlereceivenum==preprebottlereceivenum){
     bottlesound.setVolume(0);
-    bottlesound.disconnect();
     bottle.position(8000, 8000);
     bottlenumber++;
     if(bottlenumber%5==0){
@@ -633,7 +630,6 @@ rect(0,750,600,60);
 
   if(scissorreceivenum==preprescissorreceivenum){
     scissorsound.setVolume(0);
-    scissorsound.disconnect();
     scissor.position(8000, 8000);  
     scissornumber++;
     if(scissornumber%5==0){
