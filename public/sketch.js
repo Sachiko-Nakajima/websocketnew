@@ -111,7 +111,7 @@ function preload() {
   // bottlesounds[1] = loadSound("audios/sax1.wav");
 //  bottlesounds[2] = loadSound("audios/sax2.wav");
 
-plantsound = loadSound("audios/nature0.wav");
+plantsound = loadSound("audios/nature0.mp3");
 // plantsounds[0] = loadSound("audios/nature0.mp3");
 // plantsounds[1] = loadSound("audios/nature1.mp3");
 //plantsounds[2] = loadSound("audios/nature2.wav");
