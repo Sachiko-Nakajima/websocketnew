@@ -16,14 +16,14 @@ let rphone, rbear, rbottle, rtoothbrush, rcup;
 
 let detector, detections;
 let kitty, phonesound, phone, bearsound, bear, cupsound, cup, bottlesound, bottle, booksound, book, plantsound, plant, toothbrush, toothbrushsound, scissor, scissorsound, apple, applesound;
-// let phonesounds=[];
-// let cupsounds =[];
-// let bottlesounds =[];
-// let bearsounds =[];
-// let toothbrushsounds=[];
-// let scissorsounds=[];
-// let applesounds=[];
-// let plantsounds=[];
+let phonesounds=[];
+let cupsounds =[];
+let bottlesounds =[];
+let bearsounds =[];
+let toothbrushsounds=[];
+let scissorsounds=[];
+let applesounds=[];
+let plantsounds=[];
 let time = 0;
 let phonenumber = 0;
 let bearnumber = 0;
@@ -94,39 +94,39 @@ let efxState = false;
 
 function preload() {
   soundFormats('mp3', 'ogg', 'wav');
-  phonesound = loadSound("audios/piano0.wav");
-  // phonesounds[0] = loadSound("audios/piano0.wav");
+  // phonesound = loadSound("audios/piano0.wav");
+  phonesounds[0] = loadSound("audios/piano0.wav");
   // phonesounds[1] = loadSound("audios/piano1.wav");
 //  phonesounds[2] = loadSound("audios/piano2.wav");
-  bearsound = loadSound("audios/guitar0.wav");
-  // bearsounds[0] = loadSound("audios/guitar0.wav");
+  // bearsound = loadSound("audios/guitar0.wav");
+  bearsounds[0] = loadSound("audios/guitar0.wav");
   // bearsounds[1] = loadSound("audios/guitar1.wav");
 //  bearsounds[2] = loadSound("audios/guitar22.wav");
-  cupsound = loadSound("audios/drums0.wav");
-  // cupsounds[0] = loadSound("audios/drums0.wav");
+  // cupsound = loadSound("audios/drums0.wav");
+  cupsounds[0] = loadSound("audios/drums0.wav");
   // cupsounds[1] = loadSound("audios/drums1.wav");
 //  cupsounds[2] = loadSound("audios/drums2.wav");
-  bottlesound = loadSound("audios/recorder.wav");
-  // bottlesounds[0] = loadSound("audios/recorder.wav");
+  // bottlesound = loadSound("audios/recorder.wav");
+  bottlesounds[0] = loadSound("audios/recorder.wav");
   // bottlesounds[1] = loadSound("audios/sax1.wav");
 //  bottlesounds[2] = loadSound("audios/sax2.wav");
 
-plantsound = loadSound("audios/nature0.mp3");
-// plantsounds[0] = loadSound("audios/nature0.mp3");
+// plantsound = loadSound("audios/nature0.mp3");
+plantsounds[0] = loadSound("audios/nature0.mp3");
 // plantsounds[1] = loadSound("audios/nature1.mp3");
 //plantsounds[2] = loadSound("audios/nature2.wav");
 
-toothbrushsound = loadSound("audios/animal0.wav");
-// toothbrushsounds[0] = loadSound("audios/animal0.wav");
+// toothbrushsound = loadSound("audios/animal0.wav");
+toothbrushsounds[0] = loadSound("audios/animal0.wav");
 // toothbrushsounds[1] = loadSound("audios/animal1.wav");
 //  toothbrushsounds[2] = loadSound("audios/animal2.mp3");
-  scissorsound = loadSound("audios/bass1.wav");
-  // scissorsounds[0] = loadSound("audios/bass0.wav");
+  // scissorsound = loadSound("audios/bass1.wav");
+  scissorsounds[0] = loadSound("audios/bass0.wav");
   // scissorsounds[1] = loadSound("audios/bass1.wav");
 //  scissorsounds[2] = loadSound("audios/bass2.wav");
 
-applesound = loadSound("audios/vib0.wav");
-// applesounds[0] = loadSound("audios/vib0.wav");
+// applesound = loadSound("audios/vib0.wav");
+applesounds[0] = loadSound("audios/vib0.wav");
 //   applesounds[1] = loadSound("audios/vib1.wav");
 //  applesounds[2] = loadSound("audios/vib2.wav");
 
@@ -221,23 +221,23 @@ function setup() {
  recorder.setInput(mic);   
  soundofBook = new p5.SoundFile();  
  
-//  phonesound = new p5.SoundFile();  
-//  bearsound = new p5.SoundFile();  
-//  cupsound = new p5.SoundFile();  
-//  bottlesound = new p5.SoundFile();  
-//  toothbrushsound = new p5.SoundFile();  
-//  scissorsound = new p5.SoundFile();  
-//  applesound = new p5.SoundFile();  
-//  plantsound = new p5.SoundFile();  
+ phonesound = new p5.SoundFile();  
+ bearsound = new p5.SoundFile();  
+ cupsound = new p5.SoundFile();  
+ bottlesound = new p5.SoundFile();  
+ toothbrushsound = new p5.SoundFile();  
+ scissorsound = new p5.SoundFile();  
+ applesound = new p5.SoundFile();  
+ plantsound = new p5.SoundFile();  
 
-//  phonesound = phonesounds[0];
-//  bearsound = bearsounds[0];
-//  cupsound = cupsounds[0];
-//  bottlesound = bottlesounds[0];
-//  toothbrushsound = toothbrushsounds[0];
-//  scissorsound = cupsounds[0];
-//  applesound = applesounds[0];
-//  plantsound = plantsounds[0];
+ phonesound = phonesounds[0];
+ bearsound = bearsounds[0];
+ cupsound = cupsounds[0];
+ bottlesound = bottlesounds[0];
+ toothbrushsound = toothbrushsounds[0];
+ scissorsound = cupsounds[0];
+ applesound = applesounds[0];
+ plantsound = plantsounds[0];
 // remoteSoundofBook = new p5.SoundFile();  
 //  recordButton = createButton('Book Sound Rec');
 //  recordButton.position(500,710);
@@ -711,41 +711,41 @@ function switchMusic(){
     // rplant = floor(random(2));
     // plantsound = plantsounds[rplant];
     
-    // for(let i=0;i<2;i++){
-    //   phonesounds[i].loop();
-    //   phonesounds[i].setVolume(0);
-    //   cupsounds[i].loop();
-    //   cupsounds[i].setVolume(0);
-    //   bearsounds[i].loop();
-    //   bearsounds[i].setVolume(0);
-    //   bottlesounds[i].loop();
-    //   bottlesounds[i].setVolume(0);
-    //   toothbrushsounds[i].loop();
-    //   toothbrushsounds[i].setVolume(0);
-    //   scissorsounds[i].loop();
-    //   scissorsounds[i].setVolume(0);
-    //   applesounds[i].loop();
-    //   applesounds[i].setVolume(0);
-    //   plantsounds[i].loop();
-    //   plantsounds[i].setVolume(0);
-    // }
+    for(let i=0;i<1;i++){
+      phonesounds[i].loop();
+      phonesounds[i].setVolume(0);
+      cupsounds[i].loop();
+      cupsounds[i].setVolume(0);
+      bearsounds[i].loop();
+      bearsounds[i].setVolume(0);
+      bottlesounds[i].loop();
+      bottlesounds[i].setVolume(0);
+      toothbrushsounds[i].loop();
+      toothbrushsounds[i].setVolume(0);
+      scissorsounds[i].loop();
+      scissorsounds[i].setVolume(0);
+      applesounds[i].loop();
+      applesounds[i].setVolume(0);
+      plantsounds[i].loop();
+      plantsounds[i].setVolume(0);
+    }
 
-      phonesound.loop();
-      phonesound.setVolume(0.3);
-      cupsound.loop();
-      cupsound.setVolume(0);
-      bearsound.loop();
-      bearsound.setVolume(0);
-      bottlesound.loop();
-      bottlesound.setVolume(0);
-      toothbrushsound.loop();
-      toothbrushsound.setVolume(0);
-      scissorsound.loop();
-      scissorsound.setVolume(0);
-      applesound.loop();
-      applesound.setVolume(0);
-      plantsound.loop();
-      plantsound.setVolume(0);
+      // phonesound.loop();
+      // phonesound.setVolume(0.3);
+      // cupsound.loop();
+      // cupsound.setVolume(0);
+      // bearsound.loop();
+      // bearsound.setVolume(0);
+      // bottlesound.loop();
+      // bottlesound.setVolume(0);
+      // toothbrushsound.loop();
+      // toothbrushsound.setVolume(0);
+      // scissorsound.loop();
+      // scissorsound.setVolume(0);
+      // applesound.loop();
+      // applesound.setVolume(0);
+      // plantsound.loop();
+      // plantsound.setVolume(0);
 
     // for(let i=0;i<2;i++){
       if (filterOn) {
@@ -839,7 +839,8 @@ function switchMusic(){
     scissory = random(400)+100;     
     applex = random(600)+300;
     appley = random(400)+100; 
-
+}
+else{
     bearsound.stop();
     phonesound.stop();
     cupsound.stop();
