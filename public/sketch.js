@@ -731,7 +731,7 @@ function switchMusic(){
     // }
 
       phonesound.loop();
-      phonesound.setVolume(0);
+      phonesound.setVolume(0.3);
       cupsound.loop();
       cupsound.setVolume(0);
       bearsound.loop();
