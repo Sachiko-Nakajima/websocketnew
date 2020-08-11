@@ -75,11 +75,11 @@ function preload() {
   // bearsounds[0] = loadSound("audios/guitar.wav");
   // bearsounds[1] = loadSound("audios/guitar2.wav");
   // bearsounds[2] = loadSound("audios/guitar3.wav");
-  cupsound[0] = loadSound("audios/drums.wav");
+  cupsound = loadSound("audios/drums.wav");
   // cupsounds[0] = loadSound("audios/drums.wav");
   // cupsounds[1] = loadSound("audios/drums2.wav");
   // cupsounds[2] = loadSound("audios/drums3.wav");
-  bottlesound[0] = loadSound("audios/recorder.wav");
+  bottlesound = loadSound("audios/recorder.wav");
   // bottlesounds[0] = loadSound("audios/recorder.wav");
   // bottlesounds[1] = loadSound("audios/sax2.wav");
   // bottlesounds[2] = loadSound("audios/sax3.wav");
@@ -120,7 +120,7 @@ function setup() {
   fill(239, 220, 187);
   strokeWeight(10)
   rect(width/2,height/2-108,1010,544)
-  cup.position(8000, 8000)
+  cup.position(8000, 8000);
   phone.position(8000, 8000);
   bottle.position(8000, 8000);
 
