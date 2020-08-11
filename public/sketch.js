@@ -548,8 +548,7 @@ rect(0,750,600,60);
   }
 //if(switchState){
   if(phonereceivenum==preprephonereceivenum){
-    phonesound.setVolume(0);
-    
+    phonesound.setVolume(0);    
     phone.position(8000, 8000);
     phonenumber++;
     if(phonenumber%5==0){
@@ -747,7 +746,6 @@ function switchMusic(){
       applesound.setVolume(0);
       plantsound.loop();
       plantsound.setVolume(0);
-    }
 
     // for(let i=0;i<2;i++){
       if (filterOn) {
@@ -855,10 +853,10 @@ if(soundFileState){
   if (remoteSoundofBook!=null){
       remoteSoundofBook.stop(); 
       console.log("remote Sound has stopped!");
+        }
+      }
     }
   }
-}
-
 
 
 function record() {
@@ -1054,12 +1052,12 @@ if(data.label == 'book'){
             yyy =bottley;
             bottle.position(xxx, yyy);
             bottle.size(3*data.w, 3*data.w);
-            if(filterOn){
-              bottlesound.disconnect();
-              bottlesound.connect(filter);}
-            else{
-              bottlesound.disconnect(filter);
-              bottlesound.connect();}
+            // if(filterOn){
+            //   bottlesound.disconnect();
+            //   bottlesound.connect(filter);}
+            // else{
+            //   bottlesound.disconnect(filter);
+            //   bottlesound.connect();}
             bottlesound.setVolume(1);
             bottlereceivenum++;
           }
