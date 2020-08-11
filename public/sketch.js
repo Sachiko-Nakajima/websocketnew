@@ -815,7 +815,7 @@ if(data.label == 'book'){
               }
         
       if(data.label == "cup"){
-            xxx =cupx+200;
+            xxx =cupx-200;
             yyy =cupy;
             cup.position(xxx, yyy);
             cup.size(3*data.w, 3*data.w);
@@ -835,7 +835,7 @@ if(data.label == 'book'){
             xxx =bearx;
             yyy =beary;
             bear.position(xxx, yyy);
-            baer.size(3*data.w, 3*data.w);
+            bear.size(3*data.w, 3*data.w);
             bearsound.setVolume(1);
             bearreceivenum++;
   }
