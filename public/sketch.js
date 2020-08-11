@@ -793,7 +793,7 @@ function switchMusic(){
       bearsound.disconnect(filter);
       bearsound.connect();
     }
-  }
+
   
 
     // phonesound.loop();
@@ -857,7 +857,6 @@ if(soundFileState){
       console.log("remote Sound has stopped!");
     }
   }
-}
 }
 
 
