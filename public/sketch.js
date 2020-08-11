@@ -310,7 +310,7 @@ function setup() {
 
 function filterToggle() {
   filterOn = !filterOn;
-  if (filterOn == true) {
+  if (filterOn) {
     // efxButton.style('top','400px');
     // efxButton.style('left','400px');
     efxArrow.style.animation = "efxOn_inside 1s forwards ease-in-out";
@@ -321,6 +321,12 @@ function filterToggle() {
     cupsound.connect(filter);
     phonesound.disconnect();
     phonesound.connect(filter);
+    bottlesound.disconnect();
+    bottlesound.connect(filter);
+    scissorsound.disconnect();
+    scissorsound.connect(filter);
+    bearsound.disconnect();
+    bearsound.connect(filter);
   }else{
       efxArrow.style.animation = "efxOn_inside_off 1s forwards ease-in-out";
       efxState0.style.animation = "state0_off 1s forwards ease-in-out";
@@ -330,6 +336,12 @@ function filterToggle() {
     cupsound.connect();
     phonesound.disconnect(filter);
     phonesound.connect();
+    bottlesound.disconnect(filter);
+    bottlesound.connect();
+    scissorsound.disconnect(filter);
+    scissorsound.connect();
+    bearsound.disconnect(filter);
+    bearsound.connect();
   }
 }
 

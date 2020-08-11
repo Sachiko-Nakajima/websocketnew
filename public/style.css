@@ -23,12 +23,12 @@ canvas {
 
 @font-face{
 font-family: lemon;
-src: url("./public/fonts/LEMONMILK-Bold.otf")
+src: url("./fonts/LEMONMILK-Bold.otf")
 }
 
 @font-face{
 font-family: lemon_italic;
-src: url("./public/fonts/LEMONMILK-BoldItalic.otf")
+src: url("./fonts/LEMONMILK-BoldItalic.otf")
 
 }
 
@@ -491,7 +491,7 @@ color:#ffffff;
   
   @font-face{
   font-family: lemon;
-  src: url("./LEMONMILK-Bold.otf")
+  src: url("./fonts/LEMONMILK-Bold.otf")
   }
   
   #knob{
