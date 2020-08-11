@@ -932,7 +932,7 @@ function reply_click(clicked_id)
 // }
 
 function newDrawing(data){
-   let xxx,yyy;
+   let xxx = 400,yyy=300;
 if(data.label == 'book'){
                 xxx =bookx;
                 yyy =booky;
