@@ -554,6 +554,8 @@ rect(0,750,600,60);
     if(phonenumber%5==0){
       rphone = floor(random(3));
       phonesound = phonesounds[rphone];
+      phonex = random(300)+300;
+      phoney = random(200)+100;
     }
   }
   if(bearreceivenum==preprebearreceivenum){

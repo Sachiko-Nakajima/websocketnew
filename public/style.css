@@ -43,6 +43,7 @@ src: url("./fonts/LEMONMILK-BoldItalic.otf")
 #tl_vector{
   position:fixed;
   z-index:-8;
+  top:0;
 }
 
 #br_vector{
