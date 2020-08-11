@@ -125,6 +125,11 @@ function setup() {
   cup.position(8000, 8000);
   phone.position(8000, 8000);
   bottle.position(8000, 8000);
+  bear.position(8000, 8000);
+  book.position(8000, 8000);
+  plant.position(8000, 8000);
+  toothbrush.position(8000, 8000);
+  scissor.position(8000, 8000);
 
 
     camera_1 = createCapture(VIDEO);
@@ -464,6 +469,7 @@ rect(0,750,600,60);
   }
   if(bearreceivenum==preprebearreceivenum){
     bearsound.setVolume(0);
+    bear.position(8000, 8000);
   }
   if(cupreceivenum==preprecupreceivenum){
     cupsound.setVolume(0);
@@ -482,15 +488,21 @@ rect(0,750,600,60);
       remoteSoundofBook.volume(0); //recording 
       }
     }
+    book.position(8000, 8000);  
   }
+
   if(plantreceivenum==prepreplantreceivenum){
     plantsound.setVolume(0);
+    plant.position(8000, 8000);  
   }
+  
   if(toothbrushreceivenum==prepretoothbrushreceivenum){
     toothbrushsound.setVolume(0);
+    toothbrush.position(8000, 8000);  
   }
   if(scissorreceivenum==preprescissorreceivenum){
     scissorsound.setVolume(0);
+    scissor.position(8000, 8000);  
   }
   preprephonereceivenum = prephonereceivenum;
   prephonereceivenum = phonereceivenum;
