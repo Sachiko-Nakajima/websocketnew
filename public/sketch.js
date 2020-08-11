@@ -60,11 +60,13 @@ let preprebearreceivenum=0;
 let preprecupreceivenum=0;
 let preprebottlereceivenum=0;
 let preprebookreceivenum=0;
-let prepreprebookreceivenum=0;
 let prepreplantreceivenum=0;
 let prepretoothbrushreceivenum=0;
 let preprescissorreceivenum=0;
 let prepreapplereceivenum=0;
+
+let prepreprecupreceivenum=0;
+let prepreprebookreceivenum=0;
 
 let buttonState = false; 
 let button;
@@ -512,7 +514,7 @@ rect(0,750,600,60);
       }
     }
 
-  if(cupreceivenum==preprecupreceivenum){
+  if(cupreceivenum==prepreprecupreceivenum){
     cupsound.setVolume(0);
     cup.position(8000, 8000);
     cupnumber++;
@@ -589,6 +591,7 @@ rect(0,750,600,60);
   prephonereceivenum = phonereceivenum;
   preprebearreceivenum = prebearreceivenum;
   prebearreceivenum = bearreceivenum;
+  prepreprecupreceivenum = preprecupreceivenum;
   preprecupreceivenum = precupreceivenum;
   precupreceivenum = cupreceivenum;
   preprebottlereceivenum = prebottlereceivenum;
