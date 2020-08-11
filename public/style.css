@@ -481,7 +481,157 @@ color:#ffffff;
 }
 
 
-
+#efxKnob{
+  position:absolute;
+  top:-65px;
+  left:-600px; 
+  cursor:pointer;
+  transform:scale(0.9);
+  }
+  
+  @font-face{
+  font-family: lemon;
+  src: url("./LEMONMILK-Bold.otf")
+  }
+  
+  #knob{
+  position:absolute;
+  height:60px;
+  width:60px;
+  border-radius:100px;
+  background-color:#000000;
+  }
+  
+  
+  
+  
+  #knobmid{
+  position:absolute;
+  top:15px;
+  left:28px;
+  height:25px;
+  width:4px;
+  border-radius:10px;
+  background-color:#fab702;
+  transform-origin: 50% 60%;
+  transform:rotate(-45deg);
+  }
+  
+  #state0{
+  position:absolute;
+  font-family:lemon;
+  font-size:9px;
+  color:#fab702;
+  left:11px;
+  top:-4px;
+  }
+  
+  @keyframes state0{
+    0%{color:#fab702;}
+    100%{color:#000000;}
+  }
+  
+  @keyframes state0_off{
+    0%{color:#000000;}
+    100%{color:#fab702;}
+  }
+  
+  #state1{
+  position:absolute;
+  font-family:lemon;
+  font-size:9px;
+  color:#000000;
+  left:35px;
+  top:-4px;
+    
+  }
+  @keyframes state1{
+    0%{color:#000000;}
+    100%{color:#016ac2;}
+  }
+  
+  @keyframes state1_off{
+    0%{color:#016ac2;}
+    100%{color:#000000;}
+  }
+  
+  @keyframes efxOn_inside{
+    0%{background-color:#fab702;
+      transform:rotate(-45deg);  
+    }
+    100%{background-color:#016ac2;
+      transform:rotate(45deg);
+    }
+  }
+  
+  @keyframes efxOn_inside_off{
+    0%{background-color:#016ac2;
+      transform:rotate(45deg);  
+    }
+    100%{background-color:#fab702;
+      transform:rotate(-45deg);
+    }
+  }
+  
+  #efxText{
+  position:absolute;  
+  top:28px;
+  left:21px;
+  font-size:10px;  
+  font-family:lemon;  
+  color:#fab702;
+  }
+  
+  @keyframes efxText{
+    0%{
+    color:#fab702;
+    font-size:10px;
+    }
+   
+    100%{
+    color:#016ac2;
+    font-size:10px;
+    }
+  }
+  
+  @keyframes efxText_off{
+    0%{
+    color:#016ac2;
+    font-size:10px;
+    }
+   
+    100%{
+    color:#fab702;
+    font-size:10px;
+    }
+  }
+  
+  
+  
+  #knobbot{
+  position:absolute;
+  height:36px;
+  width:36px;
+  background-color:solid transparent;
+  border-left: 4px solid transparent;
+  border-top: 4px solid transparent;
+  border-right: 4px solid transparent;
+  border-bottom:4px solid #fab702;
+  border-bottom-radius:150px;
+  border-radius:150px;
+  top:8px;
+  left:8px;
+  animation: knobbot 1s forwards ease-in-out;  
+    
+  }
+  
+  @keyframes knobbot{
+    0%{border-bottom:4px solid #fab702;
+  }
+    100%{border-bottom:4px solid #016ac2;
+  }
+  }
+  
 
 
 

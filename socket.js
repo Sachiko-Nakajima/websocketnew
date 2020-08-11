@@ -26,14 +26,14 @@ function newConnection(socket){
     io.emit('recordedSent', blobArrayBuffer)
 }    
 
-socket.on('detected', dataMsg);
-    function dataMsg(data){
-//        socket.broadcast.emit('detected', data);
-          io.emit('detected', data);
-}
+// socket.on('detected', dataMsg);
+//     function dataMsg(data){
+// //        socket.broadcast.emit('detected', data);
+//           io.emit('detected', data);
+// }
 
-socket.on('detectedgif', dataMsg2);
-function dataMsg2(data){
+socket.on('detectedgif', dataMsg);
+function dataMsg(data){
 //        socket.broadcast.emit('detected', data);
       io.emit('detectedgif', data);
 }

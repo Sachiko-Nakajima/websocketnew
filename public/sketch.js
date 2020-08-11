@@ -82,6 +82,15 @@ let urlBlob;
 let soundofBook; 
 let remoteSoundofBook;
 
+let fft;
+let filter, filterFreq, filterRes;
+let filterButton;
+let filterOn = false;
+
+//filter button
+let efxButton,efxArrow,efxState0,efxState1,efxText;
+let efxState = false;
+
 
 function preload() {
   soundFormats('mp3', 'ogg', 'wav');
@@ -284,7 +293,47 @@ function setup() {
   reddot = document.getElementById("reddot")
   
   rphone=rbear=rbottle=rcup=rtoothbrush=rplant=rapple=rscissor=0;  
+
+  filter = new p5.LowPass();
+  fft = new p5.FFT();
+  
+  
+  efxButton = document.getElementById('efxKnob');
+  efxArrow = document.getElementById('knobmid');
+  efxState0 = document.getElementById('state0');
+  efxState1 = document.getElementById('state1');
+  efxText = document.getElementById('efxText');
+  
+  // filterButton = createButton('filter ON/OFF');
+  // filterButton.mousePressed(toggle);
 }
+
+function filterToggle() {
+  filterOn = !filterOn;
+  if (filterOn == true) {
+    // efxButton.style('top','400px');
+    // efxButton.style('left','400px');
+    efxArrow.style.animation = "efxOn_inside 1s forwards ease-in-out";
+    efxState0.style.animation = "state0 1s forwards ease-in-out";
+    efxState1.style.animation = "state1 1s forwards ease-in-out";
+    efxText.style.animation = "efxText 1s forwards ease-in-out"; 
+    cupsound.disconnect();
+    cupsound.connect(filter);
+    phonesound.disconnect();
+    phonesound.connect(filter);
+  }else{
+      efxArrow.style.animation = "efxOn_inside_off 1s forwards ease-in-out";
+      efxState0.style.animation = "state0_off 1s forwards ease-in-out";
+      efxState1.style.animation = "state1_off 1s forwards ease-in-out";
+      efxText.style.animation = "efxText_off 1s forwards ease-in-out"; 
+    cupsound.disconnect(filter);
+    cupsound.connect();
+    phonesound.disconnect(filter);
+    phonesound.connect();
+  }
+}
+
+
 
 function draw() {
 
@@ -608,6 +657,9 @@ rect(0,750,600,60);
   prepreprebookreceivenum = preprebookreceivenum;
   preprebookreceivenum = prebookreceivenum;
   prebookreceivenum = bookreceivenum;
+
+  efxButton.onclick = filterToggle;
+
 }
 
 
