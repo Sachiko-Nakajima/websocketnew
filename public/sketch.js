@@ -572,6 +572,8 @@ rect(0,750,600,60);
     if(bearnumber%5==0){
       rbear = floor(random(3));
       bearsound = bearsounds[rbear];
+      bearx = random(300)+300;
+      beary = random(200)+100;
       }
     }
 
@@ -582,6 +584,8 @@ rect(0,750,600,60);
     if(cupnumber%5==0){
       rcup = floor(random(3));
       cupsound = cupsounds[rcup];
+      cupx = random(600)+300;
+      cupy = random(400)+100;
       }
   }
 
@@ -592,7 +596,9 @@ rect(0,750,600,60);
     if(bottlenumber%5==0){
       rbottle = floor(random(3));
       bottlesound = bottlesounds[rbottle];
-      }
+      bottlex = random(600)+300;
+      bottley = random(400)+100;
+        }
   }
 
   if(bookreceivenum==prepreprebookreceivenum){
@@ -614,6 +620,8 @@ rect(0,750,600,60);
     if(plantnumber%5==0){
       rplant = floor(random(3));
       plantsound = plantsounds[rplant];
+      plantx = random(600)+300;
+      planty = random(400)+100;
       }
   }
   
@@ -624,6 +632,8 @@ rect(0,750,600,60);
     if(toothbrushnumber%5==0){
       rtoothbrush = floor(random(3));
       toothbrushsound = toothbrushsounds[rtoothbrush];
+      toothbrushx = random(600)+300;
+      toothbrushy = random(400)+100;
       }
   }
 
@@ -634,6 +644,8 @@ rect(0,750,600,60);
     if(scissornumber%5==0){
       rscissor = floor(random(3));
       scissorsound = scissorsounds[rscissor];
+      scissorx = random(600)+300;
+      scissory = random(400)+100;
       }
   }
 
@@ -644,6 +656,8 @@ rect(0,750,600,60);
     if(applenumber%5==0){
       rapple = floor(random(3));
       applesound = applesounds[rapple];
+      applex = random(600)+300;
+      appley = random(400)+100;
       }
   }
 
@@ -932,7 +946,7 @@ function reply_click(clicked_id)
 // }
 
 function newDrawing(data){
-   let xxx = 400,yyy=300;
+   let xxx,yyy;
 if(data.label == 'book'){
                 xxx =bookx;
                 yyy =booky;
