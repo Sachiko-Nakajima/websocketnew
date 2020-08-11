@@ -653,7 +653,7 @@ function switchMusic(){
       scissorsounds[i].setVolume(0);
       applesounds[i].loop();
       applesounds[i].setVolume(0);
-      planysounds[i].loop();
+      plantsounds[i].loop();
       plantsounds[i].setVolume(0);
     }
 
@@ -888,10 +888,10 @@ if(data.label == 'book'){
               }
         
       if(data.label == "cup"){
-            xxx =cupx-200;
+            xxx =cupx;
             yyy =cupy;
             cup.position(xxx, yyy);
-            cup.size(3*data.w, 3*data.w);
+            cup.size(2*data.w, 2*data.w);
             cupsound.setVolume(1);
             cupreceivenum++;
           }
@@ -942,13 +942,13 @@ if(data.label == 'book'){
             scissorreceivenum++;
   }
 
-  if(data.label == "apple" || "orange"){
-    xxx =cupx-200;
-    yyy =cupy;
-    cup.position(xxx, yyy);
-    cup.size(3*data.w, 3*data.w);
-    cupsound.setVolume(1);
-    cupreceivenum++;
+  if(data.label == "apple" || data.label == "orange"){
+    xxx =applex-200;
+    yyy =appley;
+    apple.position(xxx, yyy);
+    apple.size(3*data.w, 3*data.w);
+    applesound.setVolume(1);
+    applereceivenum++;
   }  
   
           fill(0);
