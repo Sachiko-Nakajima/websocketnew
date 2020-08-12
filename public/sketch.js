@@ -99,15 +99,15 @@ function preload() {
 //  phonesounds[0] = loadSound("audios/piano0.wav");
   // phonesounds[1] = loadSound("audios/piano1.wav");
 //  phonesounds[2] = loadSound("audios/piano2.wav");
-   bearsound = loadSound("audios/guitar1.wav");
+   bearsound = loadSound("audios/guitar22.wav");
   //bearsounds[0] = loadSound("audios/guitar0.wav");
   // bearsounds[1] = loadSound("audios/guitar1.wav");
 //  bearsounds[2] = loadSound("audios/guitar22.wav");
-   cupsound = loadSound("audios/vib0.wav");
+   cupsound = loadSound("audios/vib2.wav");
   //cupsounds[0] = loadSound("audios/vib0.wav");
   // cupsounds[1] = loadSound("audios/drums1.wav");
 //  cupsounds[2] = loadSound("audios/drums2.wav");
-  bottlesound = loadSound("audios/sax2.wav");
+  bottlesound = loadSound("audios/sax1.wav");
   //bottlesounds[0] = loadSound("audios/recorder.wav");
   // bottlesounds[1] = loadSound("audios/sax1.wav");
 //  bottlesounds[2] = loadSound("audios/sax2.wav");
@@ -122,12 +122,12 @@ toothbrushsound = loadSound("audios/animal0.wav");
 // toothbrushsounds[1] = loadSound("audios/animal1.wav");
 //  toothbrushsounds[2] = loadSound("audios/animal2.mp3");
 
-  scissorsound = loadSound("audios/bass1.wav");
+  scissorsound = loadSound("audios/bass2.wav");
   //scissorsounds[0] = loadSound("audios/bass2.wav");
   // scissorsounds[1] = loadSound("audios/bass1.wav");
 //  scissorsounds[2] = loadSound("audios/bass2.wav");
 
-applesound = loadSound("audios/drums1.wav");
+applesound = loadSound("audios/drums0.wav");
 //applesounds[0] = loadSound("audios/drums0.wav");
 //   applesounds[1] = loadSound("audios/vib1.wav");
 //  applesounds[2] = loadSound("audios/vib2.wav");
@@ -1095,7 +1095,7 @@ if(data.label == 'book'){
             else{
               bearsound.disconnect(filter);
               bearsound.connect();}
-            bearsound.setVolume(1);
+            bearsound.setVolume(0.7);
             bearreceivenum++;
             }
 
