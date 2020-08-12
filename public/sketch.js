@@ -244,25 +244,43 @@ function setup() {
 //  recordButton.position(500,710);
 //  recordButton.size(150,30);
 
-    bearx = random(300)+300;
-    beary = random(200)+100;
-    phonex = random(600)+300;
-    phoney = random(400)+100;
-    cupx = random(600)+300;
-    cupy = random(400)+100;
-    bottlex = random(600)+300;
-    bottley = random(400)+100;
+    // bearx = random(300)+300;
+    // beary = random(200)+100;
+    // phonex = random(600)+300;
+    // phoney = random(400)+100;
+    // cupx = random(600)+300;
+    // cupy = random(400)+100;
+    // bottlex = random(600)+300;
+    // bottley = random(400)+100;
+    // bookx = random(600)+300;
+    // booky = random(400)+100;
+    // plantx = random(600)+300;
+    // planty = random(400)+100; 
+    // toothbrushx = random(600)+300;
+    // toothbrushy = random(400)+100; 
+    // scissorx = random(600)+300;
+    // scissory = random(400)+100;
+    // applex = random(600)+300;
+    // appley = random(400)+100; 
+
+    bearx = 200;
+    beary = 400;
+    phonex = 400;
+    phoney = 200;
+    cupx = 600;
+    cupy = 400;
+    bottlex = 800;
+    bottley = 200;
     bookx = random(600)+300;
     booky = random(400)+100;
-    plantx = random(600)+300;
-    planty = random(400)+100; 
-    toothbrushx = random(600)+300;
-    toothbrushy = random(400)+100; 
-    scissorx = random(600)+300;
-    scissory = random(400)+100;
-    applex = random(600)+300;
-    appley = random(400)+100; 
-  
+    plantx = 800;
+    planty = 400; 
+    toothbrushx = 400;
+    toothbrushy = 400; 
+    scissorx = 200;
+    scissory = 200;
+    applex = 600;
+    appley = 200;   
   //getting all the HTML elements for Start/Stop Music Switch
   faderSection = document.getElementById("switch");
   fader = document.getElementById("fader");
@@ -555,8 +573,8 @@ rect(0,750,600,60);
     if(phonenumber%5==0){
       // rphone = floor(random(2));
       // phonesound = phonesounds[rphone];
-      phonex = random(300)+300;
-      phoney = random(200)+100;
+      // phonex = random(300)+300;
+      // phoney = random(200)+100;
     }
   }
   if(bearreceivenum==preprebearreceivenum){
@@ -566,8 +584,8 @@ rect(0,750,600,60);
     if(bearnumber%5==0){
       // rbear = floor(random(2));
       // bearsound = bearsounds[rbear];
-      bearx = random(300)+300;
-      beary = random(200)+100;
+      // bearx = random(300)+300;
+      // beary = random(200)+100;
       }
     }
 
@@ -578,8 +596,8 @@ rect(0,750,600,60);
     if(cupnumber%5==0){
       // rcup = floor(random(2));
       // cupsound = cupsounds[rcup];
-      cupx = random(600)+300;
-      cupy = random(400)+100;
+      // cupx = random(600)+300;
+      // cupy = random(400)+100;
       }
   }
 
@@ -590,8 +608,8 @@ rect(0,750,600,60);
     if(bottlenumber%5==0){
       // rbottle = floor(random(2));
       // bottlesound = bottlesounds[rbottle];
-      bottlex = random(600)+300;
-      bottley = random(400)+100;
+      // bottlex = random(600)+300;
+      // bottley = random(400)+100;
         }
   }
 
@@ -614,8 +632,8 @@ rect(0,750,600,60);
     if(plantnumber%5==0){
       // rplant = floor(random(2));
       // plantsound = plantsounds[rplant];
-      plantx = random(600)+300;
-      planty = random(400)+100;
+      // plantx = random(600)+300;
+      // planty = random(400)+100;
       }
   }
   
@@ -626,8 +644,8 @@ rect(0,750,600,60);
     if(toothbrushnumber%5==0){
       // rtoothbrush = floor(random(2));
       // toothbrushsound = toothbrushsounds[rtoothbrush];
-      toothbrushx = random(600)+300;
-      toothbrushy = random(400)+100;
+      // toothbrushx = random(600)+300;
+      // toothbrushy = random(400)+100;
       }
   }
 
@@ -638,8 +656,8 @@ rect(0,750,600,60);
     if(scissornumber%5==0){
       // rscissor = floor(random(2));
       // scissorsound = scissorsounds[rscissor];
-      scissorx = random(600)+300;
-      scissory = random(400)+100;
+      // scissorx = random(600)+300;
+      // scissory = random(400)+100;
       }
   }
 
@@ -650,8 +668,8 @@ rect(0,750,600,60);
     if(applenumber%5==0){
       // rapple = floor(random(2));
       // applesound = applesounds[rapple];
-      applex = random(600)+300;
-      appley = random(400)+100;
+      // applex = random(600)+300;
+      // appley = random(400)+100;
       }
   }
 
@@ -822,24 +840,24 @@ function switchMusic(){
     }
     console.log("remote Sound has started!");
   }
-    bearx = random(300)+300;
-    beary = random(200)+100;
-    phonex = random(600)+300;
-    phoney = random(400)+100;
-    cupx = random(600)+300;
-    cupy = random(400)+100;
-    bottlex = random(600)+300;
-    bottley = random(400)+100;
-    bookx = random(600)+300;
-    booky = random(400)+100;
-    plantx = random(600)+300;
-    planty = random(400)+100; 
-    toothbrushx = random(600)+300;
-    toothbrushy = random(400)+100; 
-    scissorx = random(600)+300;
-    scissory = random(400)+100;     
-    applex = random(600)+300;
-    appley = random(400)+100; 
+    // bearx = random(300)+300;
+    // beary = random(200)+100;
+    // phonex = random(600)+300;
+    // phoney = random(400)+100;
+    // cupx = random(600)+300;
+    // cupy = random(400)+100;
+    // bottlex = random(600)+300;
+    // bottley = random(400)+100;
+    // bookx = random(600)+300;
+    // booky = random(400)+100;
+    // plantx = random(600)+300;
+    // planty = random(400)+100; 
+    // toothbrushx = random(600)+300;
+    // toothbrushy = random(400)+100; 
+    // scissorx = random(600)+300;
+    // scissory = random(400)+100;     
+    // applex = random(600)+300;
+    // appley = random(400)+100; 
 }
 else{
     bearsound.stop();
