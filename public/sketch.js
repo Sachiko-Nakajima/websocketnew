@@ -1056,7 +1056,7 @@ if(data.label == 'book'){
             xxx =cupx;
             yyy =cupy;
             cup.position(xxx, yyy);
-            cup.size(4*data.w, 4*data.w);
+            cup.size(3*data.w, 3*data.w);
             if(filterOn){
               cupsound.disconnect();
               cupsound.connect(filter);}
@@ -1070,7 +1070,7 @@ if(data.label == 'book'){
       if(data.label == "bottle"){
             xxx =bottlex;
             yyy =bottley;
-            bottle.position(xxx, yyy);
+            bottle.position(xxx-50, yyy);
             bottle.size(5*data.w, 5*data.w);
             // if(filterOn){
             //   bottlesound.disconnect();
@@ -1085,7 +1085,7 @@ if(data.label == 'book'){
       if(data.label == 'teddy bear'){
             xxx =bearx;
             yyy =beary;
-            bear.position(xxx, yyy);
+            bear.position(xxx-50, yyy);
             bear.size(2*data.w, 2*data.w);
             if(filterOn){
               bearsound.disconnect();
@@ -1120,7 +1120,7 @@ if(data.label == 'book'){
             xxx =scissorx;
             yyy =scissory;
             scissor.position(xxx, yyy);
-            scissor.size(4*data.w, 4*data.w);
+            scissor.size(3*data.w, 3*data.w);
             if(filterOn){
               scissorsound.disconnect();
               scissorsound.connect(filter);}
