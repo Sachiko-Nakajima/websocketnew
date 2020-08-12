@@ -263,23 +263,23 @@ function setup() {
     // applex = random(600)+300;
     // appley = random(400)+100; 
 
-    bearx = 400;
+    bearx = 550;
     beary = 400;
-    phonex = 200;
+    phonex = 350;
     phoney = 200;
-    cupx = 700;
+    cupx = 850;
     cupy = 400;
-    bottlex = 800;
+    bottlex = 950;
     bottley = 200;
     bookx = random(600)+300;
     booky = random(400)+100;
-    plantx = 900;
-    planty = 400; 
-    toothbrushx = 500;
+    plantx = 1000;
+    planty = 300; 
+    toothbrushx = 650;
     toothbrushy = 400; 
-    scissorx = 300;
+    scissorx = 450;
     scissory = 200;
-    applex = 600;
+    applex = 750;
     appley = 200;   
   //getting all the HTML elements for Start/Stop Music Switch
   faderSection = document.getElementById("switch");
