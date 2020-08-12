@@ -1056,7 +1056,7 @@ if(data.label == 'book'){
             xxx =cupx;
             yyy =cupy;
             cup.position(xxx, yyy);
-            cup.size(2*data.w, 2*data.w);
+            cup.size(4*data.w, 4*data.w);
             if(filterOn){
               cupsound.disconnect();
               cupsound.connect(filter);}
@@ -1071,7 +1071,7 @@ if(data.label == 'book'){
             xxx =bottlex;
             yyy =bottley;
             bottle.position(xxx, yyy);
-            bottle.size(3*data.w, 3*data.w);
+            bottle.size(5*data.w, 5*data.w);
             // if(filterOn){
             //   bottlesound.disconnect();
             //   bottlesound.connect(filter);}
@@ -1120,7 +1120,7 @@ if(data.label == 'book'){
             xxx =scissorx;
             yyy =scissory;
             scissor.position(xxx, yyy);
-            scissor.size(3*data.w, 3*data.w);
+            scissor.size(4*data.w, 4*data.w);
             if(filterOn){
               scissorsound.disconnect();
               scissorsound.connect(filter);}
@@ -1135,7 +1135,7 @@ if(data.label == 'book'){
     xxx =applex-200;
     yyy =appley;
     apple.position(xxx, yyy);
-    apple.size(5*data.w, 5*data.w);
+    apple.size(6*data.w, 6*data.w);
     applesound.setVolume(1);
     applereceivenum++;
   }
