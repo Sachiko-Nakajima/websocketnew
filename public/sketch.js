@@ -95,19 +95,19 @@ let efxState = false;
 
 function preload() {
   soundFormats('mp3', 'ogg', 'wav');
-   phonesound = loadSound("audios/piano0.wav");
+   phonesound = loadSound("audios/piano1.wav");
 //  phonesounds[0] = loadSound("audios/piano0.wav");
   // phonesounds[1] = loadSound("audios/piano1.wav");
 //  phonesounds[2] = loadSound("audios/piano2.wav");
-   bearsound = loadSound("audios/guitar0.wav");
+   bearsound = loadSound("audios/guitar1.wav");
   //bearsounds[0] = loadSound("audios/guitar0.wav");
   // bearsounds[1] = loadSound("audios/guitar1.wav");
 //  bearsounds[2] = loadSound("audios/guitar22.wav");
-   cupsound = loadSound("audios/drums0.wav");
+   cupsound = loadSound("audios/drums1.wav");
   //cupsounds[0] = loadSound("audios/vib0.wav");
   // cupsounds[1] = loadSound("audios/drums1.wav");
 //  cupsounds[2] = loadSound("audios/drums2.wav");
-  bottlesound = loadSound("audios/recorder.wav");
+  bottlesound = loadSound("audios/sax2.wav");
   //bottlesounds[0] = loadSound("audios/recorder.wav");
   // bottlesounds[1] = loadSound("audios/sax1.wav");
 //  bottlesounds[2] = loadSound("audios/sax2.wav");
