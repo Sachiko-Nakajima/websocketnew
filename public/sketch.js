@@ -1086,7 +1086,7 @@ if(data.label == 'book'){
             xxx =bearx;
             yyy =beary;
             bear.position(xxx, yyy);
-            bear.size(3*data.w, 3*data.w);
+            bear.size(2*data.w, 2*data.w);
             if(filterOn){
               bearsound.disconnect();
               bearsound.connect(filter);}
@@ -1101,7 +1101,7 @@ if(data.label == 'book'){
             xxx =plantx;
             yyy =planty;
             plant.position(xxx, yyy);
-            plant.size(3*data.w, 3*data.w);
+            plant.size(2*data.w, 2*data.w);
             plantsound.setVolume(1);
             plantreceivenum++;
                 }
