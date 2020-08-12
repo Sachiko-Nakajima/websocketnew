@@ -103,7 +103,7 @@ function preload() {
   // bearsounds[1] = loadSound("audios/guitar1.wav");
 //  bearsounds[2] = loadSound("audios/guitar22.wav");
   // cupsound = loadSound("audios/drums0.wav");
-  cupsounds[0] = loadSound("audios/drums0.wav");
+  cupsounds[0] = loadSound("audios/vib0.wav");
   // cupsounds[1] = loadSound("audios/drums1.wav");
 //  cupsounds[2] = loadSound("audios/drums2.wav");
   // bottlesound = loadSound("audios/recorder.wav");
@@ -127,7 +127,7 @@ toothbrushsounds[0] = loadSound("audios/animal0.wav");
 //  scissorsounds[2] = loadSound("audios/bass2.wav");
 
 // applesound = loadSound("audios/vib0.wav");
-applesounds[0] = loadSound("audios/vib0.wav");
+applesounds[0] = loadSound("audios/drums0.wav");
 //   applesounds[1] = loadSound("audios/vib1.wav");
 //  applesounds[2] = loadSound("audios/vib2.wav");
 
