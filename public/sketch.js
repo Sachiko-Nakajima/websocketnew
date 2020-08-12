@@ -121,7 +121,8 @@ toothbrushsounds[0] = loadSound("audios/animal0.wav");
 // toothbrushsounds[1] = loadSound("audios/animal1.wav");
 //  toothbrushsounds[2] = loadSound("audios/animal2.mp3");
   // scissorsound = loadSound("audios/bass1.wav");
-  scissorsounds[0] = loadSound("audios/bass0.wav");
+
+  scissorsounds[0] = loadSound("audios/bass2.wav");
   // scissorsounds[1] = loadSound("audios/bass1.wav");
 //  scissorsounds[2] = loadSound("audios/bass2.wav");
 
@@ -235,7 +236,7 @@ function setup() {
  cupsound = cupsounds[0];
  bottlesound = bottlesounds[0];
  toothbrushsound = toothbrushsounds[0];
- scissorsound = cupsounds[0];
+ scissorsound = scissorsounds[0];
  applesound = applesounds[0];
  plantsound = plantsounds[0];
 // remoteSoundofBook = new p5.SoundFile();  
