@@ -95,7 +95,7 @@ let efxState = false;
 
 function preload() {
   soundFormats('mp3', 'ogg', 'wav');
-   phonesound = loadSound("audios/piano1.wav");
+   phonesound = loadSound("audios/piano2.wav");
 //  phonesounds[0] = loadSound("audios/piano0.wav");
   // phonesounds[1] = loadSound("audios/piano1.wav");
 //  phonesounds[2] = loadSound("audios/piano2.wav");
@@ -103,7 +103,7 @@ function preload() {
   //bearsounds[0] = loadSound("audios/guitar0.wav");
   // bearsounds[1] = loadSound("audios/guitar1.wav");
 //  bearsounds[2] = loadSound("audios/guitar22.wav");
-   cupsound = loadSound("audios/drums1.wav");
+   cupsound = loadSound("audios/vib0.wav");
   //cupsounds[0] = loadSound("audios/vib0.wav");
   // cupsounds[1] = loadSound("audios/drums1.wav");
 //  cupsounds[2] = loadSound("audios/drums2.wav");
@@ -127,7 +127,7 @@ toothbrushsound = loadSound("audios/animal0.wav");
   // scissorsounds[1] = loadSound("audios/bass1.wav");
 //  scissorsounds[2] = loadSound("audios/bass2.wav");
 
-applesound = loadSound("audios/vib0.wav");
+applesound = loadSound("audios/drums1.wav");
 //applesounds[0] = loadSound("audios/drums0.wav");
 //   applesounds[1] = loadSound("audios/vib1.wav");
 //  applesounds[2] = loadSound("audios/vib2.wav");
