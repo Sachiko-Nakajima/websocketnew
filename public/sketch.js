@@ -1111,7 +1111,7 @@ if(data.label == 'book'){
             xxx =toothbrushx;
             yyy =toothbrushy;
             toothbrush.position(xxx, yyy);
-            toothbrush.size(3*data.w, 3*data.w);
+            toothbrush.size(5*data.w, 5*data.w);
             toothbrushsound.setVolume(1);
             toothbrushreceivenum++;
               }
@@ -1135,7 +1135,7 @@ if(data.label == 'book'){
     xxx =applex-200;
     yyy =appley;
     apple.position(xxx, yyy);
-    apple.size(3*data.w, 3*data.w);
+    apple.size(5*data.w, 5*data.w);
     applesound.setVolume(1);
     applereceivenum++;
   }
