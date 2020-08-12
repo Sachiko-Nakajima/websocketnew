@@ -67,6 +67,7 @@ let prepreapplereceivenum=0;
 
 let prepreprecupreceivenum=0;
 let prepreprebookreceivenum=0;
+let prepreprebearreceivenum=0;
 
 let buttonState = false; 
 let button;
@@ -577,7 +578,7 @@ rect(0,750,600,60);
       // phoney = random(200)+100;
     }
   }
-  if(bearreceivenum==preprebearreceivenum){
+  if(bearreceivenum==prepreprebearreceivenum){
     bearsound.setVolume(0);
     bear.position(8000, 8000);
     bearnumber++;
@@ -676,6 +677,7 @@ rect(0,750,600,60);
 
   preprephonereceivenum = prephonereceivenum;
   prephonereceivenum = phonereceivenum;
+  prepreprebearreceivenum = preprebearreceivenum;
   preprebearreceivenum = prebearreceivenum;
   prebearreceivenum = bearreceivenum;
   prepreprecupreceivenum = preprecupreceivenum;
