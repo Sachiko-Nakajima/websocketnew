@@ -1095,7 +1095,7 @@ if(data.label == 'book'){
             else{
               bearsound.disconnect(filter);
               bearsound.connect();}
-            bearsound.setVolume(0.7);
+            bearsound.setVolume(0.5);
             bearreceivenum++;
             }
 
