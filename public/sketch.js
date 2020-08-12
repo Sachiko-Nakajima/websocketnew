@@ -263,9 +263,9 @@ function setup() {
     // applex = random(600)+300;
     // appley = random(400)+100; 
 
-    bearx = 200;
+    bearx = 400;
     beary = 400;
-    phonex = 400;
+    phonex = 200;
     phoney = 200;
     cupx = 600;
     cupy = 400;
