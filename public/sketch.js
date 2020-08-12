@@ -122,7 +122,7 @@ toothbrushsounds[0] = loadSound("audios/animal0.wav");
 //  toothbrushsounds[2] = loadSound("audios/animal2.mp3");
   // scissorsound = loadSound("audios/bass1.wav");
 
-  scissorsounds[0] = loadSound("audios/bass0.wav");
+  scissorsounds[0] = loadSound("audios/bass2.wav");
   // scissorsounds[1] = loadSound("audios/bass1.wav");
 //  scissorsounds[2] = loadSound("audios/bass2.wav");
 
@@ -265,7 +265,7 @@ function setup() {
 
     bearx = 550;
     beary = 400;
-    phonex = 350;
+    phonex = 250;
     phoney = 200;
     cupx = 850;
     cupy = 400;
