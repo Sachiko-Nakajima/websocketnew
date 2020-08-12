@@ -122,7 +122,7 @@ toothbrushsounds[0] = loadSound("audios/animal0.wav");
 //  toothbrushsounds[2] = loadSound("audios/animal2.mp3");
   // scissorsound = loadSound("audios/bass1.wav");
 
-  scissorsounds[0] = loadSound("audios/bass2.wav");
+  scissorsounds[0] = loadSound("audios/bass0.wav");
   // scissorsounds[1] = loadSound("audios/bass1.wav");
 //  scissorsounds[2] = loadSound("audios/bass2.wav");
 
