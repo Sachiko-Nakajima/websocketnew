@@ -13,7 +13,7 @@
   "author": "Sachiko Nakajima",
   "license": "ISC",
   "dependencies": {
-    "express": "^4.17.1",
+    "express": "^4.18.2",
     "node.js": "0.0.1-security",
     "socket.io": "^2.3.0"
   }
